@@ -8,3 +8,5 @@
 /TestProjectGestiune/bin
 /TestResults
 *.suo
+/Gestiune/obj
+/Gestiune/bin
