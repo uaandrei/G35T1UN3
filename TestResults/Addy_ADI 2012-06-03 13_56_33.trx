@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="7c830df8-de66-44ea-8156-229029683349" name="Addy@ADI 2012-06-03 13:56:33" runUser="ADI\Addy" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="a113f6dc-cf38-4137-afae-52c041f59361">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Addy_ADI 2012-06-03 13_56_33">
+      <DeploymentItem filename="D:\Faculta\LICENTA\Aplicatie\Gestiune\GestiuneBusiness\bin\Debug\GestiuneBusiness.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-06-03T13:56:33.9218750+03:00" queuing="2012-06-03T13:56:41.6718750+03:00" start="2012-06-03T13:56:42.1406250+03:00" finish="2012-06-03T13:58:40.2187500+03:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="2" executed="2" passed="2" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="BancaSaveTest" storage="d:\faculta\licenta\aplicatie\gestiune\testprojectgestiune\bin\debug\testprojectgestiune.dll" id="2ab7a61c-ea85-0381-06b8-9dda85520051">
+      <Execution id="3fdea075-35f3-4446-8cdc-cb8181297922" />
+      <TestMethod codeBase="D:/Faculta/LICENTA/Aplicatie/Gestiune/TestProjectGestiune/bin/Debug/TestProjectGestiune.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectGestiune.BancaTest, TestProjectGestiune, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="BancaSaveTest" />
+    </UnitTest>
+    <UnitTest name="BancaGetAllTest" storage="d:\faculta\licenta\aplicatie\gestiune\testprojectgestiune\bin\debug\testprojectgestiune.dll" id="0a2769f9-6043-c404-028f-84d7ce2b15c9">
+      <Execution id="b3554e30-cef5-42bc-b9ec-e880bd9334e0" />
+      <TestMethod codeBase="D:/Faculta/LICENTA/Aplicatie/Gestiune/TestProjectGestiune/bin/Debug/TestProjectGestiune.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectGestiune.BancaTest, TestProjectGestiune, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="BancaGetAllTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="0a2769f9-6043-c404-028f-84d7ce2b15c9" executionId="b3554e30-cef5-42bc-b9ec-e880bd9334e0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2ab7a61c-ea85-0381-06b8-9dda85520051" executionId="3fdea075-35f3-4446-8cdc-cb8181297922" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="b3554e30-cef5-42bc-b9ec-e880bd9334e0" testId="0a2769f9-6043-c404-028f-84d7ce2b15c9" testName="BancaGetAllTest" computerName="ADI" duration="00:01:48.3560329" startTime="2012-06-03T13:56:42.5000000+03:00" endTime="2012-06-03T13:58:32.8593750+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b3554e30-cef5-42bc-b9ec-e880bd9334e0">
+    </UnitTestResult>
+    <UnitTestResult executionId="3fdea075-35f3-4446-8cdc-cb8181297922" testId="2ab7a61c-ea85-0381-06b8-9dda85520051" testName="BancaSaveTest" computerName="ADI" duration="00:00:06.2294425" startTime="2012-06-03T13:58:32.9218750+03:00" endTime="2012-06-03T13:58:39.1562500+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3fdea075-35f3-4446-8cdc-cb8181297922">
+    </UnitTestResult>
+  </Results>
+</TestRun>

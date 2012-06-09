@@ -1,0 +1,9 @@
+D:\Faculta\LICENTA\Aplicatie\Gestiune\TestProjectGestiune\bin\Debug\TestProjectGestiune.dll
+D:\Faculta\LICENTA\Aplicatie\Gestiune\TestProjectGestiune\bin\Debug\TestProjectGestiune.pdb
+D:\Faculta\LICENTA\Aplicatie\Gestiune\TestProjectGestiune\bin\Debug\GestiuneBusiness.dll
+D:\Faculta\LICENTA\Aplicatie\Gestiune\TestProjectGestiune\bin\Debug\GestiuneBusiness.pdb
+D:\Faculta\LICENTA\Aplicatie\Gestiune\TestProjectGestiune\bin\Debug\GestiuneBusiness_Accessor.dll
+D:\Faculta\LICENTA\Aplicatie\Gestiune\TestProjectGestiune\bin\Debug\GestiuneBusiness_Accessor.pdb
+D:\Faculta\LICENTA\Aplicatie\Gestiune\TestProjectGestiune\obj\Debug\ResolveAssemblyReference.cache
+D:\Faculta\LICENTA\Aplicatie\Gestiune\TestProjectGestiune\obj\Debug\TestProjectGestiune.dll
+D:\Faculta\LICENTA\Aplicatie\Gestiune\TestProjectGestiune\obj\Debug\TestProjectGestiune.pdb

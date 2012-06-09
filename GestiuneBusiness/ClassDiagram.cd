@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GestiuneBusiness.DataHelper.DelegatiDataHelper">
+    <Position X="0.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAQAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataHelper\DelegatiDataHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.DataHelper.GestiuneDataHelper">
+    <Position X="0.5" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>DataHelper\GestiuneDataHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.DataHelper.Helper">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataHelper\Helper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.POCO.Delegat">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAIAAAAAAAAAAAAAAAAAAAAEAAAAABAAAAAAAAAE=</HashCode>
+      <FileName>POCO\Delegat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.POCO.Kernel.GestiuneObject">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAgAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>POCO\Kernel\GestiuneObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GestiuneBusiness.POCO.Banca">
+    <Position X="2.75" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIgAAAAAgAAAAAAAAAAAAAkAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>POCO\Banca.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.POCO.Stoc">
+    <Position X="7.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAQAAAAAAAAAAAAAQEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>POCO\Stoc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.POCO.Factura">
+    <Position X="11.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAACAAAAAAACAAAAAAAAEAABAAAAAAAAAQAAE=</HashCode>
+      <FileName>POCO\Factura.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.POCO.Firma">
+    <Position X="5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIAAgAAABAAAAAAAACAAAAkEAAAABAgAAAABgBA=</HashCode>
+      <FileName>POCO\Firma.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.POCO.Plata">
+    <Position X="9.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAEAABBEAAAAAAAAAAE=</HashCode>
+      <FileName>POCO\Plata.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.POCO.Produs">
+    <Position X="14" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIABAAAAAAAAgAAAAAAAAAEAABAABAAAAAAAAAA=</HashCode>
+      <FileName>POCO\Produs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="GestiuneBusiness.Interfaces.IDataPersistence">
+    <Position X="16.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IDataPersistence.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="GestiuneBusiness.Enums.EnumStatus">
+    <Position X="16.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\EnumStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

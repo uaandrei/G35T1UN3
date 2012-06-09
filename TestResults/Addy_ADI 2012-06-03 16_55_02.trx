@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="dfd9a77e-bdf5-4278-afbb-0cb5a1022d30" name="Addy@ADI 2012-06-03 16:55:02" runUser="ADI\Addy" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="a113f6dc-cf38-4137-afae-52c041f59361">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Addy_ADI 2012-06-03 16_55_02">
+      <DeploymentItem filename="D:\Faculta\LICENTA\Aplicatie\Gestiune\GestiuneBusiness\bin\Debug\GestiuneBusiness.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-06-03T16:55:02.2968750+03:00" queuing="2012-06-03T16:55:10.4531250+03:00" start="2012-06-03T16:55:10.9531250+03:00" finish="2012-06-03T16:56:47.1875000+03:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="ADI" outcome="Error" timestamp="2012-06-03T16:56:47.1093750+03:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="BancaGetByIdTest" storage="d:\faculta\licenta\aplicatie\gestiune\testprojectgestiune\bin\debug\testprojectgestiune.dll" id="8f80b696-bcaa-8b74-b775-359268e76c02">
+      <Execution id="cbff56ff-8672-4cf6-b6df-3313b6c4a77e" />
+      <TestMethod codeBase="D:/Faculta/LICENTA/Aplicatie/Gestiune/TestProjectGestiune/bin/Debug/TestProjectGestiune.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectGestiune.BancaTest, TestProjectGestiune, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="BancaGetByIdTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="8f80b696-bcaa-8b74-b775-359268e76c02" executionId="cbff56ff-8672-4cf6-b6df-3313b6c4a77e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="cbff56ff-8672-4cf6-b6df-3313b6c4a77e" testId="8f80b696-bcaa-8b74-b775-359268e76c02" testName="BancaGetByIdTest" computerName="ADI" duration="00:01:35.7343750" startTime="2012-06-03T16:55:11.4531250+03:00" endTime="2012-06-03T16:56:47.1875000+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cbff56ff-8672-4cf6-b6df-3313b6c4a77e">
+    </UnitTestResult>
+  </Results>
+</TestRun>

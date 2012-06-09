@@ -1,0 +1,5 @@
+D:\Faculta\LICENTA\Aplicatie\Gestiune\GestiuneBusiness\bin\Debug\GestiuneBusiness.dll
+D:\Faculta\LICENTA\Aplicatie\Gestiune\GestiuneBusiness\bin\Debug\GestiuneBusiness.pdb
+D:\Faculta\LICENTA\Aplicatie\Gestiune\GestiuneBusiness\obj\Debug\ResolveAssemblyReference.cache
+D:\Faculta\LICENTA\Aplicatie\Gestiune\GestiuneBusiness\obj\Debug\GestiuneBusiness.dll
+D:\Faculta\LICENTA\Aplicatie\Gestiune\GestiuneBusiness\obj\Debug\GestiuneBusiness.pdb
