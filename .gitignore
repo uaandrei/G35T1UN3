@@ -1,20 +1,10 @@
 
 /Gestiune/obj
 /Gestiune/bin
-/Gestiune/bin
 /GestiuneBusiness/obj
 /GestiuneBusiness/bin
 /TestProjectGestiune/obj
 /TestProjectGestiune/bin
 /TestResults
 *.suo
-/Gestiune/obj
-/Gestiune/bin
-/Gestiune/bin
-/Gestiune/bin
-/Gestiune/obj
-/GestiuneBusiness/obj
-/GestiuneBusiness/bin
-/TestProjectGestiune/obj
-/TestProjectGestiune/bin
 /GestiuneBusiness/DataHelper/Kernel/ConnectionHelper.cs

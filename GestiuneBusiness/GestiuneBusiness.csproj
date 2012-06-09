@@ -48,9 +48,9 @@
     <Compile Include="DataHelper\FacturaProdusStocDataHelper.cs" />
     <Compile Include="DataHelper\FacturiDataHelper.cs" />
     <Compile Include="DataHelper\FirmeDataHelper.cs" />
+    <Compile Include="DataHelper\Kernel\ConnectionHelper.cs" />
     <Compile Include="DataHelper\Kernel\DbObject.cs" />
     <Compile Include="DataHelper\Kernel\GestiuneDataHelper.cs" />
-    <Compile Include="DataHelper\Kernel\ConnectionHelper.cs" />
     <Compile Include="DataHelper\Kernel\PersistenceResult.cs" />
     <Compile Include="DataHelper\PlatiDataHelper.cs" />
     <Compile Include="DataHelper\ProduseDataHelper.cs" />

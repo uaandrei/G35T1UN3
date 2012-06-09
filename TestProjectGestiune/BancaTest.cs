@@ -1,5 +1,4 @@
-﻿using GestiuneBusiness.DataHelper;
-using GestiuneBusiness.Poco;
+﻿using GestiuneBusiness.Poco;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
