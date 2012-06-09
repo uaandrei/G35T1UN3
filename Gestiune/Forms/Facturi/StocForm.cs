@@ -16,7 +16,6 @@ namespace Gestiune.Forms.Facturi
 
         private void StocForm_Load(object sender, EventArgs e)
         {
-            produseCmb.DataSource = Produs.GetAll();
             facturiGrid.DataSource = Factura.GetAll().Where(p => p.Tip == "Intrare").ToList();
             if (StocObject == null)
             {
@@ -26,8 +25,6 @@ namespace Gestiune.Forms.Facturi
             else
             {
                 this.Text = "Modificare in stoc";
-                produseCmb.SelectedValue = StocObject.IdProdus;
-                cantitateTbox.Text = StocObject.Cantitate.ToString("0.00");
                 if (facturiGrid.Rows.Count == 0) return;
                 int indexOfFactura = 0;
                 foreach (DataGridViewRow item in facturiGrid.Rows)
@@ -49,10 +46,6 @@ namespace Gestiune.Forms.Facturi
 
         private void ButtonSaveClick(object sender, EventArgs e)
         {
-            decimal cantitate = 0m;
-            decimal.TryParse(cantitateTbox.Text, out cantitate);
-            StocObject.Cantitate = cantitate;
-            StocObject.IdProdus = (int)produseCmb.SelectedValue;
             if (facturiGrid.Rows.Count == 0)
             {
                 MessageBox.Show("Nu aveti facturi de intrare!");

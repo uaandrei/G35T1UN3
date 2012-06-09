@@ -32,7 +32,7 @@ namespace GestiuneBusiness.Poco
             set
             {
                 idBanca = value;
-                banca = (Banca)BanciDataHelper.GetInstance().GetById(value);
+                banca = Banca.GetAll().Where(p => p.ID == value).FirstOrDefault();
             }
         }
 
@@ -52,7 +52,7 @@ namespace GestiuneBusiness.Poco
             set
             {
                 idDelegat = value;
-                delegat = (Delegat)DelegatiDataHelper.GetInstance().GetById(value);
+                delegat = Delegat.GetAll().Where(p => p.ID == value).FirstOrDefault();
             }
         }
 

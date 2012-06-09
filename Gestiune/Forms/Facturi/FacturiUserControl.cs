@@ -60,7 +60,7 @@ namespace Gestiune.Forms.Facturi
                     break;
                 case FacturiEnum.FacturaIntrare:
                     var facturaIntrareForm = new FacturaIntrareForm();
-                    facturaIntrareForm.FacturaObject = null;
+                    //facturaIntrareForm.FacturaObject = null;
                     if (facturaIntrareForm.ShowDialog() == DialogResult.OK)
                     {
                         dataGridView.DataSource = null;
@@ -78,6 +78,8 @@ namespace Gestiune.Forms.Facturi
                     break;
             }
         }
+
+        //TODO: la dublu click pe grid sa apara raport cu factura si anulare! Pot pune la Tip = "Anulata"
 
         private void ModifyBtnClick(object sender, EventArgs e)
         {
@@ -98,7 +100,7 @@ namespace Gestiune.Forms.Facturi
                         break;
                     case FacturiEnum.FacturaIntrare:
                         var facturaIntrareForm = new FacturaIntrareForm();
-                        facturaIntrareForm.FacturaObject = (Factura)dataGridView.Rows[dataGridView.SelectedCells[0].RowIndex].DataBoundItem;
+                        //TODO: nu prea pot modifica facturi, eventual sa le anulez || facturaIntrareForm.FacturaObject = (Factura)dataGridView.Rows[dataGridView.SelectedCells[0].RowIndex].DataBoundItem;
                         if (facturaIntrareForm.ShowDialog() == DialogResult.OK)
                         {
                             dataGridView.DataSource = null;

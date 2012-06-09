@@ -2,13 +2,14 @@
 using GestiuneBusiness.Poco;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Linq;
 using GestiuneBusiness.DataHelper.Kernel;
 using System.Collections.Generic;
 
 namespace TestProjectGestiune
 {
-    
-    
+
+
     /// <summary>
     ///This is a test class for BancaTest and is intended
     ///to contain all BancaTest Unit Tests
@@ -75,12 +76,12 @@ namespace TestProjectGestiune
         {
             Banca target = new Banca
             {
-                Nume="BCR",
-                Adresa="Bucuresti",
-                CodIdentificareFiscala="123/ffa",
-                NrOrc="123OP"
+                Nume = "BCR",
+                Adresa = "Bucuresti",
+                CodIdentificareFiscala = "123/ffa",
+                NrOrc = "123OP"
             };
-            PersistenceResult expected = new PersistenceResult {Status=GestiuneBusiness.Enums.EnumStatus.Errors };
+            PersistenceResult expected = new PersistenceResult { Status = GestiuneBusiness.Enums.EnumStatus.Errors };
             PersistenceResult actual;
             actual = target.Save();
             Assert.AreEqual(expected.Status, actual.Status);
@@ -108,7 +109,7 @@ namespace TestProjectGestiune
                 CodIdentificareFiscala = "123/ffa",
                 NrOrc = "123OP"
             };
-            Banca actual = (Banca)BanciDataHelper_Accessor.GetInstance().GetById(1);
+            Banca actual = Banca.GetAll().Where(p=>p.ID==1).FirstOrDefault();
             Assert.IsTrue(expected.ID == actual.ID);
             Assert.IsTrue(expected.Nume == actual.Nume);
             Assert.IsTrue(expected.Adresa == actual.Adresa);

@@ -35,6 +35,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +45,7 @@
   <ItemGroup>
     <Compile Include="DataHelper\BanciDataHelper.cs" />
     <Compile Include="DataHelper\DelegatiDataHelper.cs" />
+    <Compile Include="DataHelper\FacturaProdusStocDataHelper.cs" />
     <Compile Include="DataHelper\FacturiDataHelper.cs" />
     <Compile Include="DataHelper\FirmeDataHelper.cs" />
     <Compile Include="DataHelper\Kernel\DbObject.cs" />
@@ -59,6 +61,7 @@
     <Compile Include="Poco\Banca.cs" />
     <Compile Include="Poco\Delegat.cs" />
     <Compile Include="Poco\Factura.cs" />
+    <Compile Include="Poco\FacturaProdusStoc.cs" />
     <Compile Include="Poco\Firma.cs" />
     <Compile Include="Poco\Kernel\GestiuneObject.cs" />
     <Compile Include="Poco\Kernel\IErrorInfo.cs" />

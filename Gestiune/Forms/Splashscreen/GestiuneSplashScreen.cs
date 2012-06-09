@@ -15,7 +15,7 @@ namespace Gestiune.Forms.Splashscreen
 
         private const int TotalCostOfLoadingOperations = 100; // 100 percent => loaded everything
         private const int OperationsCount = 7;
-        
+
         private void LoadData()
         {
             if (progressBar.InvokeRequired)
@@ -23,6 +23,7 @@ namespace Gestiune.Forms.Splashscreen
                 progressBar.Invoke(new MethodInvoker(LoadData));
                 return;
             }
+            progressBar.PerformStep();
             Banca.GetAll();
             progressBar.PerformStep();
             Delegat.GetAll();
@@ -34,10 +35,7 @@ namespace Gestiune.Forms.Splashscreen
             Produs.GetAll();
             progressBar.PerformStep();
             // TODO: Plata.GetAll();
-            progressBar.PerformStep();
             Stoc.GetAll();
-            progressBar.PerformStep();
-            Thread.Sleep(500);
             this.Close();
         }
 

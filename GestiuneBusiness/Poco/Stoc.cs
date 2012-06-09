@@ -21,7 +21,7 @@ namespace GestiuneBusiness.Poco
             set
             {
                 idProdus = value;
-                produs = (Produs)ProduseDataHelper.GetInstance().GetById(value);
+                produs = Produs.GetAll().Where(p => p.ID == value).FirstOrDefault();
             }
         }
 
@@ -41,7 +41,7 @@ namespace GestiuneBusiness.Poco
             set
             {
                 idFacturaIntrare = value;
-                factura = (Factura)FacturiDataHelper.GetInstance().GetById(value);
+                factura = Factura.GetAll().Where(p => p.ID == value).FirstOrDefault();
             }
         }
 
@@ -69,7 +69,7 @@ namespace GestiuneBusiness.Poco
 
             try
             {
-                if (this.ID == 0)
+                if (this.ID ==0)
                 {
                     // obiectul este nou, deci trebuie creat
                     this.ID = StocDataHelper.GetInstance().Create(PropertiesNamesWithValues);

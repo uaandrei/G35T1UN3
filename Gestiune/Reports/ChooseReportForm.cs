@@ -44,7 +44,8 @@ namespace Gestiune.Reports
             switch (raportEnum)
             {
                 case ReportsEnum.Produse:
-                    this.ReportPath = @"D:\Faculta\LICENTA\Aplicatie\Gestiune\Gestiune\Reports\ProduseReport.rdlc";
+                    string path = @"..\..\Reports\ProduseReport.rdlc";
+                    this.ReportPath = path;
                     this.ReportDataSourceObject = new ReportDataSource("DataSetProdus", GestiuneBusiness.Poco.Produs.GetAll());
                     break;
                 //case ReportsEnum.Stoc:

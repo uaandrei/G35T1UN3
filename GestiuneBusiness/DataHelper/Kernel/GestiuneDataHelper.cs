@@ -18,23 +18,6 @@ namespace GestiuneBusiness.DataHelper.Kernel
 
         private const string StringDatabaseFail = "Connection to database failed.";
 
-        public GestiuneObject GetById(int gestiuneObjectId)
-        {
-            if (gestiuneObjectId <= 0) return null;
-            GestiuneObject gestiuneObject;
-            try
-            {
-                var allGestiuneObjects = this.GetAll();
-                if (allGestiuneObjects.Count == 0) return null;
-                gestiuneObject = allGestiuneObjects.Where(p => p.ID == gestiuneObjectId).FirstOrDefault();
-                return gestiuneObject;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
         public List<GestiuneObject> GetAll()
         {
             List<GestiuneObject> result = new List<GestiuneObject>();
@@ -54,6 +37,7 @@ namespace GestiuneBusiness.DataHelper.Kernel
                                 result.Add(ToPocoObject(reader));
                             }
                             reader.Close();
+                            con.Close();
                         }
                     }
                     catch (Exception ex)
@@ -94,7 +78,15 @@ namespace GestiuneBusiness.DataHelper.Kernel
                             }
 
                             cmd.ExecuteNonQuery();
-                            return (int)idSqlParameter.Value;
+                            con.Close();
+                            if (idSqlParameter.Value.GetType()==typeof(int))
+                            {
+                                return (int)idSqlParameter.Value;
+                            }
+                            else
+                            {
+                                return 0;
+                            }
                         }
                     }
                     catch (Exception ex) 
@@ -126,8 +118,8 @@ namespace GestiuneBusiness.DataHelper.Kernel
                             {
                                 cmd.Parameters.AddWithValue(dboObject.Name, dboObject.Value);
                             }
-
                             cmd.ExecuteNonQuery();
+                            con.Close();
                         }
                     }
                     catch (Exception ex)

@@ -26,7 +26,7 @@ namespace GestiuneBusiness.Poco
             set
             {
                 idFirma = value;
-                firma = (Firma)FirmeDataHelper.GetInstance().GetById(value);
+                firma = Firma.GetAll().Where(p => p.ID == value).FirstOrDefault();
             }
         }
 
