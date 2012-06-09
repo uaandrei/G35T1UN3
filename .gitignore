@@ -7,4 +7,3 @@
 /TestProjectGestiune/bin
 /TestResults
 *.suo
-/GestiuneBusiness/DataHelper/Kernel/ConnectionHelper.cs
