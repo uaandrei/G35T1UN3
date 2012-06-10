@@ -1,0 +1,33 @@
+USE [Gestiune]
+GO
+/****** Object:  StoredProcedure [dbo].[Facturi_Produse_StocCreate]    Script Date: 06/10/2012 17:25:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[Facturi_Produse_StocCreate]
+@Id int output,
+@ID_factura int,
+@ID_produs int,
+@ID_stoc int,
+@Pret decimal(19,2),
+@Cantitate decimal(19,2)
+AS 
+BEGIN
+	SET NOCOUNT ON;
+INSERT INTO [Gestiune].[dbo].[Facturi_Produse_Stoc]
+           ([ID_factura]
+           ,[ID_produs]
+		   ,[ID_stoc]
+           ,[Pret]
+           ,[Cantitate])
+     VALUES
+           (@ID_factura
+           ,@ID_produs
+		   ,@ID_stoc
+           ,@Pret
+           ,@Cantitate)
+           
+           select @Id = SCOPE_IDENTITY();
+END
+---------

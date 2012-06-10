@@ -13,7 +13,7 @@ namespace GestiuneBusiness.DataHelper.Kernel
         protected string insertStoredProcedureName = "";
 
         protected string updateStoredProcedureName = "";
-            
+
         private const string StringProcedureFail = "Stored procedure failed: ";
 
         private const string StringDatabaseFail = "Connection to database failed.";
@@ -79,23 +79,16 @@ namespace GestiuneBusiness.DataHelper.Kernel
 
                             cmd.ExecuteNonQuery();
                             con.Close();
-                            if (idSqlParameter.Value.GetType()==typeof(int))
-                            {
-                                return (int)idSqlParameter.Value;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return (int)idSqlParameter.Value;
                         }
                     }
-                    catch (Exception ex) 
+                    catch (Exception ex)
                     {
                         throw new Exception(StringProcedureFail + insertStoredProcedureName, ex);
                     }
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 throw new Exception(StringDatabaseFail, ex);
             }

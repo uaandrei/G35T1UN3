@@ -26,20 +26,9 @@ namespace Gestiune.Forms
         private void RapoarteBtnClick(object sender, EventArgs e)
         {
             this.panelCategory.Controls.Clear();
-            var form = new ChooseReportForm();
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                ReportViewer reportViewer = new ReportViewer();
-                reportViewer.ProcessingMode = ProcessingMode.Local;
-                reportViewer.Dock = DockStyle.Fill;
-                panelCategory.Controls.Add(reportViewer);
-                reportViewer.Show();
-                var localReport = new LocalReport();
-                localReport = reportViewer.LocalReport;
-                localReport.ReportPath = form.ReportPath;
-                localReport.DataSources.Add(form.ReportDataSourceObject);
-                reportViewer.RefreshReport();
-            }
+            var uc = new ReportUserControl();
+            uc.Dock = DockStyle.Fill;
+            this.panelCategory.Controls.Add(uc);
         }
 
         private void StocBtnClick(object sender, EventArgs e)

@@ -54,6 +54,7 @@ namespace GestiuneBusiness.Poco
         public decimal Cantitate { get; set; }
 
         #endregion
+
         public string GetErrors()
         {
             string result = "";
@@ -97,7 +98,7 @@ namespace GestiuneBusiness.Poco
             throw new NotImplementedException();
         }
 
-        private static List<Stoc> stocList = null;
+        internal static List<Stoc> stocList = null;
         public static List<Stoc> GetAll()
         {
             try

@@ -63,6 +63,7 @@ namespace GestiuneBusiness.Poco
         }
 
         #endregion
+
         public string GetErrors()
         {
             string result = "";

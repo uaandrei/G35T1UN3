@@ -36,6 +36,8 @@ namespace Gestiune.Forms.Splashscreen
             progressBar.PerformStep();
             // TODO: Plata.GetAll();
             Stoc.GetAll();
+            FacturaProdusStoc.GetAll();
+            progressBar.PerformStep();
             this.Close();
         }
 

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using Microsoft.Reporting.WinForms;
+using Gestiune.Reports;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 using GestiuneBusiness.Poco;
@@ -24,6 +27,8 @@ namespace Gestiune.Forms.Facturi
 
         private void FacturiBtnClick(object sender, EventArgs e)
         {
+            // TODO: Adaugi facturile de intrare si la dublu click pe oricare faci raport din legaturi. Jos faci suma cu Total.
+            // TODO: poti sa te folosesti si de delagat ca sa-l pui jos
             titleLbl.Text = facturiBtn.Text;
             facturiEnum = FacturiEnum.FacturaIntrare;
             dataGridView.DataSource = Factura.GetAll().Where(p => p.Tip == "Intrare").ToList();
@@ -120,6 +125,43 @@ namespace Gestiune.Forms.Facturi
             }
             catch (Exception)
             {
+            }
+        }
+
+        private void DataGridViewCellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (facturiEnum == FacturiEnum.FacturaIntrare)
+            {
+                Factura factura = null;
+                try
+                {
+                    factura = (Factura)dataGridView.Rows[e.RowIndex].DataBoundItem;
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+                List<FacturaProdusStoc> facturaProdusStocObjectList = FacturaProdusStoc.GetAll().Where(p => p.FacturaObject.ID == factura.ID).ToList();
+                ReportViewerForm form = new ReportViewerForm();
+                form.ReportViewer.ProcessingMode = ProcessingMode.Local;
+                var localReport = new LocalReport();
+                localReport = form.ReportViewer.LocalReport;
+                localReport.ReportPath = @"..\..\Reports\FacturaIntrareReport.rdlc";
+                var furnizorList = new List<Firma>();
+                var facturaList = new List<Factura>();
+                var stocList = new List<Stoc>();
+
+                foreach (var item in facturaProdusStocObjectList)
+                {
+                    stocList.Add(item.StocObject);
+                }
+                furnizorList.Add(facturaProdusStocObjectList[0].FacturaObject.Firma);
+                facturaList.Add(facturaProdusStocObjectList[0].FacturaObject);
+                localReport.DataSources.Add(new ReportDataSource("DataSetFurnizor", furnizorList));
+                localReport.DataSources.Add(new ReportDataSource("DataSetFactura", facturaList));
+                localReport.DataSources.Add(new ReportDataSource("DataSetStoc", stocList));
+                form.ReportViewer.RefreshReport();
+                form.Show();
             }
         }
     }

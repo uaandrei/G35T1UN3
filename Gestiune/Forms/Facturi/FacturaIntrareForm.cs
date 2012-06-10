@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using GestiuneBusiness.Poco;
@@ -7,7 +8,7 @@ namespace Gestiune.Forms.Facturi
 {
     public partial class FacturaIntrareForm : Form
     {
-        public FacturaProdusStoc FacturaProdusStocObject { get; set; }
+        private List<FacturaProdusStoc> facturaProdusStocObjectList = null;
 
         public FacturaIntrareForm()
         {
@@ -18,22 +19,11 @@ namespace Gestiune.Forms.Facturi
         {
             produseCmb.DataSource = Produs.GetAll();
             firmeCmb.DataSource = Firma.GetAll();
-            if (FacturaProdusStocObject == null)
+            if (facturaProdusStocObjectList == null)
             {
-                FacturaProdusStocObject = new FacturaProdusStoc();
-                FacturaProdusStocObject.FacturaObject = new Factura();
-                FacturaProdusStocObject.ProdusObject = new Produs();
-                FacturaProdusStocObject.StocObject = new Stoc();
+                facturaProdusStocObjectList = new List<FacturaProdusStoc>();
+                stocList = new List<Stoc>();
                 this.Text = "Adaugare factura";
-            }
-            else
-            {
-                //this.Text = "Modificare factura";
-                //produseCmb.SelectedValue = StocObject.IdProdus;
-                //numarTbox.Text = FacturaObject.Numar;
-                //serieTbox.Text = FacturaObject.Serie;
-                //dataDtp.Value = FacturaObject.Data.Value;
-                //firmeCmb.SelectedValue = FacturaObject.IdFirma;
             }
         }
 
@@ -44,38 +34,85 @@ namespace Gestiune.Forms.Facturi
 
         private void ButtonSaveClick(object sender, EventArgs e)
         {
-            FacturaProdusStocObject.FacturaObject.Numar = numarTbox.Text;
-            FacturaProdusStocObject.FacturaObject.Serie = serieTbox.Text;
-            FacturaProdusStocObject.FacturaObject.Data = dataDtp.Value;
-            FacturaProdusStocObject.FacturaObject.IdFirma = (int)firmeCmb.SelectedValue;
-            FacturaProdusStocObject.FacturaObject.Tip = "Intrare";
-            decimal cantitate = 0m;
-            decimal.TryParse(cantitateTbox.Text, out cantitate);
-            FacturaProdusStocObject.StocObject.Cantitate = cantitate;
-            FacturaProdusStocObject.StocObject.IdProdus = (int)produseCmb.SelectedValue;
-            FacturaProdusStocObject.StocObject.IdFacturaIntrare = -1;
-            FacturaProdusStocObject.ProdusObject = FacturaProdusStocObject.StocObject.ProdusObject;
-            // TODO: try catch si verificari pt pret
-            FacturaProdusStocObject.Pret = cantitate * FacturaProdusStocObject.ProdusObject.Pret;
-            FacturaProdusStocObject.Cantitate = cantitate;
-            string errors = FacturaProdusStocObject.GetErrors();
-            if (errors == "")
+            var result = FacturaProdusStoc.SaveManyFacturaProdusStoc(facturaProdusStocObjectList);
+            if (result.Status == GestiuneBusiness.Enums.EnumStatus.Saved)
             {
-                var result = FacturaProdusStocObject.Save();
-                if (result.Status == GestiuneBusiness.Enums.EnumStatus.Saved)
-                {
-                    MessageBox.Show("Salvare efectuata cu succes!");
-                    this.DialogResult = DialogResult.OK;
-                }
-                else
-                {
-                    MessageBox.Show("Au aparut erori la salvare!" + Environment.NewLine + result.Message);
-                }
+                MessageBox.Show("Salvare efectuata cu succes!");
+                this.DialogResult = DialogResult.OK;
             }
             else
             {
-                MessageBox.Show(errors);
+                MessageBox.Show("Au aparut erori la salvare!" + Environment.NewLine + result.Message);
             }
+        }
+
+        private Factura facturaIn;
+
+        private List<Stoc> stocList = null;
+
+        private void AddProductBtnClick(object sender, EventArgs e)
+        {
+            string errors = "";
+            // facem factura, daca nu a fost facuta deja
+            if (facturaIn == null)
+            {
+                var furnizorId = (int)firmeCmb.SelectedValue;
+                var serieFactura = serieTbox.Text;
+                var numarFactura = numarTbox.Text;
+                var dataFactura = dataDtp.Value;
+                facturaIn = new Factura
+                {
+                    Data = dataFactura,
+                    IdFirma = furnizorId,
+                    Serie = serieFactura,
+                    Numar = numarFactura,
+                    Tip = "Intrare"
+                };
+                errors = facturaIn.GetErrors();
+                if (errors.Trim() != string.Empty)
+                {
+                    MessageBox.Show(errors);
+                    facturaIn = null;
+                    return;
+                }
+                // daca s-a ajuns aici inseamna ca datele pentru factura nu se mai pot modifica, se mai pot adauga doar produse
+                // deci blocam modificarea datelor facturii
+                if (firmeCmb.Enabled == true)
+                {
+                    firmeCmb.Enabled = false;
+                    numarTbox.Enabled = false;
+                    serieTbox.Enabled = false;
+                    dataDtp.Enabled = false;
+                }
+            }
+
+            var produsId = (int)produseCmb.SelectedValue;
+            var cantitate = 0m; decimal.TryParse(cantitateTbox.Text, out cantitate);
+
+            // facem stocul
+            var stoc = new Stoc
+            {
+                Cantitate = cantitate,
+                IdProdus = produsId,
+                IdFacturaIntrare = -1 // urmeaza sa se actualizeze in tranzactie
+            };
+            errors = stoc.GetErrors();
+            if (errors.Trim() != string.Empty) { MessageBox.Show(errors); return; }
+            stocList.Add(stoc);
+
+            // adaugam in lista de FacturiProduseStoc
+            facturaProdusStocObjectList.Add(new FacturaProdusStoc
+            {
+                Cantitate = cantitate,
+                FacturaObject = facturaIn,
+                Pret = stoc.ProdusObject.Pret * cantitate,
+                ProdusObject = stoc.ProdusObject,
+                StocObject = stoc
+            });
+
+            // incarcam gridul cu stocul adaugat
+            stocGrid.DataSource = null;
+            stocGrid.DataSource = stocList;
         }
     }
 }

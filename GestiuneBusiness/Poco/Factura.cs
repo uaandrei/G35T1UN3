@@ -37,6 +37,7 @@ namespace GestiuneBusiness.Poco
         }
 
         #endregion
+
         public string GetErrors()
         {
             string result = "";
@@ -80,7 +81,7 @@ namespace GestiuneBusiness.Poco
             throw new NotImplementedException();
         }
 
-        private static List<Factura> facturaList = null;
+        internal static List<Factura> facturaList = null;
         public static List<Factura> GetAll()
         {
             try

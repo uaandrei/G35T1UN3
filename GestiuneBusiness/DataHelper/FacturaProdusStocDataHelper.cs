@@ -13,6 +13,7 @@ namespace GestiuneBusiness.DataHelper
         private FacturaProdusStocDataHelper()
         {
             this.insertStoredProcedureName = "Facturi_Produse_StocCreate";
+            this.readStoredProcedureName = "Facturi_Produse_StocRead";
         }
 
         public static FacturaProdusStocDataHelper GetInstance()
@@ -25,11 +26,12 @@ namespace GestiuneBusiness.DataHelper
         {
             return new FacturaProdusStoc
             {
-                FacturaObject = Factura.GetAll().Where(p => p.ID == (int)reader[0]).FirstOrDefault(),
-                ProdusObject = Produs.GetAll().Where(p => p.ID == (int)reader[1]).FirstOrDefault(),
-                StocObject = Stoc.GetAll().Where(p => p.ID == (int)reader[2]).FirstOrDefault(),
-                Pret = (int)reader[3],
-                Cantitate = (int)reader[4]
+                ID = (int)reader[0],
+                FacturaObject = Factura.GetAll().Where(p => p.ID == (int)reader[1]).FirstOrDefault(),
+                ProdusObject = Produs.GetAll().Where(p => p.ID == (int)reader[2]).FirstOrDefault(),
+                StocObject = Stoc.GetAll().Where(p => p.ID == (int)reader[3]).FirstOrDefault(),
+                Pret = (decimal)reader[4],
+                Cantitate = (decimal)reader[5]
             };
         }
     }
