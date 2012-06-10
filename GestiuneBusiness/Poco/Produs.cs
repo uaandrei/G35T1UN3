@@ -18,7 +18,6 @@ namespace GestiuneBusiness.Poco
 
         public string GetErrors()
         {
-            // TODO: avertisment daca vrea sa puna rata tva zero
             string result = "";
             if (string.IsNullOrEmpty(Nume)) result += "Nu ati introdus Numele!" + Environment.NewLine;
             if (Pret == 0m) result += "Nu ati introdus Pretul!" + Environment.NewLine;

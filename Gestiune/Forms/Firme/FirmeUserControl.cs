@@ -89,6 +89,7 @@ namespace Gestiune.Forms.Firme
                         addBancaForm.BancaObject = (Banca)dataGridView.Rows[dataGridView.SelectedCells[0].RowIndex].DataBoundItem;
                         if (addBancaForm.ShowDialog() == DialogResult.OK)
                         {
+                            // TODO: refactor aici ca sa pot folosi wait cursor
                             dataGridView.DataSource = null;
                             dataGridView.DataSource = Banca.GetAll();
                         }
@@ -103,23 +104,29 @@ namespace Gestiune.Forms.Firme
 
         private void DelegatiBtnClick(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             titleLbl.Text = delegatiBtn.Text;
             dataGridView.DataSource = Delegat.GetAll();
             firmaEnum = FirmaEnum.Delegat;
+            Cursor.Current = Cursors.Default;
         }
 
         private void FirmeBtnClick(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             titleLbl.Text = firmeBtn.Text;
             dataGridView.DataSource = Firma.GetAll();
             firmaEnum = FirmaEnum.Firma;
+            Cursor.Current = Cursors.Default;
         }
 
         private void BanciBtnClick(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             titleLbl.Text = banciBtn.Text;
             dataGridView.DataSource = Banca.GetAll();
             firmaEnum = FirmaEnum.Banca;
+            Cursor.Current = Cursors.Default;
         }
     }
 }

@@ -34,6 +34,7 @@
             this.firmeBtn = new System.Windows.Forms.Button();
             this.rapoarteBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // stocBtn
@@ -54,7 +55,7 @@
             this.panelCategory.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelCategory.Location = new System.Drawing.Point(274, 12);
             this.panelCategory.Name = "panelCategory";
-            this.panelCategory.Size = new System.Drawing.Size(513, 428);
+            this.panelCategory.Size = new System.Drawing.Size(513, 495);
             this.panelCategory.TabIndex = 1;
             // 
             // button2
@@ -63,7 +64,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(256, 77);
             this.button2.TabIndex = 0;
-            this.button2.Text = "FACTURI";
+            this.button2.Text = "FACTURI  SE MUTA PE FRONT END";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // firmeBtn
@@ -88,7 +89,7 @@
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(12, 344);
+            this.exitBtn.Location = new System.Drawing.Point(12, 430);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(256, 77);
             this.exitBtn.TabIndex = 0;
@@ -96,18 +97,29 @@
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.ExitBtnClick);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 344);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(256, 77);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "VANZARI? CA SA VAD CE O FACUT PE FRONT END";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 452);
+            this.ClientSize = new System.Drawing.Size(799, 519);
             this.Controls.Add(this.panelCategory);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.rapoarteBtn);
             this.Controls.Add(this.firmeBtn);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.stocBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimumSize = new System.Drawing.Size(805, 544);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestiune - Back End";
@@ -124,6 +136,7 @@
         private System.Windows.Forms.Button firmeBtn;
         private System.Windows.Forms.Button rapoarteBtn;
         private System.Windows.Forms.Button exitBtn;
+        private System.Windows.Forms.Button button1;
 
     }
 }

@@ -34,14 +34,17 @@ namespace Gestiune.Forms.Facturi
 
         private void ButtonSaveClick(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             var result = FacturaProdusStoc.SaveManyFacturaProdusStoc(facturaProdusStocObjectList);
             if (result.Status == GestiuneBusiness.Enums.EnumStatus.Saved)
             {
+                Cursor.Current = Cursors.Default;
                 MessageBox.Show("Salvare efectuata cu succes!");
                 this.DialogResult = DialogResult.OK;
             }
             else
             {
+                Cursor.Current = Cursors.Default;
                 MessageBox.Show("Au aparut erori la salvare!" + Environment.NewLine + result.Message);
             }
         }
@@ -52,6 +55,7 @@ namespace Gestiune.Forms.Facturi
 
         private void AddProductBtnClick(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             string errors = "";
             // facem factura, daca nu a fost facuta deja
             if (facturaIn == null)
@@ -71,6 +75,7 @@ namespace Gestiune.Forms.Facturi
                 errors = facturaIn.GetErrors();
                 if (errors.Trim() != string.Empty)
                 {
+                    Cursor.Current = Cursors.Default;
                     MessageBox.Show(errors);
                     facturaIn = null;
                     return;
@@ -97,7 +102,12 @@ namespace Gestiune.Forms.Facturi
                 IdFacturaIntrare = -1 // urmeaza sa se actualizeze in tranzactie
             };
             errors = stoc.GetErrors();
-            if (errors.Trim() != string.Empty) { MessageBox.Show(errors); return; }
+            if (errors.Trim() != string.Empty)
+            {
+                Cursor.Current = Cursors.Default;
+                MessageBox.Show(errors);
+                return;
+            }
             stocList.Add(stoc);
 
             // adaugam in lista de FacturiProduseStoc
@@ -113,6 +123,7 @@ namespace Gestiune.Forms.Facturi
             // incarcam gridul cu stocul adaugat
             stocGrid.DataSource = null;
             stocGrid.DataSource = stocList;
+            Cursor.Current = Cursors.Default;
         }
     }
 }

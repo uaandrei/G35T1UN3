@@ -45,15 +45,10 @@ namespace Gestiune.Forms.Facturi
             if (errors == "")
             {
                 var result = ProdusObject.Save();
+                MessageBox.Show(result.Message);
                 if (result.Status == GestiuneBusiness.Enums.EnumStatus.Saved)
                 {
-                    // TODO: aici te poti folosi de constante prin persistence result
-                    MessageBox.Show("Salvare efectuata cu succes!");
                     this.DialogResult = DialogResult.OK;
-                }
-                else
-                {
-                    MessageBox.Show("Au aparut erori la salvare!" + Environment.NewLine + result.Message);
                 }
             }
             else

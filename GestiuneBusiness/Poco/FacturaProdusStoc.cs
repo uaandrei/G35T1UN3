@@ -21,7 +21,7 @@ namespace GestiuneBusiness.Poco
 
         public override PersistenceResult Delete()
         {
-            // TODO: Implement this method
+            // TODO: Implement this method if needed
             throw new NotImplementedException();
         }
 
@@ -39,7 +39,6 @@ namespace GestiuneBusiness.Poco
             }
         }
 
-        //TODO: la dublu click pe grid sa apara raport cu factura;
         public override PersistenceResult Save()
         {
             PersistenceResult persistenceResult = new PersistenceResult();

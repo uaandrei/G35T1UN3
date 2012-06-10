@@ -86,12 +86,6 @@
     <Compile Include="Forms\Facturi\ProdusForm.Designer.cs">
       <DependentUpon>ProdusForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Facturi\StocForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Facturi\StocForm.Designer.cs">
-      <DependentUpon>StocForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Firme\BancaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,9 +145,6 @@
     <EmbeddedResource Include="Forms\Facturi\ProdusForm.resx">
       <DependentUpon>ProdusForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Facturi\StocForm.resx">
-      <DependentUpon>StocForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Firme\BancaForm.resx">
       <DependentUpon>BancaForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +176,7 @@
     <EmbeddedResource Include="Reports\FacturaIntrareReport.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FacturiReport.rdlc" />
     <EmbeddedResource Include="Reports\ProduseReport.rdlc" />
     <EmbeddedResource Include="Reports\ReportUserControl.resx">
       <DependentUpon>ReportUserControl.cs</DependentUpon>

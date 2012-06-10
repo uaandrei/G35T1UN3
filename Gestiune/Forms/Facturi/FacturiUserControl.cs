@@ -14,8 +14,7 @@ namespace Gestiune.Forms.Facturi
         {
             Nimic,
             Produs,
-            FacturaIntrare,
-            Stoc
+            FacturaIntrare
         }
 
         private FacturiEnum facturiEnum = FacturiEnum.Nimic;
@@ -27,18 +26,9 @@ namespace Gestiune.Forms.Facturi
 
         private void FacturiBtnClick(object sender, EventArgs e)
         {
-            // TODO: Adaugi facturile de intrare si la dublu click pe oricare faci raport din legaturi. Jos faci suma cu Total.
-            // TODO: poti sa te folosesti si de delagat ca sa-l pui jos
             titleLbl.Text = facturiBtn.Text;
             facturiEnum = FacturiEnum.FacturaIntrare;
             dataGridView.DataSource = Factura.GetAll().Where(p => p.Tip == "Intrare").ToList();
-        }
-
-        private void StocBtnClick(object sender, EventArgs e)
-        {
-            titleLbl.Text = stocBtn.Text;
-            facturiEnum = FacturiEnum.Stoc;
-            dataGridView.DataSource = Stoc.GetAll();
         }
 
         private void ProduseBtnClick(object sender, EventArgs e)
@@ -50,6 +40,7 @@ namespace Gestiune.Forms.Facturi
 
         private void AddBtnClick(object sender, EventArgs e)
         {
+            // TODO: refactor aici ca sa pot folosi wait cursor
             switch (facturiEnum)
             {
                 case FacturiEnum.Nimic:
@@ -65,26 +56,14 @@ namespace Gestiune.Forms.Facturi
                     break;
                 case FacturiEnum.FacturaIntrare:
                     var facturaIntrareForm = new FacturaIntrareForm();
-                    //facturaIntrareForm.FacturaObject = null;
                     if (facturaIntrareForm.ShowDialog() == DialogResult.OK)
                     {
                         dataGridView.DataSource = null;
                         dataGridView.DataSource = Factura.GetAll().Where(p => p.Tip == "Intrare");
                     }
                     break;
-                case FacturiEnum.Stoc:
-                    var stocForm = new StocForm();
-                    stocForm.StocObject = null;
-                    if (stocForm.ShowDialog() == DialogResult.OK)
-                    {
-                        dataGridView.DataSource = null;
-                        dataGridView.DataSource = Stoc.GetAll();
-                    }
-                    break;
             }
         }
-
-        //TODO: la dublu click pe grid sa apara raport cu factura si anulare! Pot pune la Tip = "Anulata"
 
         private void ModifyBtnClick(object sender, EventArgs e)
         {
@@ -104,23 +83,9 @@ namespace Gestiune.Forms.Facturi
                         }
                         break;
                     case FacturiEnum.FacturaIntrare:
-                        var facturaIntrareForm = new FacturaIntrareForm();
-                        //TODO: nu prea pot modifica facturi, eventual sa le anulez || facturaIntrareForm.FacturaObject = (Factura)dataGridView.Rows[dataGridView.SelectedCells[0].RowIndex].DataBoundItem;
-                        if (facturaIntrareForm.ShowDialog() == DialogResult.OK)
-                        {
-                            dataGridView.DataSource = null;
-                            dataGridView.DataSource = Factura.GetAll().Where(p => p.Tip == "Intrare");
-                        }
-                        break;
-                    case FacturiEnum.Stoc:
-                        var stocForm = new StocForm();
-                        stocForm.StocObject = (Stoc)dataGridView.Rows[dataGridView.SelectedCells[0].RowIndex].DataBoundItem;
-                        if (stocForm.ShowDialog() == DialogResult.OK)
-                        {
-                            dataGridView.DataSource = null;
-                            dataGridView.DataSource = Stoc.GetAll();
-                        }
-                        break;
+                        MessageBox.Show("Anulare factura aici");
+                        return;
+                        //TODO: implementare anulare factura?
                 }
             }
             catch (Exception)
@@ -130,6 +95,7 @@ namespace Gestiune.Forms.Facturi
 
         private void DataGridViewCellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            // TODO: poti sa te folosesti si de delagat ca sa-l pui jos
             if (facturiEnum == FacturiEnum.FacturaIntrare)
             {
                 Factura factura = null;

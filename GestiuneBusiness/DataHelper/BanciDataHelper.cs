@@ -8,7 +8,6 @@ namespace GestiuneBusiness.DataHelper
 {
     internal class BanciDataHelper : GestiuneDataHelper
     {
-        // TODO: Foloseste cache
         private static BanciDataHelper banciDataHelper = null;
 
         public static BanciDataHelper GetInstance()

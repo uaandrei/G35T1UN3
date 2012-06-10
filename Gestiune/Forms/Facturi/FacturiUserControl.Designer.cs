@@ -34,7 +34,6 @@
             this.modifyBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
             this.produseBtn = new System.Windows.Forms.Button();
-            this.stocBtn = new System.Windows.Forms.Button();
             this.facturiBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -60,12 +59,14 @@
             // 
             // dataGridView
             // 
-            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(0, 89);
             this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
             this.dataGridView.Size = new System.Drawing.Size(480, 204);
             this.dataGridView.TabIndex = 8;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewCellDoubleClick);
@@ -94,23 +95,13 @@
             // 
             // produseBtn
             // 
-            this.produseBtn.Location = new System.Drawing.Point(165, 3);
+            this.produseBtn.Location = new System.Drawing.Point(84, 3);
             this.produseBtn.Name = "produseBtn";
             this.produseBtn.Size = new System.Drawing.Size(75, 45);
             this.produseBtn.TabIndex = 4;
             this.produseBtn.Text = "Produse";
             this.produseBtn.UseVisualStyleBackColor = true;
             this.produseBtn.Click += new System.EventHandler(this.ProduseBtnClick);
-            // 
-            // stocBtn
-            // 
-            this.stocBtn.Location = new System.Drawing.Point(84, 3);
-            this.stocBtn.Name = "stocBtn";
-            this.stocBtn.Size = new System.Drawing.Size(75, 45);
-            this.stocBtn.TabIndex = 5;
-            this.stocBtn.Text = "Stoc";
-            this.stocBtn.UseVisualStyleBackColor = true;
-            this.stocBtn.Click += new System.EventHandler(this.StocBtnClick);
             // 
             // facturiBtn
             // 
@@ -132,7 +123,6 @@
             this.Controls.Add(this.modifyBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.produseBtn);
-            this.Controls.Add(this.stocBtn);
             this.Controls.Add(this.facturiBtn);
             this.Name = "FacturiUserControl";
             this.Size = new System.Drawing.Size(480, 332);
@@ -150,7 +140,6 @@
         private System.Windows.Forms.Button modifyBtn;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Button produseBtn;
-        private System.Windows.Forms.Button stocBtn;
         private System.Windows.Forms.Button facturiBtn;
     }
 }
