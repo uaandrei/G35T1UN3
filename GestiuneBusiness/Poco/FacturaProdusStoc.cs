@@ -10,7 +10,7 @@ namespace GestiuneBusiness.Poco
 {
     public class FacturaProdusStoc : GestiuneObject
     {
-        public Factura FacturaObject { get; set; }
+        public FacturaIesire FacturaObject { get; set; }
 
         public Produs ProdusObject { get; set; }
 
@@ -87,7 +87,7 @@ namespace GestiuneBusiness.Poco
             catch (Exception ex)
             {
                 // daca au aparut erori in timpul tranzactiei trebuie resetat cache`ul local pentru facturi si stocuri;
-                Factura.facturaList = null;
+                FacturaIesire.facturaIesireList = null;
                 Stoc.stocList = null;
                 persistenceResult.ExceptionOccurred = ex;
                 persistenceResult.Message = StringSaveFail;

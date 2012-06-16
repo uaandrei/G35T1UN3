@@ -7,24 +7,15 @@ using GestiuneBusiness.Poco.Kernel;
 
 namespace GestiuneBusiness.Poco
 {
-    public class Produs : GestiuneBusiness.Poco.Kernel.GestiuneObject, IErrorInfo
+    public class Produs : GestiuneBusiness.Poco.Kernel.GestiuneObject
     {
         #region [MEMBERS]
         public string Nume { get; set; }
+        public decimal StocMinim{ get; set; }
         public decimal Pret { get; set; }
         public decimal RataTva { get; set; }
         public string Um { get; set; }
         #endregion
-
-        public string GetErrors()
-        {
-            string result = "";
-            if (string.IsNullOrEmpty(Nume)) result += "Nu ati introdus Numele!" + Environment.NewLine;
-            if (Pret == 0m) result += "Nu ati introdus Pretul!" + Environment.NewLine;
-            if (RataTva == 0m) result += "Nu ati introdus Rata TVA!" + Environment.NewLine;
-            if (string.IsNullOrEmpty(Nume)) result += "Nu ati introdus Unitatea de Masura!" + Environment.NewLine;
-            return result;
-        }
 
         public override GestiuneBusiness.DataHelper.Kernel.PersistenceResult Save()
         {
@@ -79,10 +70,11 @@ namespace GestiuneBusiness.Poco
             get
             {
                 List<DbObject> result = new List<DbObject>();
-                result.Add(new DbObject { Name = "@Nume", Value = this.Nume });
-                result.Add(new DbObject { Name = "@Pret", Value = this.Pret });
-                result.Add(new DbObject { Name = "@Rata_TVA", Value = this.RataTva });
-                result.Add(new DbObject { Name = "@UM", Value = this.Um });
+                result.Add(new DbObject { Name = "@Nume", Value = this.Nume,FriendlyName="Nume" });
+                result.Add(new DbObject { Name = "@StocMinim", Value = this.StocMinim, FriendlyName = "Stoc minim" });
+                result.Add(new DbObject { Name = "@Pret", Value = this.Pret, FriendlyName = "Pret" });
+                result.Add(new DbObject { Name = "@Rata_TVA", Value = this.RataTva, FriendlyName = "Rata T.V.A." });
+                result.Add(new DbObject { Name = "@UM", Value = this.Um,FriendlyName="Unitatea de masura" });
                 return result;
             }
         }

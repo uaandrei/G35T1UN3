@@ -26,10 +26,10 @@ namespace GestiuneBusiness.DataHelper
         {
             return new GestiuneBusiness.Poco.Stoc
             {
-                ID = int.Parse(reader[0].ToString()),
-                IdProdus = int.Parse(reader[1].ToString()),
-                Cantitate = decimal.Parse(reader[2].ToString()),
-                IdFacturaIntrare = int.Parse(reader[3].ToString())
+                ID = (int)reader[0],
+                IdProdus = (int)reader[1],
+                Pret = (decimal)reader[2],
+                IdPozitieFacturaIntrare = (int)reader[3]
             };
         }
     }

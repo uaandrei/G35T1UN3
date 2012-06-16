@@ -7,24 +7,15 @@ using GestiuneBusiness.Poco.Kernel;
 
 namespace GestiuneBusiness.Poco
 {
-    public class Banca : GestiuneBusiness.Poco.Kernel.GestiuneObject, IErrorInfo
+    public class Banca : GestiuneBusiness.Poco.Kernel.GestiuneObject
     {
         #region [MEMBERS]
         public string Nume { get; set; }
         public string Adresa { get; set; }
-        public string CodIdentificareFiscala { get; set; }
-        public string NrOrc { get; set; }
+        public string Cui { get; set; }
+        public string RC { get; set; }
+        public decimal CapitalSocial { get; set; }
         #endregion
-
-        public string GetErrors()
-        {
-            string result = "";
-            if (string.IsNullOrEmpty(Nume)) result += "Nu ati introdus Numele!" + Environment.NewLine;
-            if (string.IsNullOrEmpty(Adresa)) result += "Nu ati introdus Adresa!" + Environment.NewLine;
-            if (string.IsNullOrEmpty(CodIdentificareFiscala)) result += "Nu ati introdus CIF!" + Environment.NewLine;
-            if (string.IsNullOrEmpty(NrOrc)) result += "Nu ati introdus Nr Orc!" + Environment.NewLine;
-            return result;
-        }
 
         public override PersistenceResult Save()
         {
@@ -65,7 +56,7 @@ namespace GestiuneBusiness.Poco
         {
             try
             {
-                if (bancaList==null)
+                if (bancaList == null)
                 {
                     bancaList = BanciDataHelper.GetInstance().GetAll().Cast<Banca>().ToList();
                 }
@@ -82,10 +73,11 @@ namespace GestiuneBusiness.Poco
             get
             {
                 List<DbObject> result = new List<DbObject>();
-                result.Add(new DbObject { Name = "@Nume", Value = this.Nume });
-                result.Add(new DbObject { Name = "@Adresa", Value = this.Adresa });
-                result.Add(new DbObject { Name = "@Cod_identificare_fiscala", Value = this.CodIdentificareFiscala });
-                result.Add(new DbObject { Name = "@Nr_orc", Value = this.NrOrc });
+                result.Add(new DbObject { Name = "@Nume", Value = this.Nume, FriendlyName = "Nume" });
+                result.Add(new DbObject { Name = "@Adresa", Value = this.Adresa, FriendlyName = "Adresa" });
+                result.Add(new DbObject { Name = "@CapitalSocial", Value = this.CapitalSocial, FriendlyName = "Capital social" });
+                result.Add(new DbObject { Name = "@CUI", Value = this.Cui, FriendlyName = "C.U.I." });
+                result.Add(new DbObject { Name = "@RC", Value = this.RC, FriendlyName = "Registru Comert" });
                 return result;
             }
         }

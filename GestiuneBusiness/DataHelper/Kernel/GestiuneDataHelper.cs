@@ -55,8 +55,6 @@ namespace GestiuneBusiness.DataHelper.Kernel
 
         public int Create(List<DbObject> dbObjects)
         {
-            // saves a new GestiuneObject (actually it's properties == dbObjects)
-            // returns the id
             try
             {
                 using (SqlConnection con = ConnectionHelper.Connection)

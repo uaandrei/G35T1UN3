@@ -26,11 +26,12 @@ namespace GestiuneBusiness.DataHelper
         {
             return new GestiuneBusiness.Poco.Produs
             {
-                ID = int.Parse(reader[0].ToString()),
+                ID = (int)reader[0],
                 Nume = reader[1].ToString(),
-                Pret = Decimal.Parse(reader[2].ToString()),
-                RataTva = Decimal.Parse(reader[3].ToString()),
-                Um = reader[4].ToString()
+                StocMinim = (decimal)reader[2],
+                Pret = (decimal)reader[3],
+                RataTva = (decimal)reader[4],
+                Um = reader[5].ToString()
             };
         }
     }

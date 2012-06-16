@@ -44,9 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataHelper\BanciDataHelper.cs" />
+    <Compile Include="DataHelper\FacturiIesireDataHelper.cs" />
     <Compile Include="DataHelper\DelegatiDataHelper.cs" />
-    <Compile Include="DataHelper\FacturaProdusStocDataHelper.cs" />
-    <Compile Include="DataHelper\FacturiDataHelper.cs" />
+    <Compile Include="DataHelper\FacturiIntrareDataHelper.cs" />
     <Compile Include="DataHelper\FirmeDataHelper.cs" />
     <Compile Include="DataHelper\Kernel\ConnectionHelper.cs" />
     <Compile Include="DataHelper\Kernel\DbObject.cs" />
@@ -59,13 +59,16 @@
     <Compile Include="Enums\TipFacturaEnum.cs" />
     <Compile Include="Interfaces\IDataPersistence.cs" />
     <Compile Include="Poco\Banca.cs" />
+    <Compile Include="Poco\PozitieFacturaIesire.cs" />
+    <Compile Include="Poco\FacturaIntrare.cs" />
     <Compile Include="Poco\Delegat.cs" />
-    <Compile Include="Poco\Factura.cs" />
-    <Compile Include="Poco\FacturaProdusStoc.cs" />
+    <Compile Include="Poco\FacturaIesire.cs" />
     <Compile Include="Poco\Firma.cs" />
     <Compile Include="Poco\Kernel\GestiuneObject.cs" />
     <Compile Include="Poco\Kernel\IErrorInfo.cs" />
     <Compile Include="Poco\Plata.cs" />
+    <Compile Include="Poco\PlataFactura.cs" />
+    <Compile Include="Poco\PozitieFacturaIntrare.cs" />
     <Compile Include="Poco\Produs.cs" />
     <Compile Include="Poco\Stoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

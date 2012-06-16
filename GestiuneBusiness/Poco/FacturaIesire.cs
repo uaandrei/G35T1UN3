@@ -6,12 +6,20 @@ using GestiuneBusiness.DataHelper.Kernel;
 
 namespace GestiuneBusiness.Poco
 {
-    public class Delegat : GestiuneBusiness.Poco.Kernel.GestiuneObject
+    public class FacturaIesire : GestiuneBusiness.Poco.Kernel.GestiuneObject
     {
         #region [MEMBERS]
-        public string Cnp { get; set; }
         public string Serie { get; set; }
-        public string Nume { get; set; }
+        public string Numar { get; set; }
+        public DateTime Data { get; set; }
+        public int IdFirma { get; set; }
+        public Firma FirmaObject
+        {
+            get
+            {
+                return Firma.GetAll().FirstOrDefault(p => p.ID == IdFirma);
+            }
+        }
         #endregion
 
         public override GestiuneBusiness.DataHelper.Kernel.PersistenceResult Save()
@@ -23,13 +31,13 @@ namespace GestiuneBusiness.Poco
                 if (this.ID == 0)
                 {
                     // obiectul este nou, deci trebuie creat
-                    this.ID = DelegatiDataHelper.GetInstance().Create(PropertiesNamesWithValues);
-                    delegatList.Add(this);
+                    this.ID = FacturiIntrareDataHelper.GetInstance().Create(PropertiesNamesWithValues);
+                    facturaIesireList.Add(this);
                 }
 
                 else
                 {
-                    DelegatiDataHelper.GetInstance().Update(PropertiesNamesWithValues, this.ID);
+                    FacturiIntrareDataHelper.GetInstance().Update(PropertiesNamesWithValues, this.ID);
                 }
                 persistenceResult.Status = Enums.EnumStatus.Saved;
                 persistenceResult.Message = StringSaveSuccess;
@@ -48,16 +56,16 @@ namespace GestiuneBusiness.Poco
             throw new NotImplementedException();
         }
 
-        private static List<Delegat> delegatList = null;
-        public static List<Delegat> GetAll()
+        internal static List<FacturaIesire> facturaIesireList = null;
+        public static List<FacturaIesire> GetAll()
         {
             try
             {
-                if (delegatList == null)
+                if (facturaIesireList == null)
                 {
-                    delegatList = DelegatiDataHelper.GetInstance().GetAll().Cast<Delegat>().ToList();
+                    facturaIesireList = FacturiIntrareDataHelper.GetInstance().GetAll().Cast<FacturaIesire>().ToList();
                 }
-                return delegatList;
+                return facturaIesireList;
             }
             catch (Exception)
             {
@@ -70,9 +78,10 @@ namespace GestiuneBusiness.Poco
             get
             {
                 List<DbObject> result = new List<DbObject>();
-                result.Add(new DbObject { Name = "@CNP", Value = this.Cnp, FriendlyName = "CNP" });
                 result.Add(new DbObject { Name = "@Serie", Value = this.Serie, FriendlyName = "Serie" });
-                result.Add(new DbObject { Name = "@Nume", Value = this.Nume, FriendlyName = "Nume" });
+                result.Add(new DbObject { Name = "@Numar", Value = this.Numar, FriendlyName = "Numar" });
+                result.Add(new DbObject { Name = "@Data", Value = this.Data, FriendlyName = "Data facturarii" });
+                result.Add(new DbObject { Name = "@IdFirma", Value = this.IdFirma, FriendlyName = "Cumparator" });
                 return result;
             }
         }

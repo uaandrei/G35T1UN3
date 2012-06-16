@@ -27,7 +27,7 @@ namespace GestiuneBusiness.DataHelper
             return new FacturaProdusStoc
             {
                 ID = (int)reader[0],
-                FacturaObject = Factura.GetAll().Where(p => p.ID == (int)reader[1]).FirstOrDefault(),
+                FacturaObject = FacturaIesire.GetAll().Where(p => p.ID == (int)reader[1]).FirstOrDefault(),
                 ProdusObject = Produs.GetAll().Where(p => p.ID == (int)reader[2]).FirstOrDefault(),
                 StocObject = Stoc.GetAll().Where(p => p.ID == (int)reader[3]).FirstOrDefault(),
                 Pret = (decimal)reader[4],

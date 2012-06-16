@@ -27,19 +27,16 @@ namespace GestiuneBusiness.DataHelper
         {
             return new GestiuneBusiness.Poco.Firma
             {
-                ID = int.Parse(reader[0].ToString()),
+                ID = (int)reader[0],
                 Nume = reader[1].ToString(),
                 Cui = reader[2].ToString(),
-                NrInmatriculare = reader[3].ToString(),
+                Rc = reader[3].ToString(),
                 Iban = reader[4].ToString(),
-                Localitate = reader[5].ToString(),
-                Judet = reader[6].ToString(),
-                Adresa = reader[7].ToString(),
-                Telefon = reader[8].ToString(),
-                PersoanaContact = reader[9].ToString(),
-                DataInfiintarii = DateTime.Parse(reader[10].ToString()),
-                IdBanca = int.Parse(reader[11].ToString()),
-                IdDelegat = int.Parse(reader[12].ToString())
+                Adresa = reader[5].ToString(),
+                Telefon = reader[6].ToString(),
+                DataInfiintarii = (DateTime)reader[7],
+                IdBanca = (int)reader[8],
+                IdDelegat = (int)reader[9]
             };
         }
     }

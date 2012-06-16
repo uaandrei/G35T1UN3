@@ -66,54 +66,15 @@ namespace TestProjectGestiune
         //
         #endregion
 
-
-        /// <summary>
-        ///A test for Save
-        ///</summary>
-        [TestMethod()]
-        public void BancaSaveTest()
-        {
-            Banca target = new Banca
-            {
-                Nume = "BCR",
-                Adresa = "Bucuresti",
-                CodIdentificareFiscala = "123/ffa",
-                NrOrc = "123OP"
-            };
-            PersistenceResult expected = new PersistenceResult { Status = GestiuneBusiness.Enums.EnumStatus.Errors };
-            PersistenceResult actual;
-            actual = target.Save();
-            Assert.AreEqual(expected.Status, actual.Status);
-        }
-
-        /// <summary>
-        ///A test for GetAll
-        ///</summary>
-        [TestMethod()]
-        public void BancaGetAllTest()
-        {
-            List<Banca> actual;
-            actual = Banca.GetAll();
-            Assert.IsNotNull(actual);
-        }
-
         [TestMethod]
-        public void BancaGetByIdTest()
+        public void GetErrorsBancaTest()
         {
-            Banca expected = new Banca
-            {
-                ID=1,
-                Nume = "BCR",
-                Adresa = "Bucuresti",
-                CodIdentificareFiscala = "123/ffa",
-                NrOrc = "123OP"
-            };
-            Banca actual = Banca.GetAll().Where(p=>p.ID==1).FirstOrDefault();
-            Assert.IsTrue(expected.ID == actual.ID);
-            Assert.IsTrue(expected.Nume == actual.Nume);
-            Assert.IsTrue(expected.Adresa == actual.Adresa);
-            Assert.IsTrue(expected.CodIdentificareFiscala == actual.CodIdentificareFiscala);
-            Assert.IsTrue(expected.NrOrc == actual.NrOrc);
+            var banca = new Banca();
+            banca.Adresa = "x";
+            banca.Nume= "x";
+            banca.RC= "x";
+            var errors = banca.GetErrorString();
+            Assert.IsNotNull(errors);
         }
     }
 }

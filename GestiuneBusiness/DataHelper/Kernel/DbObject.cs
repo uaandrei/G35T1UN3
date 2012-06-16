@@ -6,6 +6,7 @@ namespace GestiuneBusiness.DataHelper.Kernel
     public struct DbObject
     {
         public string Name { get; set; }
-        public Object Value { get; set; } 
+        public Object Value { get; set; }
+        public string FriendlyName { get; set; }
     }
 }

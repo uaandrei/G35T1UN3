@@ -24,11 +24,12 @@ namespace GestiuneBusiness.DataHelper
         {
             return new GestiuneBusiness.Poco.Plata
             {
-                ID = int.Parse(reader[0].ToString()),
+                ID = (int)reader[0],
                 Serie = reader[1].ToString(),
-                Nr = int.Parse(reader[2].ToString()),
-                Data = DateTime.Parse(reader[3].ToString()),
-                TipPlata = reader[4].ToString()
+                Nr = reader[2].ToString(),
+                Data = (DateTime)reader[3],
+                TipPlata = reader[4].ToString(),
+                Suma = (decimal)reader[5]
             };
         }
     }

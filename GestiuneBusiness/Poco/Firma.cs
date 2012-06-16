@@ -3,83 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using GestiuneBusiness.DataHelper;
 using GestiuneBusiness.DataHelper.Kernel;
-using GestiuneBusiness.Poco.Kernel;
 
 namespace GestiuneBusiness.Poco
 {
-    public class Firma : GestiuneBusiness.Poco.Kernel.GestiuneObject, IErrorInfo
+    public class Firma : GestiuneBusiness.Poco.Kernel.GestiuneObject
     {
         #region [MEMBERS]
         public string Nume { get; set; }
         public string Cui { get; set; }
-        public string NrInmatriculare { get; set; }
+        public string Rc { get; set; }
         public string Iban { get; set; }
-        public string Localitate { get; set; }
-        public string Judet { get; set; }
         public string Adresa { get; set; }
         public string Telefon { get; set; }
-        public string PersoanaContact { get; set; }
-        public DateTime? DataInfiintarii { get; set; }
-
-        private int idBanca;
-
-        public int IdBanca
-        {
-            get
-            {
-                return idBanca;
-            }
-            set
-            {
-                idBanca = value;
-                banca = Banca.GetAll().Where(p => p.ID == value).FirstOrDefault();
-            }
-        }
-
-        private Banca banca = null;
+        public DateTime DataInfiintarii { get; set; }
+        public int IdBanca { get; set; }
         public Banca BancaObject
         {
-            get { return banca; }
+            get { return Banca.GetAll().FirstOrDefault(p => p.ID == IdBanca); }
         }
-
-        private int idDelegat;
-        public int IdDelegat
-        {
-            get
-            {
-                return idDelegat;
-            }
-            set
-            {
-                idDelegat = value;
-                delegat = Delegat.GetAll().Where(p => p.ID == value).FirstOrDefault();
-            }
-        }
-
-        private Delegat delegat = null;
+        public int IdDelegat { get; set; }
         public Delegat DelegatObject
         {
-            get { return delegat; }
+            get { return Delegat.GetAll().FirstOrDefault(p => p.ID == IdDelegat); }
         }
-
         #endregion
-
-        public string GetErrors()
-        {
-            string result = "";
-            if (string.IsNullOrEmpty(Nume)) result += "Nu ati introdus numele!" + Environment.NewLine;
-            if (string.IsNullOrEmpty(Cui)) result += "Nu ati introdus CUI!" + Environment.NewLine;
-            if (string.IsNullOrEmpty(NrInmatriculare)) result += "Nu ati introdus Nr. de Inmantriculare!" + Environment.NewLine;
-            if (string.IsNullOrEmpty(Iban)) result += "Nu ati introdus IBAN!" + Environment.NewLine;
-            if (string.IsNullOrEmpty(Localitate)) result += "Nu ati introdus Localitatea!" + Environment.NewLine;
-            if (string.IsNullOrEmpty(Judet)) result += "Nu ati introdus Judetul!" + Environment.NewLine;
-            if (string.IsNullOrEmpty(Adresa)) result += "Nu ati introdus Adresa!" + Environment.NewLine;
-            if (string.IsNullOrEmpty(Telefon)) result += "Nu ati introdus Telefonul!" + Environment.NewLine;
-            if (string.IsNullOrEmpty(PersoanaContact)) result += "Nu ati introdus Persoana de Contact!" + Environment.NewLine;
-            if (idBanca == 0) result += "Alegeti banca!" + Environment.NewLine;
-            if (idDelegat == 0) result += "Alegeti delegatul!" + Environment.NewLine;
-            return result;
-        }
 
         public override GestiuneBusiness.DataHelper.Kernel.PersistenceResult Save()
         {
@@ -134,18 +81,15 @@ namespace GestiuneBusiness.Poco
             get
             {
                 List<DbObject> result = new List<DbObject>();
-                result.Add(new DbObject { Name = "@Nume", Value = this.Nume });
-                result.Add(new DbObject { Name = "@CUI", Value = this.Cui });
-                result.Add(new DbObject { Name = "@Numar_inmatriculare", Value = this.NrInmatriculare });
-                result.Add(new DbObject { Name = "@IBAN", Value = this.Iban });
-                result.Add(new DbObject { Name = "@Localitate", Value = this.Localitate });
-                result.Add(new DbObject { Name = "@Judet", Value = this.Judet });
-                result.Add(new DbObject { Name = "@Adresa", Value = this.Adresa });
+                result.Add(new DbObject { Name = "@Nume", Value = this.Nume,FriendlyName="Nume" });
+                result.Add(new DbObject { Name = "@CUI", Value = this.Cui,FriendlyName="C.U.I." });
+                result.Add(new DbObject { Name = "@RC", Value = this.Rc,FriendlyName="Registru Comert" });
+                result.Add(new DbObject { Name = "@IBAN", Value = this.Iban,FriendlyName="IBAN" });
+                result.Add(new DbObject { Name = "@Adresa", Value = this.Adresa,FriendlyName="Adresa" });
                 result.Add(new DbObject { Name = "@Telefon", Value = this.Telefon });
-                result.Add(new DbObject { Name = "@Persoana_contact", Value = this.PersoanaContact });
-                result.Add(new DbObject { Name = "@Data_infiintarii", Value = this.DataInfiintarii });
-                result.Add(new DbObject { Name = "@ID_Banca", Value = this.IdBanca });
-                result.Add(new DbObject { Name = "@ID_Delegat", Value = this.IdDelegat });
+                result.Add(new DbObject { Name = "@DataInfiintarii", Value = this.DataInfiintarii });
+                result.Add(new DbObject { Name = "@IdBanca", Value = this.IdBanca,FriendlyName="Banca" });
+                result.Add(new DbObject { Name = "@IdDelegat", Value = this.IdDelegat,FriendlyName="Delegat" });
                 return result;
             }
         }

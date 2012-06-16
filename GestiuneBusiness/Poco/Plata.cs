@@ -10,9 +10,10 @@ namespace GestiuneBusiness.Poco
     {
         #region [MEMBERS]
         public string Serie { get; set; }
-        public int Nr { get; set; }
+        public string Nr { get; set; }
         public DateTime Data { get; set; }
         public string TipPlata { get; set; }
+        public decimal Suma { get; set; }
         #endregion
 
         public override GestiuneBusiness.DataHelper.Kernel.PersistenceResult Save()
@@ -35,10 +36,11 @@ namespace GestiuneBusiness.Poco
             get
             {
                 List<DbObject> result = new List<DbObject>();
-                result.Add(new DbObject { Name = "@Serie", Value = this.Serie });
-                result.Add(new DbObject { Name = "@Nr", Value = this.Nr });
-                result.Add(new DbObject { Name = "@Data", Value = this.Data });
-                result.Add(new DbObject { Name = "@Tip_plata", Value = this.TipPlata });
+                result.Add(new DbObject { Name = "@Serie", Value = this.Serie, FriendlyName = "Serie" });
+                result.Add(new DbObject { Name = "@Nr", Value = this.Nr, FriendlyName = "Numar" });
+                result.Add(new DbObject { Name = "@Data", Value = this.Data, FriendlyName = "Data platii" });
+                result.Add(new DbObject { Name = "@TipPlata", Value = this.TipPlata, FriendlyName = "Tip plata" });
+                result.Add(new DbObject { Name = "@Suma", Value = this.Suma, FriendlyName = "Suma" });
                 return result;
             }
         }

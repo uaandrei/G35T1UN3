@@ -27,11 +27,12 @@ namespace GestiuneBusiness.DataHelper
         {
             return new Banca
             {
-                ID = int.Parse(reader[0].ToString()),
+                ID = (int)reader[0],
                 Nume = reader[1].ToString(),
                 Adresa = reader[2].ToString(),
-                CodIdentificareFiscala = reader[3].ToString(),
-                NrOrc = reader[4].ToString()
+                Cui = reader[3].ToString(),
+                RC = reader[4].ToString(),
+                CapitalSocial = (decimal)reader[5]
             };
         }
     }

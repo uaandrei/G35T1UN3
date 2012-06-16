@@ -3,74 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using GestiuneBusiness.DataHelper;
 using GestiuneBusiness.DataHelper.Kernel;
-using GestiuneBusiness.Poco.Kernel;
 
 namespace GestiuneBusiness.Poco
 {
-    public class Stoc : GestiuneBusiness.Poco.Kernel.GestiuneObject, IErrorInfo
+    public class Stoc : GestiuneBusiness.Poco.Kernel.GestiuneObject
     {
         #region [MEMBERS]
-        private int idProdus;
-
-        public int IdProdus
+        public int IdProdus { get; set; }
+        public int IdPozitieFacturaIntrare { get; set; }
+        public decimal Pret { get; set; }
+        public PozitieFacturaIntrare PozitieFacturaIntrareObject
         {
-            get
-            {
-                return idProdus;
-            }
-            set
-            {
-                idProdus = value;
-                produs = Produs.GetAll().Where(p => p.ID == value).FirstOrDefault();
-            }
+            get { return PozitieFacturaIntrare.GetAll().FirstOrDefault(p => p.ID == IdPozitieFacturaIntrare); }
         }
-
-        private Produs produs;
         public Produs ProdusObject
         {
-            get { return produs; }
-        }
-
-        private int idFacturaIntrare;
-        public int IdFacturaIntrare
-        {
             get
             {
-                return idFacturaIntrare;
-            }
-            set
-            {
-                idFacturaIntrare = value;
-                factura = Factura.GetAll().Where(p => p.ID == value).FirstOrDefault();
+                return Produs.GetAll().FirstOrDefault(p => p.ID == IdProdus);
             }
         }
-
-        private Factura factura;
-        public Factura FacturaObject
-        {
-            get { return factura; }
-        }
-
-        public decimal Cantitate { get; set; }
-
         #endregion
-
-        public string GetErrors()
-        {
-            string result = "";
-            if (Cantitate == 0m) result += "Cantitate invalida!" + Environment.NewLine;
-            if (idFacturaIntrare == 0) result += "Alegeti o Factura de Intrare!" + Environment.NewLine;
-            if (idProdus == 0) result += "Alegeti un Produs!" + Environment.NewLine;
-            return result;
-        }
-
+    
         public override DataHelper.Kernel.PersistenceResult Save()
         {
             PersistenceResult persistenceResult = new PersistenceResult();
 
             try
             {
-                if (this.ID ==0)
+                if (this.ID == 0)
                 {
                     // obiectul este nou, deci trebuie creat
                     this.ID = StocDataHelper.GetInstance().Create(PropertiesNamesWithValues);
@@ -120,9 +81,9 @@ namespace GestiuneBusiness.Poco
             get
             {
                 List<DbObject> result = new List<DbObject>();
-                result.Add(new DbObject { Name = "@ID_produs", Value = this.IdProdus });
-                result.Add(new DbObject { Name = "@Cantitate", Value = this.Cantitate });
-                result.Add(new DbObject { Name = "@Id_factura_intrare", Value = this.IdFacturaIntrare });
+                result.Add(new DbObject { Name = "@IdProdus", Value = this.IdProdus,FriendlyName="Produs" });
+                result.Add(new DbObject { Name = "@IdPozitieFacturaIntrare", Value = this.IdPozitieFacturaIntrare, FriendlyName = "Pozitie factura intrare" });
+                result.Add(new DbObject { Name = "@Pret", Value = this.Pret, FriendlyName = "Pret" });
                 return result;
             }
         }

@@ -6,17 +6,17 @@ using GestiuneBusiness.Poco.Kernel;
 
 namespace GestiuneBusiness.DataHelper
 {
-    internal class FacturiDataHelper : GestiuneDataHelper
+    internal class FacturiIntrareDataHelper : GestiuneDataHelper
     {
-        private static FacturiDataHelper facturiDataHelper = null;
+        private static FacturiIntrareDataHelper facturiIntrareDataHelper = null;
 
-        public static FacturiDataHelper GetInstance()
+        public static FacturiIntrareDataHelper GetInstance()
         {
-            if (facturiDataHelper == null) facturiDataHelper = new FacturiDataHelper();
-            return facturiDataHelper;
+            if (facturiIntrareDataHelper == null) facturiIntrareDataHelper = new FacturiIntrareDataHelper();
+            return facturiIntrareDataHelper;
         }
 
-        private FacturiDataHelper()
+        private FacturiIntrareDataHelper()
         {
             this.readStoredProcedureName = "FacturiRead";
             this.insertStoredProcedureName = "FacturiCreate";
@@ -25,14 +25,13 @@ namespace GestiuneBusiness.DataHelper
 
         protected override GestiuneObject ToPocoObject(System.Data.SqlClient.SqlDataReader reader)
         {
-            return new Factura
+            return new FacturaIesire
             {
-                ID = int.Parse(reader[0].ToString()),
+                ID = (int)reader[0],
                 Serie = reader[1].ToString(),
                 Numar = reader[2].ToString(),
-                Data = DateTime.Parse(reader[3].ToString()),
-                Tip = reader[4].ToString(),
-                IdFirma = int.Parse(reader[5].ToString())
+                Data = (DateTime)reader[3],
+                IdFirma = (int)reader[4]
             };
         }
     }
