@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using GestiuneBusiness.DataHelper;
 using GestiuneBusiness.DataHelper.Kernel;
-using GestiuneBusiness.Poco.Kernel;
 
 namespace GestiuneBusiness.Poco
 {
@@ -27,6 +26,10 @@ namespace GestiuneBusiness.Poco
                 {
                     // obiectul este nou, deci trebuie creat
                     this.ID = BanciDataHelper.GetInstance().Create(PropertiesNamesWithValues);
+                    if (bancaList == null)
+                    {
+                        bancaList = new List<Banca>();
+                    }
                     bancaList.Add(this);
                 }
 
@@ -34,12 +37,12 @@ namespace GestiuneBusiness.Poco
                 {
                     BanciDataHelper.GetInstance().Update(PropertiesNamesWithValues, this.ID);
                 }
-                persistenceResult.Status = Enums.EnumStatus.Saved;
+                persistenceResult.Status = Enums.StatusEnum.Saved;
                 persistenceResult.Message = StringSaveSuccess;
             }
             catch (Exception ex)
             {
-                persistenceResult.Status = Enums.EnumStatus.Errors;
+                persistenceResult.Status = Enums.StatusEnum.Errors;
                 persistenceResult.Message = StringSaveFail;
                 persistenceResult.ExceptionOccurred = ex;
             }
@@ -56,10 +59,7 @@ namespace GestiuneBusiness.Poco
         {
             try
             {
-                if (bancaList == null)
-                {
-                    bancaList = BanciDataHelper.GetInstance().GetAll().Cast<Banca>().ToList();
-                }
+                if (bancaList == null) bancaList = BanciDataHelper.GetInstance().GetAll().Cast<Banca>().ToList();
                 return bancaList;
             }
             catch (Exception)
@@ -75,9 +75,9 @@ namespace GestiuneBusiness.Poco
                 List<DbObject> result = new List<DbObject>();
                 result.Add(new DbObject { Name = "@Nume", Value = this.Nume, FriendlyName = "Nume" });
                 result.Add(new DbObject { Name = "@Adresa", Value = this.Adresa, FriendlyName = "Adresa" });
-                result.Add(new DbObject { Name = "@CapitalSocial", Value = this.CapitalSocial, FriendlyName = "Capital social" });
                 result.Add(new DbObject { Name = "@CUI", Value = this.Cui, FriendlyName = "C.U.I." });
                 result.Add(new DbObject { Name = "@RC", Value = this.RC, FriendlyName = "Registru Comert" });
+                result.Add(new DbObject { Name = "@CapitalSocial", Value = this.CapitalSocial, FriendlyName = "Capital social" });
                 return result;
             }
         }

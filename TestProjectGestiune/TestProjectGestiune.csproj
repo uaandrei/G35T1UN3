@@ -54,6 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BancaTest.cs" />
+    <Compile Include="DelegatTest.cs" />
+    <Compile Include="FacturaIesireTest.cs" />
+    <Compile Include="FacturaIntrareTest.cs" />
+    <Compile Include="FirmaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

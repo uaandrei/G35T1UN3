@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using GestiuneBusiness.DataHelper.Kernel;
 using GestiuneBusiness.Poco.Kernel;
 
@@ -18,9 +17,9 @@ namespace GestiuneBusiness.DataHelper
 
         private FirmeDataHelper()
         {
-            this.readStoredProcedureName = "FirmeRead";
-            this.insertStoredProcedureName = "FirmeCreate";
-            this.updateStoredProcedureName = "FirmeUpdate";
+            this.selectAllStoredProcedureName = "sp_Firme_SelectAll";
+            this.insertStoredProcedureName = "sp_Firme_Insert";
+            this.updateStoredProcedureName = "sp_Firme_Update";
         }
 
         protected override GestiuneObject ToPocoObject(System.Data.SqlClient.SqlDataReader reader)

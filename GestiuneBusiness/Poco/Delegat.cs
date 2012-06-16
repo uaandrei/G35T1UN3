@@ -24,19 +24,22 @@ namespace GestiuneBusiness.Poco
                 {
                     // obiectul este nou, deci trebuie creat
                     this.ID = DelegatiDataHelper.GetInstance().Create(PropertiesNamesWithValues);
+                    if (delegatList==null)
+                    {
+                        delegatList = new List<Delegat>();
+                    }
                     delegatList.Add(this);
                 }
-
                 else
                 {
                     DelegatiDataHelper.GetInstance().Update(PropertiesNamesWithValues, this.ID);
                 }
-                persistenceResult.Status = Enums.EnumStatus.Saved;
+                persistenceResult.Status = Enums.StatusEnum.Saved;
                 persistenceResult.Message = StringSaveSuccess;
             }
             catch (Exception ex)
             {
-                persistenceResult.Status = Enums.EnumStatus.Errors;
+                persistenceResult.Status = Enums.StatusEnum.Errors;
                 persistenceResult.Message = StringSaveFail;
                 persistenceResult.ExceptionOccurred = ex;
             }
@@ -53,10 +56,7 @@ namespace GestiuneBusiness.Poco
         {
             try
             {
-                if (delegatList == null)
-                {
-                    delegatList = DelegatiDataHelper.GetInstance().GetAll().Cast<Delegat>().ToList();
-                }
+                if (delegatList == null) delegatList = DelegatiDataHelper.GetInstance().GetAll().Cast<Delegat>().ToList();
                 return delegatList;
             }
             catch (Exception)

@@ -24,30 +24,33 @@ namespace GestiuneBusiness.Poco
             }
         }
         #endregion
-    
+
         public override DataHelper.Kernel.PersistenceResult Save()
         {
             PersistenceResult persistenceResult = new PersistenceResult();
 
             try
             {
-                if (this.ID == 0)
+                if (this.ID == 0) // => obiect nou
                 {
-                    // obiectul este nou, deci trebuie creat
                     this.ID = StocDataHelper.GetInstance().Create(PropertiesNamesWithValues);
+                    if (stocList == null)
+                    {
+                        stocList = new List<Stoc>();
+                    }
                     stocList.Add(this);
                 }
 
-                else
+                else // => obiect existent
                 {
                     StocDataHelper.GetInstance().Update(PropertiesNamesWithValues, this.ID);
                 }
-                persistenceResult.Status = Enums.EnumStatus.Saved;
+                persistenceResult.Status = Enums.StatusEnum.Saved;
                 persistenceResult.Message = StringSaveSuccess;
             }
             catch (Exception ex)
             {
-                persistenceResult.Status = Enums.EnumStatus.Errors;
+                persistenceResult.Status = Enums.StatusEnum.Errors;
                 persistenceResult.Message = StringSaveFail;
                 persistenceResult.ExceptionOccurred = ex;
             }
@@ -81,9 +84,9 @@ namespace GestiuneBusiness.Poco
             get
             {
                 List<DbObject> result = new List<DbObject>();
-                result.Add(new DbObject { Name = "@IdProdus", Value = this.IdProdus,FriendlyName="Produs" });
-                result.Add(new DbObject { Name = "@IdPozitieFacturaIntrare", Value = this.IdPozitieFacturaIntrare, FriendlyName = "Pozitie factura intrare" });
+                result.Add(new DbObject { Name = "@IdProdus", Value = this.IdProdus, FriendlyName = "Produs" });
                 result.Add(new DbObject { Name = "@Pret", Value = this.Pret, FriendlyName = "Pret" });
+                result.Add(new DbObject { Name = "@IdPozitieFacturaIntrare", Value = this.IdPozitieFacturaIntrare, FriendlyName = "Pozitie factura intrare" });
                 return result;
             }
         }

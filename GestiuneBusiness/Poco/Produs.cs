@@ -11,7 +11,7 @@ namespace GestiuneBusiness.Poco
     {
         #region [MEMBERS]
         public string Nume { get; set; }
-        public decimal StocMinim{ get; set; }
+        public decimal StocMinim { get; set; }
         public decimal Pret { get; set; }
         public decimal RataTva { get; set; }
         public string Um { get; set; }
@@ -25,6 +25,10 @@ namespace GestiuneBusiness.Poco
                 if (this.ID == 0)
                 {
                     this.ID = ProduseDataHelper.GetInstance().Create(PropertiesNamesWithValues);
+                    if (produsList == null)
+                    {
+                        produsList = new List<Produs>();
+                    }
                     produsList.Add(this);
                 }
                 else
@@ -32,13 +36,13 @@ namespace GestiuneBusiness.Poco
                     ProduseDataHelper.GetInstance().Update(PropertiesNamesWithValues, this.ID);
                 }
                 result.Message = StringSaveSuccess;
-                result.Status = Enums.EnumStatus.Saved;
+                result.Status = Enums.StatusEnum.Saved;
             }
             catch (Exception ex)
             {
                 result.ExceptionOccurred = ex;
                 result.Message = StringSaveFail;
-                result.Status = Enums.EnumStatus.Errors;
+                result.Status = Enums.StatusEnum.Errors;
             }
             return result;
         }
@@ -70,11 +74,11 @@ namespace GestiuneBusiness.Poco
             get
             {
                 List<DbObject> result = new List<DbObject>();
-                result.Add(new DbObject { Name = "@Nume", Value = this.Nume,FriendlyName="Nume" });
+                result.Add(new DbObject { Name = "@Nume", Value = this.Nume, FriendlyName = "Nume" });
                 result.Add(new DbObject { Name = "@StocMinim", Value = this.StocMinim, FriendlyName = "Stoc minim" });
                 result.Add(new DbObject { Name = "@Pret", Value = this.Pret, FriendlyName = "Pret" });
-                result.Add(new DbObject { Name = "@Rata_TVA", Value = this.RataTva, FriendlyName = "Rata T.V.A." });
-                result.Add(new DbObject { Name = "@UM", Value = this.Um,FriendlyName="Unitatea de masura" });
+                result.Add(new DbObject { Name = "@RataTva", Value = this.RataTva, FriendlyName = "Rata T.V.A." });
+                result.Add(new DbObject { Name = "@Um", Value = this.Um, FriendlyName = "Unitatea de masura" });
                 return result;
             }
         }

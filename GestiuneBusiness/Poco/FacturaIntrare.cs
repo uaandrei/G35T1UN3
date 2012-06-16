@@ -6,7 +6,7 @@ using GestiuneBusiness.DataHelper.Kernel;
 
 namespace GestiuneBusiness.Poco
 {
-    public class FacturaIntrare: GestiuneBusiness.Poco.Kernel.GestiuneObject
+    public class FacturaIntrare : GestiuneBusiness.Poco.Kernel.GestiuneObject
     {
         #region [MEMBERS]
         public string Serie { get; set; }
@@ -32,6 +32,10 @@ namespace GestiuneBusiness.Poco
                 {
                     // obiectul este nou, deci trebuie creat
                     this.ID = FacturiIntrareDataHelper.GetInstance().Create(PropertiesNamesWithValues);
+                    if (facturaIntrareList==null)
+                    {
+                        facturaIntrareList = new List<FacturaIntrare>();
+                    }
                     facturaIntrareList.Add(this);
                 }
 
@@ -39,12 +43,12 @@ namespace GestiuneBusiness.Poco
                 {
                     FacturiIntrareDataHelper.GetInstance().Update(PropertiesNamesWithValues, this.ID);
                 }
-                persistenceResult.Status = Enums.EnumStatus.Saved;
+                persistenceResult.Status = Enums.StatusEnum.Saved;
                 persistenceResult.Message = StringSaveSuccess;
             }
             catch (Exception ex)
             {
-                persistenceResult.Status = Enums.EnumStatus.Errors;
+                persistenceResult.Status = Enums.StatusEnum.Errors;
                 persistenceResult.Message = StringSaveFail;
                 persistenceResult.ExceptionOccurred = ex;
             }
@@ -62,9 +66,7 @@ namespace GestiuneBusiness.Poco
             try
             {
                 if (facturaIntrareList == null)
-                {
                     facturaIntrareList = FacturiIntrareDataHelper.GetInstance().GetAll().Cast<FacturaIntrare>().ToList();
-                }
                 return facturaIntrareList;
             }
             catch (Exception)

@@ -18,7 +18,32 @@ namespace GestiuneBusiness.Poco
 
         public override GestiuneBusiness.DataHelper.Kernel.PersistenceResult Save()
         {
-            throw new NotImplementedException();
+            var result = new PersistenceResult();
+            try
+            {
+                if (this.ID == 0)
+                {
+                    this.ID = PlatiDataHelper.GetInstance().Create(PropertiesNamesWithValues);
+                    if (plataList == null)
+                    {
+                        plataList = new List<Plata>();
+                    }
+                    plataList.Add(this);
+                }
+                else
+                {
+                    PlatiDataHelper.GetInstance().Update(PropertiesNamesWithValues, this.ID);
+                }
+                result.Message = StringSaveSuccess;
+                result.Status = Enums.StatusEnum.Saved;
+            }
+            catch (Exception ex)
+            {
+                result.Message = StringSaveFail;
+                result.Status = Enums.StatusEnum.Errors;
+                result.ExceptionOccurred = ex;
+            }
+            return result;
         }
 
         public override GestiuneBusiness.DataHelper.Kernel.PersistenceResult Delete()
@@ -26,9 +51,19 @@ namespace GestiuneBusiness.Poco
             throw new NotImplementedException();
         }
 
+        private static List<Plata> plataList = null;
         public static List<Plata> GetAll()
         {
-            return PlatiDataHelper.GetInstance().GetAll().Cast<Plata>().ToList();
+            try
+            {
+                if (plataList == null)
+                    plataList = PlatiDataHelper.GetInstance().GetAll().Cast<Plata>().ToList();
+                return plataList;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         protected override List<DbObject> PropertiesNamesWithValues

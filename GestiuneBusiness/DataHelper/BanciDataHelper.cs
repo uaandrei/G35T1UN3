@@ -18,9 +18,9 @@ namespace GestiuneBusiness.DataHelper
 
         private BanciDataHelper()
         {
-            this.readStoredProcedureName = "BanciRead";
-            this.insertStoredProcedureName = "BanciCreate";
-            this.updateStoredProcedureName = "BanciUpdate";
+            this.selectAllStoredProcedureName = "sp_Banci_SelectAll";
+            this.insertStoredProcedureName = "sp_Banci_Insert";
+            this.updateStoredProcedureName = "sp_Banci_Update";
         }
 
         protected override GestiuneObject ToPocoObject(System.Data.SqlClient.SqlDataReader reader)

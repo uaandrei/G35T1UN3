@@ -8,7 +8,7 @@ namespace GestiuneBusiness.DataHelper.Kernel
 {
     internal abstract class GestiuneDataHelper
     {
-        protected string readStoredProcedureName = "";
+        protected string selectAllStoredProcedureName = "";
 
         protected string insertStoredProcedureName = "";
 
@@ -27,7 +27,7 @@ namespace GestiuneBusiness.DataHelper.Kernel
                 {
                     try
                     {
-                        using (SqlCommand cmd = new SqlCommand(readStoredProcedureName, con))
+                        using (SqlCommand cmd = new SqlCommand(selectAllStoredProcedureName, con))
                         {
                             con.Open();
                             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -42,7 +42,7 @@ namespace GestiuneBusiness.DataHelper.Kernel
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception(StringProcedureFail + readStoredProcedureName, ex);
+                        throw new Exception(StringProcedureFail + selectAllStoredProcedureName, ex);
                     }
                 }
             }
@@ -63,21 +63,20 @@ namespace GestiuneBusiness.DataHelper.Kernel
                     {
                         using (SqlCommand cmd = new SqlCommand(insertStoredProcedureName, con))
                         {
+                            const string ReferenceId = "@ReferenceID";
                             con.Open();
                             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-                            SqlParameter idSqlParameter = new SqlParameter("@Id", System.Data.SqlDbType.Int);
-                            idSqlParameter.Direction = System.Data.ParameterDirection.Output;
-                            cmd.Parameters.Add(idSqlParameter);
+                            cmd.Parameters.Add(ReferenceId, System.Data.SqlDbType.Int).Direction = System.Data.ParameterDirection.ReturnValue;
 
                             foreach (var dboObject in dbObjects)
                             {
                                 cmd.Parameters.AddWithValue(dboObject.Name, dboObject.Value);
                             }
 
-                            cmd.ExecuteNonQuery();
-                            con.Close();
-                            return (int)idSqlParameter.Value;
+                            cmd.ExecuteReader();
+
+                            var id = cmd.Parameters["@ReferenceID"].Value;
+                            return (int)id;
                         }
                     }
                     catch (Exception ex)

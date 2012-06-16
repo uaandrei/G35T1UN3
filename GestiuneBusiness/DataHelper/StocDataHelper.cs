@@ -17,9 +17,9 @@ namespace GestiuneBusiness.DataHelper
 
         private StocDataHelper()
         {
-            this.readStoredProcedureName = "StocRead";
-            this.insertStoredProcedureName = "StocCreate";
-            this.updateStoredProcedureName = "StocUpdate";
+            this.selectAllStoredProcedureName = "sp_Stoc_SelectAll";
+            this.insertStoredProcedureName = "sp_Stoc_Insert";
+            this.updateStoredProcedureName = "sp_Stoc_Update";
         }
 
         protected override GestiuneObject ToPocoObject(System.Data.SqlClient.SqlDataReader reader)

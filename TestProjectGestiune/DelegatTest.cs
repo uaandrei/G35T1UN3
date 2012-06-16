@@ -1,17 +1,19 @@
-﻿using GestiuneBusiness.Enums;
-using GestiuneBusiness.Poco;
+﻿using GestiuneBusiness.Poco;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using GestiuneBusiness.DataHelper.Kernel;
+using GestiuneBusiness.Enums;
 
 namespace TestProjectGestiune
 {
 
 
     /// <summary>
-    ///This is a test class for BancaTest and is intended
-    ///to contain all BancaTest Unit Tests
+    ///This is a test class for DelegatTest and is intended
+    ///to contain all DelegatTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class BancaTest
+    public class DelegatTest
     {
 
 
@@ -63,62 +65,45 @@ namespace TestProjectGestiune
         //
         #endregion
 
-        [TestMethod]
-        public void GetErrorsBancaTest()
-        {
-            var banca = new Banca();
-            banca.Adresa = "x";
-            banca.Nume= "x";
-            banca.RC= "x";
-            var errors = banca.GetErrorString();
-            Assert.IsNotNull(errors);
-        }
 
-        [TestMethod]
-        public void InsertBancaTest()
+        /// <summary>
+        ///A test for Save
+        ///</summary>
+        [TestMethod()]
+        public void InsertDelegatTest()
         {
-            var banca = new Banca
+            var x = new Delegat
             {
-                Adresa="Str. Mihai Viteaza nr. 3 Bucuresti",
-                CapitalSocial=123356567m,
-                Cui="1039/asd",
-                Nume="Banca Nationala",
-                RC="RJO123.123"
+                Cnp = "12912912939",
+                Nume = "Mihai",
+                Serie = "123123"
             };
-           var result= banca.Save();
-           if (result.Status!=StatusEnum.Errors)
-           {
-               Assert.Fail();
-           }
+            var r = x.Save();
+            if (r.Status != StatusEnum.Errors)
+                Assert.Fail();
         }
 
-        [TestMethod]
-        public void UpdateBancaTest()
+        [TestMethod()]
+        public void UpdateDelegatTest()
         {
-            var banca = new Banca
+            var x = new Delegat
             {
-                Adresa = "Str. Mihai Viteaza nr. 3 Modificata",
-                CapitalSocial = 123m,
-                Cui = "1039/aModificatasd",
-                Nume = "Banca Nationala Modificata",
-                RC = "RJO12Modificata3.123"
+                Cnp = "Modificat",
+                Nume = "Mihai Modificat",
+                Serie = "Modificat",
+                ID = 11
             };
-            banca.ID = 8;
-            var result = banca.Save();
-            if (result.Status == StatusEnum.Errors)
-            {
+            var r = x.Save();
+            if (r.Status == StatusEnum.Errors)
                 Assert.Fail();
-            }
         }
 
         [TestMethod]
-        public void BancaGetAllTest()
+        public void GetAllDelegatiTest()
         {
-            var list = Banca.GetAll();
-            if (list==null)
-            {
+            var x = Delegat.GetAll();
+            if (x == null)
                 Assert.Fail();
-            }
         }
     }
 }

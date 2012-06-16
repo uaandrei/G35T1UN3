@@ -1,17 +1,18 @@
 ﻿using GestiuneBusiness.Enums;
 using GestiuneBusiness.Poco;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace TestProjectGestiune
 {
 
 
     /// <summary>
-    ///This is a test class for BancaTest and is intended
-    ///to contain all BancaTest Unit Tests
+    ///This is a test class for FacturaIesireTest and is intended
+    ///to contain all FacturaIesireTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class BancaTest
+    public class FacturaIesireTest
     {
 
 
@@ -64,58 +65,45 @@ namespace TestProjectGestiune
         #endregion
 
         [TestMethod]
-        public void GetErrorsBancaTest()
+        public void InsertFacturaIesireTest()
         {
-            var banca = new Banca();
-            banca.Adresa = "x";
-            banca.Nume= "x";
-            banca.RC= "x";
-            var errors = banca.GetErrorString();
-            Assert.IsNotNull(errors);
-        }
-
-        [TestMethod]
-        public void InsertBancaTest()
-        {
-            var banca = new Banca
+            var factura = new FacturaIesire
             {
-                Adresa="Str. Mihai Viteaza nr. 3 Bucuresti",
-                CapitalSocial=123356567m,
-                Cui="1039/asd",
-                Nume="Banca Nationala",
-                RC="RJO123.123"
+                Data = DateTime.Now,
+                IdFirma = 1,
+                Numar = "Testing",
+                Serie = "Testing"
             };
-           var result= banca.Save();
-           if (result.Status!=StatusEnum.Errors)
-           {
-               Assert.Fail();
-           }
-        }
-
-        [TestMethod]
-        public void UpdateBancaTest()
-        {
-            var banca = new Banca
-            {
-                Adresa = "Str. Mihai Viteaza nr. 3 Modificata",
-                CapitalSocial = 123m,
-                Cui = "1039/aModificatasd",
-                Nume = "Banca Nationala Modificata",
-                RC = "RJO12Modificata3.123"
-            };
-            banca.ID = 8;
-            var result = banca.Save();
-            if (result.Status == StatusEnum.Errors)
+            var r = factura.Save();
+            if (r.Status==StatusEnum.Errors)
             {
                 Assert.Fail();
             }
         }
 
         [TestMethod]
-        public void BancaGetAllTest()
+        public void UpdateFacturaIesireTest()
         {
-            var list = Banca.GetAll();
-            if (list==null)
+            var factura = new FacturaIesire
+            {
+                Data = DateTime.Now,
+                IdFirma = 1,
+                Numar = "Modificat",
+                Serie = "Testing",
+                ID=1
+            };
+            var r = factura.Save();
+            if (r.Status == StatusEnum.Errors)
+            {
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public void GetAllFacturaIesireTest()
+        {
+            var list = FacturaIesire.GetAll();
+            if (list == null)
             {
                 Assert.Fail();
             }

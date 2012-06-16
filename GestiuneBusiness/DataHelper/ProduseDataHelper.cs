@@ -17,9 +17,9 @@ namespace GestiuneBusiness.DataHelper
 
         private ProduseDataHelper()
         {
-            this.readStoredProcedureName = "ProduseRead";
-            this.insertStoredProcedureName = "ProduseCreate";
-            this.updateStoredProcedureName = "ProduseUpdate";
+            this.selectAllStoredProcedureName = "sp_Produse_SelectAll";
+            this.insertStoredProcedureName = "sp_Produse_Insert";
+            this.updateStoredProcedureName = "sp_Produse_Update";
         }
 
         protected override GestiuneObject ToPocoObject(System.Data.SqlClient.SqlDataReader reader)

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using GestiuneBusiness.DataHelper.Kernel;
 using GestiuneBusiness.Poco;
 using GestiuneBusiness.Poco.Kernel;
@@ -18,14 +17,14 @@ namespace GestiuneBusiness.DataHelper
 
         private FacturiIntrareDataHelper()
         {
-            this.readStoredProcedureName = "FacturiRead";
-            this.insertStoredProcedureName = "FacturiCreate";
-            this.updateStoredProcedureName = "FacturiUpdate";
+            this.selectAllStoredProcedureName = "sp_FacturiIntrare_SelectAll";
+            this.insertStoredProcedureName = "sp_FacturiIntrare_Insert";
+            this.updateStoredProcedureName = "sp_FacturiIntrare_Update";
         }
 
         protected override GestiuneObject ToPocoObject(System.Data.SqlClient.SqlDataReader reader)
         {
-            return new FacturaIesire
+            return new FacturaIntrare
             {
                 ID = (int)reader[0],
                 Serie = reader[1].ToString(),

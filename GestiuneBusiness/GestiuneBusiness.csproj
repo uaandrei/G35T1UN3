@@ -52,10 +52,13 @@
     <Compile Include="DataHelper\Kernel\DbObject.cs" />
     <Compile Include="DataHelper\Kernel\GestiuneDataHelper.cs" />
     <Compile Include="DataHelper\Kernel\PersistenceResult.cs" />
+    <Compile Include="DataHelper\PlatiFacturiDataHelper.cs" />
     <Compile Include="DataHelper\PlatiDataHelper.cs" />
+    <Compile Include="DataHelper\PozitiiFacturiIesireDataHelper.cs" />
+    <Compile Include="DataHelper\PozitiiFacturiIntrareDataHelper.cs" />
     <Compile Include="DataHelper\ProduseDataHelper.cs" />
     <Compile Include="DataHelper\StocDataHelper.cs" />
-    <Compile Include="Enums\EnumStatus.cs" />
+    <Compile Include="Enums\StatusEnum.cs" />
     <Compile Include="Enums\TipFacturaEnum.cs" />
     <Compile Include="Interfaces\IDataPersistence.cs" />
     <Compile Include="Poco\Banca.cs" />
@@ -65,7 +68,6 @@
     <Compile Include="Poco\FacturaIesire.cs" />
     <Compile Include="Poco\Firma.cs" />
     <Compile Include="Poco\Kernel\GestiuneObject.cs" />
-    <Compile Include="Poco\Kernel\IErrorInfo.cs" />
     <Compile Include="Poco\Plata.cs" />
     <Compile Include="Poco\PlataFactura.cs" />
     <Compile Include="Poco\PozitieFacturaIntrare.cs" />

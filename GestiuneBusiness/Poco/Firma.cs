@@ -36,18 +36,22 @@ namespace GestiuneBusiness.Poco
                 if (this.ID == 0)
                 {
                     this.ID = FirmeDataHelper.GetInstance().Create(PropertiesNamesWithValues);
+                    if (firmaList==null)
+                    {
+                        firmaList = new List<Firma>();
+                    }
                     firmaList.Add(this);
                 }
                 else
                 {
                     FirmeDataHelper.GetInstance().Update(PropertiesNamesWithValues, this.ID);
                 }
-                result.Status = Enums.EnumStatus.Saved;
+                result.Status = Enums.StatusEnum.Saved;
                 result.Message = StringSaveSuccess;
             }
             catch (Exception ex)
             {
-                result.Status = Enums.EnumStatus.Errors;
+                result.Status = Enums.StatusEnum.Errors;
                 result.Message = StringSaveFail;
                 result.ExceptionOccurred = ex;
             }
@@ -65,9 +69,7 @@ namespace GestiuneBusiness.Poco
             try
             {
                 if (firmaList == null)
-                {
                     firmaList = FirmeDataHelper.GetInstance().GetAll().Cast<Firma>().ToList();
-                }
                 return firmaList;
             }
             catch (Exception)
@@ -81,15 +83,15 @@ namespace GestiuneBusiness.Poco
             get
             {
                 List<DbObject> result = new List<DbObject>();
-                result.Add(new DbObject { Name = "@Nume", Value = this.Nume,FriendlyName="Nume" });
-                result.Add(new DbObject { Name = "@CUI", Value = this.Cui,FriendlyName="C.U.I." });
-                result.Add(new DbObject { Name = "@RC", Value = this.Rc,FriendlyName="Registru Comert" });
-                result.Add(new DbObject { Name = "@IBAN", Value = this.Iban,FriendlyName="IBAN" });
-                result.Add(new DbObject { Name = "@Adresa", Value = this.Adresa,FriendlyName="Adresa" });
+                result.Add(new DbObject { Name = "@Nume", Value = this.Nume, FriendlyName = "Nume" });
+                result.Add(new DbObject { Name = "@CUI", Value = this.Cui, FriendlyName = "C.U.I." });
+                result.Add(new DbObject { Name = "@RC", Value = this.Rc, FriendlyName = "Registru Comert" });
+                result.Add(new DbObject { Name = "@IBAN", Value = this.Iban, FriendlyName = "IBAN" });
+                result.Add(new DbObject { Name = "@Adresa", Value = this.Adresa, FriendlyName = "Adresa" });
                 result.Add(new DbObject { Name = "@Telefon", Value = this.Telefon });
                 result.Add(new DbObject { Name = "@DataInfiintarii", Value = this.DataInfiintarii });
-                result.Add(new DbObject { Name = "@IdBanca", Value = this.IdBanca,FriendlyName="Banca" });
-                result.Add(new DbObject { Name = "@IdDelegat", Value = this.IdDelegat,FriendlyName="Delegat" });
+                result.Add(new DbObject { Name = "@IdBanca", Value = this.IdBanca, FriendlyName = "Banca" });
+                result.Add(new DbObject { Name = "@IdDelegat", Value = this.IdDelegat, FriendlyName = "Delegat" });
                 return result;
             }
         }

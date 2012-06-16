@@ -31,20 +31,24 @@ namespace GestiuneBusiness.Poco
                 if (this.ID == 0)
                 {
                     // obiectul este nou, deci trebuie creat
-                    this.ID = FacturiIntrareDataHelper.GetInstance().Create(PropertiesNamesWithValues);
+                    this.ID = FacturiIesireDataHelper.GetInstance().Create(PropertiesNamesWithValues);
+                    if (facturaIesireList==null)
+                    {
+                        facturaIesireList = new List<FacturaIesire>();
+                    }
                     facturaIesireList.Add(this);
                 }
 
                 else
                 {
-                    FacturiIntrareDataHelper.GetInstance().Update(PropertiesNamesWithValues, this.ID);
+                    FacturiIesireDataHelper.GetInstance().Update(PropertiesNamesWithValues, this.ID);
                 }
-                persistenceResult.Status = Enums.EnumStatus.Saved;
+                persistenceResult.Status = Enums.StatusEnum.Saved;
                 persistenceResult.Message = StringSaveSuccess;
             }
             catch (Exception ex)
             {
-                persistenceResult.Status = Enums.EnumStatus.Errors;
+                persistenceResult.Status = Enums.StatusEnum.Errors;
                 persistenceResult.Message = StringSaveFail;
                 persistenceResult.ExceptionOccurred = ex;
             }
@@ -61,10 +65,7 @@ namespace GestiuneBusiness.Poco
         {
             try
             {
-                if (facturaIesireList == null)
-                {
-                    facturaIesireList = FacturiIntrareDataHelper.GetInstance().GetAll().Cast<FacturaIesire>().ToList();
-                }
+                if (facturaIesireList == null) facturaIesireList = FacturiIesireDataHelper.GetInstance().GetAll().Cast<FacturaIesire>().ToList();
                 return facturaIesireList;
             }
             catch (Exception)

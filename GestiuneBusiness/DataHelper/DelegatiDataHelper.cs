@@ -10,9 +10,9 @@ namespace GestiuneBusiness.DataHelper
     {
         private DelegatiDataHelper()
         {
-            this.readStoredProcedureName = "DelegatiRead";
-            this.insertStoredProcedureName = "DelegatiCreate";
-            this.updateStoredProcedureName = "DelegatiUpdate";
+            this.selectAllStoredProcedureName = "sp_Delegati_SelectAll";
+            this.insertStoredProcedureName = "sp_Delegati_Insert";
+            this.updateStoredProcedureName = "sp_Delegati_Update";
         }
 
         private static DelegatiDataHelper delegatiDataHelper = null;

@@ -1,17 +1,19 @@
 ﻿using GestiuneBusiness.Enums;
 using GestiuneBusiness.Poco;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using GestiuneBusiness.DataHelper.Kernel;
 
 namespace TestProjectGestiune
 {
 
 
     /// <summary>
-    ///This is a test class for BancaTest and is intended
-    ///to contain all BancaTest Unit Tests
+    ///This is a test class for FirmaTest and is intended
+    ///to contain all FirmaTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class BancaTest
+    public class FirmaTest
     {
 
 
@@ -64,61 +66,50 @@ namespace TestProjectGestiune
         #endregion
 
         [TestMethod]
-        public void GetErrorsBancaTest()
+        public void InsertFirmaTest()
         {
-            var banca = new Banca();
-            banca.Adresa = "x";
-            banca.Nume= "x";
-            banca.RC= "x";
-            var errors = banca.GetErrorString();
-            Assert.IsNotNull(errors);
-        }
-
-        [TestMethod]
-        public void InsertBancaTest()
-        {
-            var banca = new Banca
+            var firma = new Firma
             {
-                Adresa="Str. Mihai Viteaza nr. 3 Bucuresti",
-                CapitalSocial=123356567m,
-                Cui="1039/asd",
-                Nume="Banca Nationala",
-                RC="RJO123.123"
+                Adresa = "Testing",
+                Cui = "Testing",
+                DataInfiintarii = DateTime.Now,
+                Iban = "Testing",
+                IdBanca = 10,
+                IdDelegat = 11,
+                Nume = "Testing",
+                Rc = "Testing",
+                Telefon = "Testing"
             };
-           var result= banca.Save();
-           if (result.Status!=StatusEnum.Errors)
-           {
-               Assert.Fail();
-           }
-        }
-
-        [TestMethod]
-        public void UpdateBancaTest()
-        {
-            var banca = new Banca
-            {
-                Adresa = "Str. Mihai Viteaza nr. 3 Modificata",
-                CapitalSocial = 123m,
-                Cui = "1039/aModificatasd",
-                Nume = "Banca Nationala Modificata",
-                RC = "RJO12Modificata3.123"
-            };
-            banca.ID = 8;
-            var result = banca.Save();
-            if (result.Status == StatusEnum.Errors)
+            var r = firma.Save();
+            if (r.Status != StatusEnum.Errors)
             {
                 Assert.Fail();
             }
         }
 
         [TestMethod]
-        public void BancaGetAllTest()
+        public void UpdateFirmaTest()
         {
-            var list = Banca.GetAll();
-            if (list==null)
+            var firma = new Firma
+            {
+                Adresa = "Modificat",
+                Cui = "Modificat2",
+                DataInfiintarii = DateTime.Now,
+                Iban = "Modificat",
+                IdBanca = 10,
+                IdDelegat = 11,
+                Nume = "Testing",
+                Rc = "Modificat",
+                Telefon = "Modificat",
+                ID=3
+            };
+            var r = firma.Save();
+            if (r.Status == StatusEnum.Errors)
             {
                 Assert.Fail();
             }
         }
+
+
     }
 }

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace GestiuneBusiness.Enums
 {
-    public enum EnumStatus
+    public enum StatusEnum
     {
         Saved,
         Errors

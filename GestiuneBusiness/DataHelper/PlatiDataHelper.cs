@@ -17,7 +17,9 @@ namespace GestiuneBusiness.DataHelper
 
         private PlatiDataHelper()
         {
-            this.readStoredProcedureName = "PlatiRead";
+            this.insertStoredProcedureName = "sp_Plati_Insert";
+            this.selectAllStoredProcedureName = "sp_Plati_SelectAll";
+            this.updateStoredProcedureName = "sp_Plati_Update";
         }
 
         protected override GestiuneObject ToPocoObject(System.Data.SqlClient.SqlDataReader reader)
