@@ -19,9 +19,9 @@ namespace GestiuneBusiness.DataHelper
 
         private PozitiiFacturiIntrareDataHelper()
         {
-            this.insertStoredProcedureName = "sp_Plati_Insert";
-            this.selectAllStoredProcedureName = "sp_Plati_SelectAll";
-            this.updateStoredProcedureName = "sp_Plati_Update";
+            this.insertStoredProcedureName = "sp_PozitiiFacturiIntrare_Insert";
+            this.selectAllStoredProcedureName = "sp_PozitiiFacturiIntrare_SelectAll";
+            this.updateStoredProcedureName = "sp_PozitiiFacturiIntrare_Update";
         }
 
         protected override GestiuneObject ToPocoObject(System.Data.SqlClient.SqlDataReader reader)

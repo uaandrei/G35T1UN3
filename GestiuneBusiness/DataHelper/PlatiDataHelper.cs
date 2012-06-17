@@ -28,7 +28,7 @@ namespace GestiuneBusiness.DataHelper
             {
                 ID = (int)reader[0],
                 Serie = reader[1].ToString(),
-                Nr = reader[2].ToString(),
+                Numar = reader[2].ToString(),
                 Data = (DateTime)reader[3],
                 TipPlata = reader[4].ToString(),
                 Suma = (decimal)reader[5]

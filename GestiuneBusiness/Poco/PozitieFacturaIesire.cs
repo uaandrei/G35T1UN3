@@ -30,8 +30,8 @@ namespace GestiuneBusiness.Poco
         }
         #endregion
 
-        private List<PozitieFacturaIesire> pozitieFacturaIesireList = null;
-        public List<PozitieFacturaIesire> GetAll()
+        private static List<PozitieFacturaIesire> pozitieFacturaIesireList = null;
+        public static List<PozitieFacturaIesire> GetAll()
         {
             try
             {

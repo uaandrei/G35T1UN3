@@ -10,7 +10,7 @@ namespace GestiuneBusiness.Poco
     {
         #region [MEMBERS]
         public string Serie { get; set; }
-        public string Nr { get; set; }
+        public string Numar { get; set; }
         public DateTime Data { get; set; }
         public string TipPlata { get; set; }
         public decimal Suma { get; set; }
@@ -72,7 +72,7 @@ namespace GestiuneBusiness.Poco
             {
                 List<DbObject> result = new List<DbObject>();
                 result.Add(new DbObject { Name = "@Serie", Value = this.Serie, FriendlyName = "Serie" });
-                result.Add(new DbObject { Name = "@Nr", Value = this.Nr, FriendlyName = "Numar" });
+                result.Add(new DbObject { Name = "@Numar", Value = this.Numar, FriendlyName = "Numar" });
                 result.Add(new DbObject { Name = "@Data", Value = this.Data, FriendlyName = "Data platii" });
                 result.Add(new DbObject { Name = "@TipPlata", Value = this.TipPlata, FriendlyName = "Tip plata" });
                 result.Add(new DbObject { Name = "@Suma", Value = this.Suma, FriendlyName = "Suma" });

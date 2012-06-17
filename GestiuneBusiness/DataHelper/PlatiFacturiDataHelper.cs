@@ -19,9 +19,9 @@ namespace GestiuneBusiness.DataHelper
 
         private PlatiFacturiDataHelper()
         {
-            this.selectAllStoredProcedureName = "sp_Banci_SelectAll";
-            this.insertStoredProcedureName = "sp_Banci_Insert";
-            this.updateStoredProcedureName = "sp_Banci_Update";
+            this.selectAllStoredProcedureName = "sp_Plati_Facturi_SelectAll";
+            this.insertStoredProcedureName = "sp_Plati_Facturi_Insert";
+            this.updateStoredProcedureName = "sp_Plati_Facturi_Update";
         }
 
         protected override GestiuneObject ToPocoObject(SqlDataReader reader)
