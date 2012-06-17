@@ -75,7 +75,7 @@ namespace TestProjectGestiune
             var target = new PozitieFacturaIesire
             {
                 Cantitate = 12m,
-                IdFacturaIesire = 3,
+                IdFacturaIesire = 1,
                 IdStoc = 1,
                 PretUnitar = 12m
             };

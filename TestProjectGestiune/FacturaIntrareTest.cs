@@ -95,7 +95,7 @@ namespace TestProjectGestiune
                 IdFirma = 1,
                 Numar = "Testing",
                 Serie = "TestingModificatIntrare",
-                ID = 4
+                ID = 1
             };
             var r = target.Save();
             if (r.Status == StatusEnum.Errors)

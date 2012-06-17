@@ -1,17 +1,19 @@
 ﻿using GestiuneBusiness.Enums;
-using GestiuneBusiness.Poco;
+using GestiuneBusiness.Poco.Administration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using GestiuneBusiness.DataHelper.Kernel;
 
 namespace TestProjectGestiune
 {
-
-
+    
+    
     /// <summary>
-    ///This is a test class for BancaTest and is intended
-    ///to contain all BancaTest Unit Tests
+    ///This is a test class for UtilizatorTest and is intended
+    ///to contain all UtilizatorTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class BancaTest
+    public class UtilizatorTest
     {
 
 
@@ -63,59 +65,48 @@ namespace TestProjectGestiune
         //
         #endregion
 
-        [TestMethod]
-        public void GetErrorsBancaTest()
-        {
-            var banca = new Banca();
-            banca.Adresa = "x";
-            banca.Nume= "x";
-            banca.RC= "x";
-            var errors = banca.GetErrorString();
-            Assert.IsNotNull(errors);
-        }
 
-        [TestMethod]
-        public void InsertBancaTest()
+        /// <summary>
+        ///A test for Save
+        ///</summary>
+        [TestMethod()]
+        public void InsertUtilizatorTest()
         {
-            var banca = new Banca
+            var target = new Utilizator
             {
-                Adresa="Str. Mihai Viteaza nr. 3 Bucuresti",
-                CapitalSocial=123356567m,
-                Cui="1039/asd",
-                Nume="Banca Nationala",
-                RC="RJO123.123"
+                IdRol = 1,
+                Activ = false,
+                Nume = "t1e1sti1ng",
+                Parola = "123"
             };
-           var result= banca.Save();
-           if (result.Status!=StatusEnum.Errors)
-           {
-               Assert.Fail();
-           }
-        }
-
-        [TestMethod]
-        public void UpdateBancaTest()
-        {
-            var banca = new Banca
-            {
-                Adresa = "Str. Mihai Viteaza nr. 3 Modificata",
-                CapitalSocial = 123m,
-                Cui = "1039/aModificatasd",
-                Nume = "Banca Nationala Modificata",
-                RC = "RJO12Modificata3.123"
-            };
-            banca.ID = 1;
-            var result = banca.Save();
-            if (result.Status == StatusEnum.Errors)
+            if (target.Save().Status!=StatusEnum.Errors)
             {
                 Assert.Fail();
             }
         }
 
-        [TestMethod]
-        public void BancaGetAllTest()
+        [TestMethod()]
+        public void UpdateUtilizatorTest()
         {
-            var list = Banca.GetAll();
-            if (list==null)
+            var target = new Utilizator
+            {
+                IdRol = 1,
+                Activ = true,
+                Nume = "Modified",
+                Parola = "1223",
+                ID = 1
+            };
+            if (target.Save().Status == StatusEnum.Errors)
+            {
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod()]
+        public void GetAllUtilizatorTest()
+        {
+            var target =  Utilizator.GetAll();
+            if (target==null)
             {
                 Assert.Fail();
             }

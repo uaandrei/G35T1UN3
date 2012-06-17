@@ -1,17 +1,19 @@
 ﻿using GestiuneBusiness.Enums;
-using GestiuneBusiness.Poco;
+using GestiuneBusiness.Poco.Administration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using GestiuneBusiness.DataHelper.Kernel;
 
 namespace TestProjectGestiune
 {
 
 
     /// <summary>
-    ///This is a test class for BancaTest and is intended
-    ///to contain all BancaTest Unit Tests
+    ///This is a test class for RolDreptTest and is intended
+    ///to contain all RolDreptTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class BancaTest
+    public class RolDreptTest
     {
 
 
@@ -63,58 +65,43 @@ namespace TestProjectGestiune
         //
         #endregion
 
-        [TestMethod]
-        public void GetErrorsBancaTest()
+
+        /// <summary>
+        ///A test for Save
+        ///</summary>
+        [TestMethod()]
+        public void InsertRolDreptTest()
         {
-            var banca = new Banca();
-            banca.Adresa = "x";
-            banca.Nume= "x";
-            banca.RC= "x";
-            var errors = banca.GetErrorString();
-            Assert.IsNotNull(errors);
+            var target = new RolDrept
+            {
+                IdDrept = 1,
+                IdRol = 1
+            };
+            if (target.Save().Status == StatusEnum.Errors)
+            {
+                Assert.Fail();
+            }
         }
 
-        [TestMethod]
-        public void InsertBancaTest()
+        [TestMethod()]
+        public void UpdateRolDreptTest()
         {
-            var banca = new Banca
+            var target = new RolDrept
             {
-                Adresa="Str. Mihai Viteaza nr. 3 Bucuresti",
-                CapitalSocial=123356567m,
-                Cui="1039/asd",
-                Nume="Banca Nationala",
-                RC="RJO123.123"
+                IdDrept = 1,
+                IdRol = 2,
+                ID=1
             };
-           var result= banca.Save();
-           if (result.Status!=StatusEnum.Errors)
-           {
-               Assert.Fail();
-           }
-        }
-
-        [TestMethod]
-        public void UpdateBancaTest()
-        {
-            var banca = new Banca
-            {
-                Adresa = "Str. Mihai Viteaza nr. 3 Modificata",
-                CapitalSocial = 123m,
-                Cui = "1039/aModificatasd",
-                Nume = "Banca Nationala Modificata",
-                RC = "RJO12Modificata3.123"
-            };
-            banca.ID = 1;
-            var result = banca.Save();
-            if (result.Status == StatusEnum.Errors)
+            if (target.Save().Status == StatusEnum.Errors)
             {
                 Assert.Fail();
             }
         }
 
         [TestMethod]
-        public void BancaGetAllTest()
+        public void GetAllRolDreptTest()
         {
-            var list = Banca.GetAll();
+            var list = RolDrept.GetAll();
             if (list==null)
             {
                 Assert.Fail();

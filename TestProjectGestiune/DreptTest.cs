@@ -1,17 +1,19 @@
 ﻿using GestiuneBusiness.Enums;
-using GestiuneBusiness.Poco;
+using GestiuneBusiness.Poco.Administration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using GestiuneBusiness.DataHelper.Kernel;
 
 namespace TestProjectGestiune
 {
 
 
     /// <summary>
-    ///This is a test class for BancaTest and is intended
-    ///to contain all BancaTest Unit Tests
+    ///This is a test class for DreptTest and is intended
+    ///to contain all DreptTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class BancaTest
+    public class DreptTest
     {
 
 
@@ -63,59 +65,44 @@ namespace TestProjectGestiune
         //
         #endregion
 
-        [TestMethod]
-        public void GetErrorsBancaTest()
-        {
-            var banca = new Banca();
-            banca.Adresa = "x";
-            banca.Nume= "x";
-            banca.RC= "x";
-            var errors = banca.GetErrorString();
-            Assert.IsNotNull(errors);
-        }
 
-        [TestMethod]
-        public void InsertBancaTest()
+        /// <summary>
+        ///A test for Save
+        ///</summary>
+        [TestMethod()]
+        public void InsertDreptTest()
         {
-            var banca = new Banca
+            Drept target = new Drept
             {
-                Adresa="Str. Mihai Viteaza nr. 3 Bucuresti",
-                CapitalSocial=123356567m,
-                Cui="1039/asd",
-                Nume="Banca Nationala",
-                RC="RJO123.123"
+                AreDrept = true,
+                Descriere = "Testing"
             };
-           var result= banca.Save();
-           if (result.Status!=StatusEnum.Errors)
-           {
-               Assert.Fail();
-           }
-        }
-
-        [TestMethod]
-        public void UpdateBancaTest()
-        {
-            var banca = new Banca
-            {
-                Adresa = "Str. Mihai Viteaza nr. 3 Modificata",
-                CapitalSocial = 123m,
-                Cui = "1039/aModificatasd",
-                Nume = "Banca Nationala Modificata",
-                RC = "RJO12Modificata3.123"
-            };
-            banca.ID = 1;
-            var result = banca.Save();
-            if (result.Status == StatusEnum.Errors)
+            if (target.Save().Status != StatusEnum.Errors)
             {
                 Assert.Fail();
             }
         }
 
-        [TestMethod]
-        public void BancaGetAllTest()
+        [TestMethod()]
+        public void UpdateDreptTest()
         {
-            var list = Banca.GetAll();
-            if (list==null)
+            Drept target = new Drept
+            {
+                AreDrept = true,
+                Descriere = "Modified",
+                ID=1
+            };
+            if (target.Save().Status == StatusEnum.Errors)
+            {
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod()]
+        public void GetAllDreptTest()
+        {
+            var target =  Drept.GetAll();
+            if (target==null)
             {
                 Assert.Fail();
             }

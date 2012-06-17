@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="BancaTest.cs" />
     <Compile Include="DelegatTest.cs" />
+    <Compile Include="DreptTest.cs" />
     <Compile Include="FacturaIesireTest.cs" />
     <Compile Include="FacturaIntrareTest.cs" />
     <Compile Include="FirmaTest.cs" />
@@ -64,7 +65,10 @@
     <Compile Include="PozitieFacturaIntrareTest.cs" />
     <Compile Include="ProdusTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RolDreptTest.cs" />
+    <Compile Include="RolTest.cs" />
     <Compile Include="StocTest.cs" />
+    <Compile Include="UtilizatorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Shadow Include="Test References\GestiuneBusiness.accessor" />

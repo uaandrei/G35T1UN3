@@ -70,11 +70,11 @@ namespace TestProjectGestiune
         ///A test for Save
         ///</summary>
         [TestMethod()]
-        public void InsertPlataTest()
+        public void InsertPlataFacturaTest()
         {
             var target = new PlataFactura
             {
-                IdPlata = 2,
+                IdPlata = 1,
                 IdFactura = 1,
                 TipFactura="Iesire"
             };
@@ -91,9 +91,9 @@ namespace TestProjectGestiune
             var target = new PlataFactura
             {
                 IdPlata = 1,
-                IdFactura = 4,
+                IdFactura = 1,
                 TipFactura="Iesire",
-                ID = 3
+                ID = 1
             };
             var r = target.Save();
             if (r.Status == StatusEnum.Errors)

@@ -35,6 +35,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataHelper\BanciDataHelper.cs" />
+    <Compile Include="DataHelper\DrepturiDataHelper.cs" />
     <Compile Include="DataHelper\FacturiIesireDataHelper.cs" />
     <Compile Include="DataHelper\DelegatiDataHelper.cs" />
     <Compile Include="DataHelper\FacturiIntrareDataHelper.cs" />
@@ -57,10 +59,17 @@
     <Compile Include="DataHelper\PozitiiFacturiIesireDataHelper.cs" />
     <Compile Include="DataHelper\PozitiiFacturiIntrareDataHelper.cs" />
     <Compile Include="DataHelper\ProduseDataHelper.cs" />
+    <Compile Include="DataHelper\RoluriDataHelper.cs" />
+    <Compile Include="DataHelper\RoluriDrepturiDataHelper.cs" />
     <Compile Include="DataHelper\StocDataHelper.cs" />
+    <Compile Include="DataHelper\UtilizatoriDataHelper.cs" />
     <Compile Include="Enums\StatusEnum.cs" />
     <Compile Include="Enums\TipFacturaEnum.cs" />
     <Compile Include="Interfaces\IDataPersistence.cs" />
+    <Compile Include="Poco\Administration\Drept.cs" />
+    <Compile Include="Poco\Administration\Rol.cs" />
+    <Compile Include="Poco\Administration\RolDrept.cs" />
+    <Compile Include="Poco\Administration\Utilizator.cs" />
     <Compile Include="Poco\Banca.cs" />
     <Compile Include="Poco\PozitieFacturaIesire.cs" />
     <Compile Include="Poco\FacturaIntrare.cs" />

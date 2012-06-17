@@ -91,7 +91,7 @@ namespace TestProjectGestiune
                 Cnp = "Modificat",
                 Nume = "Mihai Modificat",
                 Serie = "Modificat",
-                ID = 11
+                ID = 1
             };
             var r = x.Save();
             if (r.Status == StatusEnum.Errors)
