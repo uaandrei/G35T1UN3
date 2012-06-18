@@ -12,6 +12,7 @@ namespace GestiuneBusiness.Poco.Administration
         #region [MEMBERS]
         public int IdRol { get; set; }
         public int IdDrept { get; set; }
+        public bool AreDrept { get; set; }
         public Drept DreptObject
         {
             get
@@ -82,12 +83,13 @@ namespace GestiuneBusiness.Poco.Administration
             throw new NotImplementedException();
         }
 
-        protected override List<DbObject> PropertiesNamesWithValues
+        public override List<DbObject> PropertiesNamesWithValues
         {
             get
             {
                 List<DbObject> result = new List<DbObject>();
                 result.Add(new DbObject { Name = "@IdDrept", Value = this.IdDrept, FriendlyName = "Drept" });
+                result.Add(new DbObject { Name = "@AreDrept", Value = this.AreDrept, FriendlyName = "Are Drept" });
                 result.Add(new DbObject { Name = "@IdRol", Value = this.IdRol, FriendlyName = "Rol" });
                 return result;
             }

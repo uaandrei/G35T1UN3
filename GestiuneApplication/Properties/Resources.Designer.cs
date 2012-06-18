@@ -60,6 +60,13 @@ namespace GestiuneApplication.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Add_32 {
+            get {
+                object obj = ResourceManager.GetObject("Add_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap apple_32x32 {
             get {
                 object obj = ResourceManager.GetObject("apple_32x32", resourceCulture);
@@ -81,6 +88,13 @@ namespace GestiuneApplication.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Edit_32 {
+            get {
+                object obj = ResourceManager.GetObject("Edit_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap exit_32 {
             get {
                 object obj = ResourceManager.GetObject("exit_32", resourceCulture);
@@ -98,6 +112,13 @@ namespace GestiuneApplication.Properties {
         internal static System.Drawing.Bitmap Logout_32 {
             get {
                 object obj = ResourceManager.GetObject("Logout_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Refresh_32 {
+            get {
+                object obj = ResourceManager.GetObject("Refresh_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

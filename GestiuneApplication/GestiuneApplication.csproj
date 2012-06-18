@@ -50,7 +50,38 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IRaportTreeNodeComponent.cs" />
+    <Compile Include="Administrare\RoleListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Administrare\RoleListControl.Designer.cs">
+      <DependentUpon>RoleListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrare\UserListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Administrare\UserListControl.Designer.cs">
+      <DependentUpon>UserListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConstantsAndEnums\Constants.cs" />
+    <Compile Include="Firme\AchitareFacturiPeFirmaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Firme\AchitareFacturiPeFirmaControl.Designer.cs">
+      <DependentUpon>AchitareFacturiPeFirmaControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Firme\AddEditFirmaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Firme\AddEditFirmaForm.Designer.cs">
+      <DependentUpon>AddEditFirmaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Firme\FirmeListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Firme\FirmeListControl.Designer.cs">
+      <DependentUpon>FirmeListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ITreeNode.cs" />
     <Compile Include="LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +93,18 @@
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produse\AddEditProdusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Produse\AddEditProdusForm.Designer.cs">
+      <DependentUpon>AddEditProdusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produse\ProduseListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Produse\ProduseListControl.Designer.cs">
+      <DependentUpon>ProduseListControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,8 +120,26 @@
     <Compile Include="Rapoarte\RaportFacturiNeachitateControl.Designer.cs">
       <DependentUpon>RaportFacturiNeachitateControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Stoc\StocListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Stoc\StocListControl.Designer.cs">
+      <DependentUpon>StocListControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Firme\AddEditFirmaForm.resx">
+      <DependentUpon>AddEditFirmaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Firme\FirmeListControl.resx">
+      <DependentUpon>FirmeListControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produse\AddEditProdusForm.resx">
+      <DependentUpon>AddEditProdusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produse\ProduseListControl.resx">
+      <DependentUpon>ProduseListControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -90,6 +151,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Stoc\StocListControl.resx">
+      <DependentUpon>StocListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\GestiuneBusiness.Poco.Firma.datasource" />
+    <None Include="Properties\DataSources\GestiuneBusiness.Poco.Produs.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -122,10 +188,27 @@
     <None Include="Resources\Report-32.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GestiuneBusiness\GestiuneBusiness.csproj">
+      <Project>{85947851-A8FF-4718-A1DD-ED11D56E12DE}</Project>
+      <Name>GestiuneBusiness</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WpfLibrary\WpfLibrary.csproj">
       <Project>{D9E846EF-506F-42D3-B2E7-1F775A6787CF}</Project>
       <Name>WpfLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FacturiIesire\" />
+    <Folder Include="FacturiIntrare\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

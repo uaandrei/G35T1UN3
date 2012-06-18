@@ -74,7 +74,8 @@ namespace TestProjectGestiune
         {
             var target = new Rol
             {
-                Nume = "testing"
+                Nume = "testing",
+                Descriere = "testing"
             };
             if (target.Save().Status!=StatusEnum.Errors)
             {
@@ -88,6 +89,7 @@ namespace TestProjectGestiune
             var target = new Rol
             {
                 Nume = "Modified",
+                Descriere="modifiec",
                 ID=1
             };
             if (target.Save().Status == StatusEnum.Errors)

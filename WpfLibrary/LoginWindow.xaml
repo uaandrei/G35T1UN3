@@ -7,7 +7,7 @@
         Background="Transparent"
         ShowInTaskbar="False"
         WindowStyle="None"
-        SizeToContent="WidthAndHeight">
+        SizeToContent="WidthAndHeight" Topmost="True">
     <Border CornerRadius="10" 
             BorderThickness="3" 
             Background="White"

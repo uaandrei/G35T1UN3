@@ -28,7 +28,8 @@ namespace GestiuneBusiness.DataHelper
             {
                 ID = (int)reader[0],
                 IdRol = (int)reader[1],
-                IdDrept = (int)reader[2]
+                IdDrept = (int)reader[2],
+                AreDrept = (bool)reader[3]
             };
         }
     }

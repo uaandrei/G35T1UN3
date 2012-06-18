@@ -10,11 +10,19 @@ using GestiuneApplication.Interfaces;
 
 namespace GestiuneApplication.Rapoarte
 {
-    public partial class RaportEvolutieVanzariControl : UserControl, IRaportTreeNodeComponent
+    public partial class RaportEvolutieVanzariControl : UserControl, ITreeNode
     {
         public RaportEvolutieVanzariControl()
         {
             InitializeComponent();
+        }
+
+        public string ParentName
+        {
+            get
+            {
+                return ConstantsAndEnums.Constants.RapoarteNode;
+            }
         }
 
         public UserControl Control
@@ -30,8 +38,13 @@ namespace GestiuneApplication.Rapoarte
         {
             get
             {
-                return "Raport evolutie vanzari"; 
+                return "Raport evolutie vanzari";
             }
+        }
+
+        public string NodeName
+        {
+            get { return string.Empty; }
         }
     }
 }

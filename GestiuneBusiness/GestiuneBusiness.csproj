@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConstantsAndEnums\Constants.cs" />
+    <Compile Include="ConstantsAndEnums\StatusEnum.cs" />
     <Compile Include="DataHelper\BanciDataHelper.cs" />
     <Compile Include="DataHelper\DrepturiDataHelper.cs" />
     <Compile Include="DataHelper\FacturiIesireDataHelper.cs" />
@@ -63,9 +65,8 @@
     <Compile Include="DataHelper\RoluriDrepturiDataHelper.cs" />
     <Compile Include="DataHelper\StocDataHelper.cs" />
     <Compile Include="DataHelper\UtilizatoriDataHelper.cs" />
-    <Compile Include="Enums\StatusEnum.cs" />
-    <Compile Include="Enums\TipFacturaEnum.cs" />
     <Compile Include="Interfaces\IDataPersistence.cs" />
+    <Compile Include="Logic\UserAuthentication.cs" />
     <Compile Include="Poco\Administration\Drept.cs" />
     <Compile Include="Poco\Administration\Rol.cs" />
     <Compile Include="Poco\Administration\RolDrept.cs" />

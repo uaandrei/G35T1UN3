@@ -69,34 +69,6 @@ namespace TestProjectGestiune
         /// <summary>
         ///A test for Save
         ///</summary>
-        [TestMethod()]
-        public void InsertDreptTest()
-        {
-            Drept target = new Drept
-            {
-                AreDrept = true,
-                Descriere = "Testing"
-            };
-            if (target.Save().Status != StatusEnum.Errors)
-            {
-                Assert.Fail();
-            }
-        }
-
-        [TestMethod()]
-        public void UpdateDreptTest()
-        {
-            Drept target = new Drept
-            {
-                AreDrept = true,
-                Descriere = "Modified",
-                ID=1
-            };
-            if (target.Save().Status == StatusEnum.Errors)
-            {
-                Assert.Fail();
-            }
-        }
 
         [TestMethod()]
         public void GetAllDreptTest()

@@ -25,7 +25,8 @@ namespace GestiuneBusiness.DataHelper
             return new GestiuneBusiness.Poco.Administration.Rol
             {
                 ID = (int)reader[0],
-                Nume = reader[1].ToString()
+                Nume = reader[1].ToString(),
+                Descriere = reader[2].ToString()
             };
         }
     }

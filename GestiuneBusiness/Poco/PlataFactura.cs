@@ -89,7 +89,7 @@ namespace GestiuneBusiness.Poco
             }
         }
 
-        protected override List<DbObject> PropertiesNamesWithValues
+        public override List<DbObject> PropertiesNamesWithValues
         {
             get
             {

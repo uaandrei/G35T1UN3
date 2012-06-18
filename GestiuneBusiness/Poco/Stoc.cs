@@ -12,6 +12,7 @@ namespace GestiuneBusiness.Poco
         public int IdProdus { get; set; }
         public int IdPozitieFacturaIntrare { get; set; }
         public decimal Pret { get; set; }
+        public decimal Cantitate { get; set; }
         public PozitieFacturaIntrare PozitieFacturaIntrareObject
         {
             get { return PozitieFacturaIntrare.GetAll().FirstOrDefault(p => p.ID == IdPozitieFacturaIntrare); }
@@ -79,14 +80,15 @@ namespace GestiuneBusiness.Poco
             }
         }
 
-        protected override List<DbObject> PropertiesNamesWithValues
+        public override List<DbObject> PropertiesNamesWithValues
         {
             get
             {
                 List<DbObject> result = new List<DbObject>();
                 result.Add(new DbObject { Name = "@IdProdus", Value = this.IdProdus, FriendlyName = "Produs" });
                 result.Add(new DbObject { Name = "@Pret", Value = this.Pret, FriendlyName = "Pret" });
-                result.Add(new DbObject { Name = "@IdPozitieFacturaIntrare", Value = this.IdPozitieFacturaIntrare, FriendlyName = "Pozitie factura intrare" });
+                result.Add(new DbObject { Name = "@Cantitate", Value = this.Cantitate, FriendlyName = "Cantitate produs" });
+                result.Add(new DbObject { Name = "@IdPozitieFacturaIntrare", Value = this.IdPozitieFacturaIntrare, FriendlyName = "Serie factura intrare" });
                 return result;
             }
         }

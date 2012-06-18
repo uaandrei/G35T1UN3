@@ -75,7 +75,8 @@ namespace TestProjectGestiune
             var target = new RolDrept
             {
                 IdDrept = 1,
-                IdRol = 1
+                IdRol = 1,
+                AreDrept=true
             };
             if (target.Save().Status == StatusEnum.Errors)
             {
@@ -90,6 +91,7 @@ namespace TestProjectGestiune
             {
                 IdDrept = 1,
                 IdRol = 2,
+                AreDrept=false,
                 ID=1
             };
             if (target.Save().Status == StatusEnum.Errors)

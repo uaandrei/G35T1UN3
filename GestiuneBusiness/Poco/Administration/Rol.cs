@@ -11,6 +11,7 @@ namespace GestiuneBusiness.Poco.Administration
     {
         #region [MEMBERS]
         public string Nume { get; set; }
+        public string Descriere { get; set; }
         #endregion
 
         private static List<Rol> rolList = null;
@@ -66,12 +67,13 @@ namespace GestiuneBusiness.Poco.Administration
             throw new NotImplementedException();
         }
 
-        protected override List<DbObject> PropertiesNamesWithValues
+        public override List<DbObject> PropertiesNamesWithValues
         {
             get
             {
                 List<DbObject> result = new List<DbObject>();
                 result.Add(new DbObject { Name = "@Nume", Value = this.Nume, FriendlyName = "Nume" });
+                result.Add(new DbObject { Name = "@Descriere", Value = this.Descriere, FriendlyName = "Descriere" });
                 return result;
             }
         }

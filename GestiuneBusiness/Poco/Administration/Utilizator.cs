@@ -77,7 +77,7 @@ namespace GestiuneBusiness.Poco.Administration
             throw new NotImplementedException();
         }
 
-        protected override List<DbObject> PropertiesNamesWithValues
+        public override List<DbObject> PropertiesNamesWithValues
         {
             get
             {

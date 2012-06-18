@@ -10,13 +10,31 @@ using GestiuneApplication.Interfaces;
 
 namespace GestiuneApplication.Rapoarte
 {
-    public partial class RaportFacturiNeachitateControl : UserControl, IRaportTreeNodeComponent
+    public partial class RaportFacturiNeachitateControl : UserControl, ITreeNode
     {
+        #region [CTOR]
         public RaportFacturiNeachitateControl()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region [ITreeNodeComponent]
+        public string NodeName
+        {
+            get
+            {
+                return string.Empty;
+            }
+        }
+
+        public string ParentName
+        {
+            get
+            {
+                return ConstantsAndEnums.Constants.RapoarteNode;
+            }
+        }
 
         public UserControl Control
         {
@@ -31,5 +49,6 @@ namespace GestiuneApplication.Rapoarte
         {
             get { return "Raport facturi neachitate"; }
         }
+        #endregion
     }
 }

@@ -9,9 +9,7 @@ namespace GestiuneBusiness.DataHelper
 
         private DrepturiDataHelper()
         {
-            this.insertStoredProcedureName = "sp_Drepturi_Insert";
             this.selectAllStoredProcedureName = "sp_Drepturi_SelectAll";
-            this.updateStoredProcedureName = "sp_Drepturi_Update";
         }
 
         public static DrepturiDataHelper GetInstance()
@@ -25,8 +23,8 @@ namespace GestiuneBusiness.DataHelper
             return new GestiuneBusiness.Poco.Administration.Drept
             {
                 ID = (int)reader[0],
-                Descriere = reader[1].ToString(),
-                AreDrept = (bool)reader[2]
+                Nume = reader[1].ToString(),
+                Descriere = reader[2].ToString()
             };
         }
     }

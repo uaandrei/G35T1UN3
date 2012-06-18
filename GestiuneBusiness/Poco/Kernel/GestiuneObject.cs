@@ -56,10 +56,10 @@ namespace GestiuneBusiness.Poco.Kernel
             return errorString;
         }
 
-        protected abstract List<DbObject> PropertiesNamesWithValues { get; }
+        public abstract List<DbObject> PropertiesNamesWithValues { get; }
 
         protected const string StringSaveSuccess = "Salvare efectuata cu success!";
 
-        protected const string StringSaveFail = "Au aparut erori in timpul salvarii!";
+        protected const string StringSaveFail = "Au aparut erori in timpul salvarii! Verificati datele!";
     }
 }

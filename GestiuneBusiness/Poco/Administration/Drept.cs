@@ -10,8 +10,8 @@ namespace GestiuneBusiness.Poco.Administration
     public class Drept : GestiuneBusiness.Poco.Kernel.GestiuneObject
     {
         #region [MEMBERS]
+        public string Nume { get; set; }
         public string Descriere { get; set; }
-        public bool AreDrept { get; set; }
         #endregion
 
         private static List<Drept> dreptList = null;
@@ -67,13 +67,13 @@ namespace GestiuneBusiness.Poco.Administration
             throw new NotImplementedException();
         }
 
-        protected override List<DbObject> PropertiesNamesWithValues
+        public override List<DbObject> PropertiesNamesWithValues
         {
             get
             {
                 List<DbObject> result = new List<DbObject>();
                 result.Add(new DbObject { Name = "@Descriere", Value = this.Descriere, FriendlyName = "Descriere" });
-                result.Add(new DbObject { Name = "@AreDrept", Value = this.AreDrept, FriendlyName = "Descriere" });
+                result.Add(new DbObject { Name = "@Nume", Value = this.Nume, FriendlyName = "Nume" });
                 return result;
             }
         }

@@ -16,15 +16,14 @@ namespace GestiuneApplication
     {
         #region [MEMBERS]
         private LoginWindow loginWindow;
-        #endregion
+        #endregion [MEMBERS]
 
         #region [EVENTS]
         private void loginWindow_OnLoginClick(string username, string password)
         {
-            if (username == password) // TODO: verificare login
+            if (VerifyLogin(username, password))
             {
                 loginWindow.DialogResult = true;
-                // TODO: setare user curent si metoda pt aflare drept
             }
             else
             {
@@ -38,14 +37,11 @@ namespace GestiuneApplication
             if (e.Node.Tag == null) return;
             try
             {
-                IRaportTreeNodeComponent report = (IRaportTreeNodeComponent)e.Node.Tag;
-                var tabPage = new TabPage(report.Description);
-                tabPage.Controls.Add(report.Control);
-                tabControl.TabPages.Add(tabPage);
+                ITreeNode node = (ITreeNode)e.Node.Tag;
+                ShowTab(node);
             }
             catch (Exception)
             {
-                return;
             }
         }
 
@@ -78,22 +74,54 @@ namespace GestiuneApplication
         {
             InitializeLoginWindow();
         }
-        #endregion
+        #endregion [EVENTS]
 
         #region [METHODS]
+        private bool VerifyLogin(string username, string password)
+        {
+            // TODO: setare user curent si metoda pt aflare drept ;
+            // TODO: verificare login
+            return username == password;
+        }
+
+        private void ShowTab(ITreeNode node)
+        {
+            foreach (TabPage tab in tabControl.TabPages)
+            {
+                if (tab.Text == node.Description)
+                {
+                    tabControl.SelectedTab = tab;
+                    return;
+                }
+            }
+            var tabPage = new TabPage(node.Description);
+            tabPage.Controls.Add(node.Control);
+            tabControl.TabPages.Add(tabPage);
+            tabControl.SelectedTab = tabPage;
+        }
+
         private void InitializeTreeView()
         {
             var instances = from t in Assembly.GetExecutingAssembly().GetTypes()
-                            where t.GetInterfaces().Contains(typeof(IRaportTreeNodeComponent))
-                            select Activator.CreateInstance(t) as IRaportTreeNodeComponent;
+                            where t.GetInterfaces().Contains(typeof(ITreeNode))
+                            select Activator.CreateInstance(t) as ITreeNode;
             foreach (var item in instances)
             {
-                var node = new TreeNode();
-                node.Tag = item;
-                node.Text = item.Description;
-                node.ImageIndex = treeView.Nodes["rapoarteNode"].ImageIndex;
-                node.SelectedImageIndex = treeView.Nodes["rapoarteNode"].SelectedImageIndex;
-                treeView.Nodes["rapoarteNode"].Nodes.Add(node);
+                // verifica daca este nod parinte sau nod copil
+                if (item.NodeName != string.Empty) // => este nod parinte
+                {
+                    treeView.Nodes[item.NodeName].Tag = item;
+                }
+                else
+                {
+                    if (item.ParentName == string.Empty) throw new Exception("Daca nu este nod parinte atunci trebuie sa aibe un nod parinte!");
+                    var node = new TreeNode();
+                    node.Tag = item;
+                    node.Text = item.Description;
+                    node.ImageIndex = treeView.Nodes[item.ParentName].ImageIndex;
+                    node.SelectedImageIndex = treeView.Nodes[item.ParentName].SelectedImageIndex;
+                    treeView.Nodes[item.ParentName].Nodes.Add(node);
+                }
             }
         }
 
@@ -103,12 +131,11 @@ namespace GestiuneApplication
             loginWindow = new LoginWindow();
             loginWindow.OnLoginClick += new ChangedEventHandler(loginWindow_OnLoginClick);
             var dialogResult = loginWindow.ShowDialog();
-            if (dialogResult.Value == null) return;
             if (dialogResult.Value == false) Application.Exit();
             // TODO: loadData just once, flag!
             this.Show();
         }
-        #endregion
+        #endregion [METHODS]
 
         #region [CTOR]
         public MainForm()
@@ -116,6 +143,6 @@ namespace GestiuneApplication
             InitializeComponent();
             this.InitializeTreeView();
         }
-        #endregion
+        #endregion [CTOR]
     }
 }

@@ -17,11 +17,11 @@ namespace GestiuneBusiness.Poco
         public string Telefon { get; set; }
         public DateTime DataInfiintarii { get; set; }
         public int IdBanca { get; set; }
+        public int IdDelegat { get; set; }
         public Banca BancaObject
         {
             get { return Banca.GetAll().FirstOrDefault(p => p.ID == IdBanca); }
         }
-        public int IdDelegat { get; set; }
         public Delegat DelegatObject
         {
             get { return Delegat.GetAll().FirstOrDefault(p => p.ID == IdDelegat); }
@@ -36,7 +36,7 @@ namespace GestiuneBusiness.Poco
                 if (this.ID == 0)
                 {
                     this.ID = FirmeDataHelper.GetInstance().Create(PropertiesNamesWithValues);
-                    if (firmaList==null)
+                    if (firmaList == null)
                     {
                         firmaList = new List<Firma>();
                     }
@@ -78,7 +78,7 @@ namespace GestiuneBusiness.Poco
             }
         }
 
-        protected override List<DbObject> PropertiesNamesWithValues
+        public override List<DbObject> PropertiesNamesWithValues
         {
             get
             {
@@ -88,8 +88,8 @@ namespace GestiuneBusiness.Poco
                 result.Add(new DbObject { Name = "@RC", Value = this.Rc, FriendlyName = "Registru Comert" });
                 result.Add(new DbObject { Name = "@IBAN", Value = this.Iban, FriendlyName = "IBAN" });
                 result.Add(new DbObject { Name = "@Adresa", Value = this.Adresa, FriendlyName = "Adresa" });
-                result.Add(new DbObject { Name = "@Telefon", Value = this.Telefon });
-                result.Add(new DbObject { Name = "@DataInfiintarii", Value = this.DataInfiintarii });
+                result.Add(new DbObject { Name = "@Telefon", Value = this.Telefon, FriendlyName = "Telefon" });
+                result.Add(new DbObject { Name = "@DataInfiintarii", Value = this.DataInfiintarii, FriendlyName = "Data infiintarii" });
                 result.Add(new DbObject { Name = "@IdBanca", Value = this.IdBanca, FriendlyName = "Banca" });
                 result.Add(new DbObject { Name = "@IdDelegat", Value = this.IdDelegat, FriendlyName = "Delegat" });
                 return result;
