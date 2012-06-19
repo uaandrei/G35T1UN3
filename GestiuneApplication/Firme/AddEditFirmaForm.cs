@@ -50,8 +50,8 @@ namespace GestiuneApplication.Firme
             FirmaObject.Cui = cuiTbox.Text;
             FirmaObject.DataInfiintarii = dataDtp.Value;
             FirmaObject.Iban = ibanTbox.Text;
-            FirmaObject.IdBanca = (int)bancaCmb.SelectedValue;
-            FirmaObject.IdDelegat = (int)delegatCmb.SelectedValue;
+            FirmaObject.IdBanca = bancaCmb.SelectedValue == null ? 0 : (int)bancaCmb.SelectedValue;
+            FirmaObject.IdDelegat = delegatCmb.SelectedValue == null ? 0 : (int)delegatCmb.SelectedValue;
             FirmaObject.Nume = numeTbox.Text;
             FirmaObject.Rc = rcTbox.Text;
             FirmaObject.Telefon = telefonTbox.Text;

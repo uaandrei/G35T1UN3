@@ -58,7 +58,7 @@ namespace GestiuneBusiness.Poco.Kernel
 
         public abstract List<DbObject> PropertiesNamesWithValues { get; }
 
-        protected const string StringSaveSuccess = "Salvare efectuata cu success!";
+        protected const string StringSaveSuccess = "Salvare efectuata cu succes!";
 
         protected const string StringSaveFail = "Au aparut erori in timpul salvarii! Verificati datele!";
     }

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using GestiuneApplication.Interfaces;
 using GestiuneBusiness.Poco;
 
-namespace GestiuneApplication.Stoc
+namespace GestiuneApplication.StocF
 {
     public partial class StocListControl : UserControl, ITreeNode
     {

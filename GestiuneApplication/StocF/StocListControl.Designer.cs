@@ -1,4 +1,4 @@
-﻿namespace GestiuneApplication.Stoc
+﻿namespace GestiuneApplication.StocF
 {
     partial class StocListControl
     {
@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.titleLbl = new System.Windows.Forms.Label();
             this.stocGrid = new System.Windows.Forms.DataGridView();
             this.refreshBtn = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.stocGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,6 +72,7 @@
             this.refreshBtn.Size = new System.Drawing.Size(50, 50);
             this.refreshBtn.TabIndex = 3;
             this.refreshBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolTip1.SetToolTip(this.refreshBtn, "Reimprospateaza stocurile");
             this.refreshBtn.UseVisualStyleBackColor = true;
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
@@ -94,6 +97,7 @@
         private System.Windows.Forms.Label titleLbl;
         private System.Windows.Forms.DataGridView stocGrid;
         private System.Windows.Forms.Button refreshBtn;
+        private System.Windows.Forms.ToolTip toolTip1;
 
     }
 }

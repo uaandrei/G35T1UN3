@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Reflection;
 using GestiuneApplication.Interfaces;
+using GestiuneBusiness.Poco.Administration;
 using WpfLibrary;
 
 namespace GestiuneApplication
@@ -15,10 +16,40 @@ namespace GestiuneApplication
     public partial class MainForm : Form
     {
         #region [MEMBERS]
+        public static Utilizator LoggedUser { get; set; }
         private LoginWindow loginWindow;
+        private bool loginWindowFlag = false;
+        private bool dataLoadedFlag = false;
         #endregion [MEMBERS]
 
         #region [EVENTS]
+
+        private void inchiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // close all tabs but this
+            if (tabControl.TabPages.Count == 0) return;
+            foreach (TabPage tab in tabControl.TabPages)
+            {
+                if (tab.Text != tabControl.SelectedTab.Text) tabControl.TabPages.Remove(tab);
+            }
+        }
+
+        private void deToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl.TabPages.Clear();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!loginWindowFlag)
+            {
+                if (MessageBox.Show("Doriti sa inchideti aplicatia?", "Inchidere aplicatie", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
         private void loginWindow_OnLoginClick(string username, string password)
         {
             if (VerifyLogin(username, password))
@@ -35,6 +66,17 @@ namespace GestiuneApplication
         {
             if (e.Node == null) return;
             if (e.Node.Tag == null) return;
+            if (LoggedUser.Nume != "admin")
+            {
+                if (e.Node.Parent == null)
+                {
+                    if (!HasRight(e.Node)) return;
+                }
+                else
+                {
+                    if (!HasRight(e.Node.Parent)) return;
+                }
+            }
             try
             {
                 ITreeNode node = (ITreeNode)e.Node.Tag;
@@ -59,10 +101,7 @@ namespace GestiuneApplication
 
         private void iesireToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Doriti sa inchideti aplicatia?", "Inchidere aplicatie", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
+            this.Close();
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -77,11 +116,52 @@ namespace GestiuneApplication
         #endregion [EVENTS]
 
         #region [METHODS]
+        private bool HasRight(TreeNode node)
+        {
+            var rightName = node.Text;
+            var rolDrept = RolDrept.GetAll().Where(p => p.DreptObject.Nume == rightName && p.IdRol == LoggedUser.IdRol).FirstOrDefault();
+            if (rolDrept == null)
+            {
+                node.Collapse();
+                MessageBox.Show("Nu aveti acest drept!");
+                return false;
+            }
+            else
+            {
+                if (rolDrept.AreDrept == false)
+                {
+                    node.Collapse();
+                    MessageBox.Show("Nu aveti dreptul asupra: " + rolDrept.DreptObject.Nume);
+                    return false;
+                }
+            }
+            return true;
+        }
+
         private bool VerifyLogin(string username, string password)
         {
-            // TODO: setare user curent si metoda pt aflare drept ;
-            // TODO: verificare login
-            return username == password;
+            if (username == "admin" && password == "admin")
+            {
+                LoggedUser = new Utilizator { Nume = "admin" };
+            }
+            else
+            {
+                var utilizator = Utilizator.GetAll().Where(p => p.Nume == username && p.Parola == password).FirstOrDefault();
+                if (utilizator == null)
+                {
+                    MessageBox.Show("Utilizator sau parola incorecta!");
+                    return false;
+                }
+                if (utilizator.Activ == false)
+                {
+                    MessageBox.Show("Utilizatorul nu este activat!");
+                    return false;
+                }
+                LoggedUser = utilizator;
+            }
+            roleTssl.Text = LoggedUser.RolObject == null ? "admin" : LoggedUser.RolObject.Nume;
+            usernameTssl.Text = LoggedUser.Nume;
+            return true;
         }
 
         private void ShowTab(ITreeNode node)
@@ -128,11 +208,24 @@ namespace GestiuneApplication
         private void InitializeLoginWindow()
         {
             this.Hide();
+            if (tabControl.TabCount > 0)
+            {
+                tabControl.TabPages.Clear();
+            }
+            treeView.CollapseAll();
             loginWindow = new LoginWindow();
             loginWindow.OnLoginClick += new ChangedEventHandler(loginWindow_OnLoginClick);
             var dialogResult = loginWindow.ShowDialog();
-            if (dialogResult.Value == false) Application.Exit();
-            // TODO: loadData just once, flag!
+            if (dialogResult.Value == false)
+            {
+                loginWindowFlag = true;
+                Application.Exit();
+            }
+            if (dataLoadedFlag == false)
+            {
+                new LoadingForm().ShowDialog();
+                dataLoadedFlag = true;
+            }
             this.Show();
         }
         #endregion [METHODS]

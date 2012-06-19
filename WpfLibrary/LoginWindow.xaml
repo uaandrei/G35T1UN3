@@ -5,7 +5,7 @@
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
         Background="Transparent"
-        ShowInTaskbar="False"
+        ShowInTaskbar="True"
         WindowStyle="None"
         SizeToContent="WidthAndHeight" Topmost="True">
     <Border CornerRadius="10" 
@@ -20,7 +20,7 @@
                 Opacity=".50" 
                 ShadowDepth="6"/>
         </Border.Effect>
-        <Grid Background="White">
+        <Grid Background="White" FocusManager.FocusedElement="{Binding ElementName=usernameTbox}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
@@ -44,13 +44,13 @@
                FontSize="20"
                HorizontalAlignment="Right"
                VerticalAlignment="Center">Parola</Label>
-            <TextBox Grid.Row="1" Grid.Column="1" Margin="10" Name="usernameTbox" ToolTip="Introduceti numele utilizatorului"/>
-            <PasswordBox Grid.Row="2" Grid.Column="1" Margin="10" Name="pwdBox" ToolTip="Introduceti parola utilizatorului"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="10" Name="usernameTbox" ToolTip="Introduceti numele utilizatorului" TabIndex="0"/>
+            <PasswordBox Grid.Row="2" Grid.Column="1" Margin="10" Name="pwdBox" ToolTip="Introduceti parola utilizatorului" TabIndex="1" />
             <Button Grid.Column="0" Grid.Row="3"
                 Margin="10"
                 Name="exitBtn"
                 IsCancel="True"
-                Content="Iesire" Click="exitBtn_Click">
+                Content="Iesire" Click="exitBtn_Click" TabIndex="3">
                 <Button.Effect>
                     <DropShadowEffect Color="Gray"
                               Opacity=".50"
@@ -62,7 +62,7 @@
                 Width="80"
                 Margin="10"
                 Name="loginBtn"
-                Content="Intrare" Click="loginBtn_Click">
+                Content="Intrare" Click="loginBtn_Click" IsDefault="True" IsCancel="False" TabIndex="2">
                 <Button.Effect>
                     <DropShadowEffect Color="Gray"
                               Opacity=".50"

@@ -81,7 +81,7 @@
             // rataTvaTbox
             // 
             this.rataTvaTbox.Location = new System.Drawing.Point(12, 103);
-            this.rataTvaTbox.MaxLength = 10;
+            this.rataTvaTbox.MaxLength = 14;
             this.rataTvaTbox.Name = "rataTvaTbox";
             this.rataTvaTbox.Size = new System.Drawing.Size(100, 20);
             this.rataTvaTbox.TabIndex = 3;
@@ -115,7 +115,7 @@
             // stocMinimTbox
             // 
             this.stocMinimTbox.Location = new System.Drawing.Point(12, 64);
-            this.stocMinimTbox.MaxLength = 10;
+            this.stocMinimTbox.MaxLength = 14;
             this.stocMinimTbox.Name = "stocMinimTbox";
             this.stocMinimTbox.Size = new System.Drawing.Size(100, 20);
             this.stocMinimTbox.TabIndex = 1;
@@ -132,7 +132,7 @@
             // pretTbox
             // 
             this.pretTbox.Location = new System.Drawing.Point(118, 64);
-            this.pretTbox.MaxLength = 10;
+            this.pretTbox.MaxLength = 14;
             this.pretTbox.Name = "pretTbox";
             this.pretTbox.Size = new System.Drawing.Size(100, 20);
             this.pretTbox.TabIndex = 2;

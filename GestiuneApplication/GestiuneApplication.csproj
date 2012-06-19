@@ -50,6 +50,24 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrare\AddEditRolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrare\AddEditRolForm.Designer.cs">
+      <DependentUpon>AddEditRolForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrare\AddEditUtilizatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrare\AddEditUtilizatorForm.Designer.cs">
+      <DependentUpon>AddEditUtilizatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrare\EditDrepturiPeRolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrare\EditDrepturiPeRolForm.Designer.cs">
+      <DependentUpon>EditDrepturiPeRolForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrare\RoleListControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -62,7 +80,31 @@
     <Compile Include="Administrare\UserListControl.Designer.cs">
       <DependentUpon>UserListControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Banci\AddEditBancaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Banci\AddEditBancaForm.Designer.cs">
+      <DependentUpon>AddEditBancaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Banci\BanciListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Banci\BanciListControl.Designer.cs">
+      <DependentUpon>BanciListControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConstantsAndEnums\Constants.cs" />
+    <Compile Include="Delegati\AddEditDelegatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delegati\AddEditDelegatForm.Designer.cs">
+      <DependentUpon>AddEditDelegatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Delegati\DelegatiListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Delegati\DelegatiListControl.Designer.cs">
+      <DependentUpon>DelegatiListControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Firme\AchitareFacturiPeFirmaControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -120,17 +162,47 @@
     <Compile Include="Rapoarte\RaportFacturiNeachitateControl.Designer.cs">
       <DependentUpon>RaportFacturiNeachitateControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stoc\StocListControl.cs">
+    <Compile Include="StocF\StocListControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Stoc\StocListControl.Designer.cs">
+    <Compile Include="StocF\StocListControl.Designer.cs">
       <DependentUpon>StocListControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Administrare\AddEditRolForm.resx">
+      <DependentUpon>AddEditRolForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrare\AddEditUtilizatorForm.resx">
+      <DependentUpon>AddEditUtilizatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrare\EditDrepturiPeRolForm.resx">
+      <DependentUpon>EditDrepturiPeRolForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrare\RoleListControl.resx">
+      <DependentUpon>RoleListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrare\UserListControl.resx">
+      <DependentUpon>UserListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Banci\AddEditBancaForm.resx">
+      <DependentUpon>AddEditBancaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Banci\BanciListControl.resx">
+      <DependentUpon>BanciListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delegati\AddEditDelegatForm.resx">
+      <DependentUpon>AddEditDelegatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delegati\DelegatiListControl.resx">
+      <DependentUpon>DelegatiListControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Firme\AddEditFirmaForm.resx">
       <DependentUpon>AddEditFirmaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Firme\FirmeListControl.resx">
       <DependentUpon>FirmeListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -151,9 +223,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Stoc\StocListControl.resx">
+    <EmbeddedResource Include="StocF\StocListControl.resx">
       <DependentUpon>StocListControl.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\GestiuneBusiness.Poco.Administration.Drept.datasource" />
+    <None Include="Properties\DataSources\GestiuneBusiness.Poco.Administration.Rol.datasource" />
+    <None Include="Properties\DataSources\GestiuneBusiness.Poco.Banca.datasource" />
+    <None Include="Properties\DataSources\GestiuneBusiness.Poco.Delegat.datasource" />
     <None Include="Properties\DataSources\GestiuneBusiness.Poco.Firma.datasource" />
     <None Include="Properties\DataSources\GestiuneBusiness.Poco.Produs.datasource" />
     <None Include="Properties\Settings.settings">
@@ -209,6 +285,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Refresh-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check-Box-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

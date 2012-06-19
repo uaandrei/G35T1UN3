@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using GestiuneApplication.Interfaces;
+using GestiuneBusiness.Poco.Administration;
 
 namespace GestiuneApplication.Administrare
 {
@@ -15,6 +16,10 @@ namespace GestiuneApplication.Administrare
         public UserListControl()
         {
             InitializeComponent();
+            foreach (var item in (new Utilizator()).PropertiesNamesWithValues)
+            {
+                utilizatoriGrid.Columns.Add(item.Name, item.FriendlyName);
+            }
         }
 
         #region [ITreeNode]
@@ -42,5 +47,38 @@ namespace GestiuneApplication.Administrare
             get { return "Utilizatori"; }
         }
         #endregion [ITreeNode]
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            if (new AddEditUtilizatorForm().ShowDialog() == DialogResult.OK) RefreshUtilizatorList();
+        }
+
+        private void modifyBtn_Click(object sender, EventArgs e)
+        {
+            if (utilizatoriGrid.SelectedCells.Count == 0) return;
+            var utilizator = (Utilizator)utilizatoriGrid.Rows[utilizatoriGrid.SelectedCells[0].RowIndex].Tag;
+            var form = new AddEditUtilizatorForm();
+            form.UtilizatorObject = utilizator;
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                RefreshUtilizatorList();
+            }
+        }
+
+        private void UserListControl_Load(object sender, EventArgs e)
+        {
+            RefreshUtilizatorList();
+        }
+
+        private void RefreshUtilizatorList()
+        {
+            utilizatoriGrid.Rows.Clear();
+            int index = 0;
+            foreach (var item in Utilizator.GetAll())
+            {
+                utilizatoriGrid.Rows.Add(item.Nume, "*******", item.Activ, item.RolObject.Nume);
+                utilizatoriGrid.Rows[index++].Tag = item;
+            }
+        }
     }
 }

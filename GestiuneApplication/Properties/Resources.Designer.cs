@@ -81,6 +81,13 @@ namespace GestiuneApplication.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Check_Box_32 {
+            get {
+                object obj = ResourceManager.GetObject("Check_Box_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Crate_32 {
             get {
                 object obj = ResourceManager.GetObject("Crate_32", resourceCulture);

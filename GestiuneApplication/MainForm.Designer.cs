@@ -43,15 +43,21 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabControlContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.inchideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inchiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.iesireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usernameTssl = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.roleTssl = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
             this.mainSplitContainer.SuspendLayout();
             this.tabControlContextMenuStrip.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -155,9 +161,11 @@
             // tabControlContextMenuStrip
             // 
             this.tabControlContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inchideToolStripMenuItem});
+            this.inchideToolStripMenuItem,
+            this.inchiToolStripMenuItem,
+            this.deToolStripMenuItem});
             this.tabControlContextMenuStrip.Name = "tabControlContextMenuStrip";
-            this.tabControlContextMenuStrip.Size = new System.Drawing.Size(171, 26);
+            this.tabControlContextMenuStrip.Size = new System.Drawing.Size(269, 92);
             // 
             // inchideToolStripMenuItem
             // 
@@ -166,8 +174,26 @@
             this.inchideToolStripMenuItem.Text = "Inchide tab curent";
             this.inchideToolStripMenuItem.Click += new System.EventHandler(this.inchideToolStripMenuItem_Click);
             // 
+            // inchiToolStripMenuItem
+            // 
+            this.inchiToolStripMenuItem.Name = "inchiToolStripMenuItem";
+            this.inchiToolStripMenuItem.Size = new System.Drawing.Size(268, 22);
+            this.inchiToolStripMenuItem.Text = "Inchide toate in afara de tabul curent";
+            this.inchiToolStripMenuItem.Click += new System.EventHandler(this.inchiToolStripMenuItem_Click);
+            // 
+            // deToolStripMenuItem
+            // 
+            this.deToolStripMenuItem.Name = "deToolStripMenuItem";
+            this.deToolStripMenuItem.Size = new System.Drawing.Size(268, 22);
+            this.deToolStripMenuItem.Text = "Inchide toate taburile";
+            this.deToolStripMenuItem.Click += new System.EventHandler(this.deToolStripMenuItem_Click);
+            // 
             // statusStrip
             // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usernameTssl,
+            this.toolStripStatusLabel1,
+            this.roleTssl});
             this.statusStrip.Location = new System.Drawing.Point(0, 454);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(869, 22);
@@ -203,6 +229,24 @@
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
+            // usernameTssl
+            // 
+            this.usernameTssl.Name = "usernameTssl";
+            this.usernameTssl.Size = new System.Drawing.Size(118, 17);
+            this.usernameTssl.Text = "toolStripStatusLabel1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel1.Text = "|";
+            // 
+            // roleTssl
+            // 
+            this.roleTssl.Name = "roleTssl";
+            this.roleTssl.Size = new System.Drawing.Size(118, 17);
+            this.roleTssl.Text = "toolStripStatusLabel2";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -215,12 +259,15 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.mainSplitContainer.Panel1.ResumeLayout(false);
             this.mainSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).EndInit();
             this.mainSplitContainer.ResumeLayout(false);
             this.tabControlContextMenuStrip.ResumeLayout(false);
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -240,6 +287,11 @@
         private System.Windows.Forms.ImageList imageListIcons;
         private System.Windows.Forms.ContextMenuStrip tabControlContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem inchideToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inchiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel usernameTssl;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel roleTssl;
     }
 }
 
