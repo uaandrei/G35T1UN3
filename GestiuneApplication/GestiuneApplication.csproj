@@ -105,6 +105,30 @@
     <Compile Include="Delegati\DelegatiListControl.Designer.cs">
       <DependentUpon>DelegatiListControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="FacturiIesire\AddEditFacturaIesireForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacturiIesire\AddEditFacturaIesireForm.Designer.cs">
+      <DependentUpon>AddEditFacturaIesireForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FacturiIesire\FacturiIesireListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FacturiIesire\FacturiIesireListControl.Designer.cs">
+      <DependentUpon>FacturiIesireListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FacturiIntrare\AddEditFacturaIntrareForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacturiIntrare\AddEditFacturaIntrareForm.Designer.cs">
+      <DependentUpon>AddEditFacturaIntrareForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FacturiIntrare\FacturiIntrareListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FacturiIntrare\FacturiIntrareListControl.Designer.cs">
+      <DependentUpon>FacturiIntrareListControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Firme\AchitareFacturiPeFirmaControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -195,6 +219,18 @@
     <EmbeddedResource Include="Delegati\DelegatiListControl.resx">
       <DependentUpon>DelegatiListControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FacturiIesire\AddEditFacturaIesireForm.resx">
+      <DependentUpon>AddEditFacturaIesireForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacturiIesire\FacturiIesireListControl.resx">
+      <DependentUpon>FacturiIesireListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacturiIntrare\AddEditFacturaIntrareForm.resx">
+      <DependentUpon>AddEditFacturaIntrareForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacturiIntrare\FacturiIntrareListControl.resx">
+      <DependentUpon>FacturiIntrareListControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Firme\AddEditFirmaForm.resx">
       <DependentUpon>AddEditFirmaForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,15 +304,8 @@
       <Project>{85947851-A8FF-4718-A1DD-ED11D56E12DE}</Project>
       <Name>GestiuneBusiness</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WpfLibrary\WpfLibrary.csproj">
-      <Project>{D9E846EF-506F-42D3-B2E7-1F775A6787CF}</Project>
-      <Name>WpfLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FacturiIesire\" />
-    <Folder Include="FacturiIntrare\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Add-32.png" />
   </ItemGroup>
@@ -288,6 +317,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Check-Box-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

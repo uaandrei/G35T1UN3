@@ -29,7 +29,7 @@ namespace GestiuneBusiness.Poco
         }
         #endregion
 
-        private static List<PozitieFacturaIntrare> pozitieFacturaIntrareList = null;
+        internal static List<PozitieFacturaIntrare> pozitieFacturaIntrareList = null;
         // TODO: modifica asta in proprietate, ca altfel, prin referinta, poate fi modificata si din exterior;
         public static List<PozitieFacturaIntrare> GetAll()
         {
@@ -86,7 +86,7 @@ namespace GestiuneBusiness.Poco
             get
             {
                 List<DbObject> result = new List<DbObject>();
-                result.Add(new DbObject { Name = "@IdFacturaIntrare", Value = this.IdFacturaIntrare, FriendlyName = "Factura intrare" });
+                result.Add(new DbObject { Name = "@IdFacturaIntrare", Value = this.IdFacturaIntrare, FriendlyName = "" });
                 result.Add(new DbObject { Name = "@IdProdus", Value = this.IdProdus, FriendlyName = "Produs" });
                 result.Add(new DbObject { Name = "@Cantitate", Value = this.Cantitate, FriendlyName = "Cantitate" });
                 result.Add(new DbObject { Name = "@PretUnitar", Value = this.PretUnitar, FriendlyName = "Pret unitar" });

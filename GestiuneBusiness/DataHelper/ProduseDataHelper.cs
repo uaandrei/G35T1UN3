@@ -30,8 +30,7 @@ namespace GestiuneBusiness.DataHelper
                 Nume = reader[1].ToString(),
                 StocMinim = (decimal)reader[2],
                 Pret = (decimal)reader[3],
-                RataTva = (decimal)reader[4],
-                Um = reader[5].ToString()
+                Um = reader[4].ToString()
             };
         }
     }

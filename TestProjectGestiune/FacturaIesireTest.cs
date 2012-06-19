@@ -1,7 +1,10 @@
-﻿using GestiuneBusiness.Enums;
+﻿using System.Linq;
+using GestiuneBusiness.Enums;
 using GestiuneBusiness.Poco;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
+using GestiuneBusiness.DataHelper.Kernel;
 
 namespace TestProjectGestiune
 {
@@ -70,12 +73,12 @@ namespace TestProjectGestiune
             var factura = new FacturaIesire
             {
                 Data = DateTime.Now,
-                IdFirma = 1,
+                IdFirma = 2,
                 Numar = "Testing",
                 Serie = "Testing"
             };
             var r = factura.Save();
-            if (r.Status==StatusEnum.Errors)
+            if (r.Status == StatusEnum.Errors)
             {
                 Assert.Fail();
             }
@@ -90,7 +93,7 @@ namespace TestProjectGestiune
                 IdFirma = 1,
                 Numar = "Modificat",
                 Serie = "Testing",
-                ID=1
+                ID = 1
             };
             var r = factura.Save();
             if (r.Status == StatusEnum.Errors)
@@ -104,6 +107,53 @@ namespace TestProjectGestiune
         {
             var list = FacturaIesire.GetAll();
             if (list == null)
+            {
+                Assert.Fail();
+            }
+        }
+
+        /// <summary>
+        ///A test for Save
+        ///</summary>
+        [TestMethod()]
+        public void SalvareFacturaIesireCuPozitiiTest()
+        {
+            FacturaIesire target = new FacturaIesire
+            {
+                CotaTva = 19,
+                Data = DateTime.Now,
+                IdFirma = 2,
+                Numar = "xxx",
+                Serie = "xxx"
+            };
+            List<PozitieFacturaIesire> pozitiiList = new List<PozitieFacturaIesire>();
+            var stoc = Stoc.GetAll().Where(p => p.ID == 27).First();
+            stoc.Cantitate -= 100;
+            pozitiiList.Add(new PozitieFacturaIesire
+            {
+                Cantitate = 100,
+                IdStoc = 27,
+                PretUnitar = 55,
+            });
+            var stoc1 = Stoc.GetAll().Where(p => p.ID == 26).First();
+            stoc1.Cantitate -= 10;
+            pozitiiList.Add(new PozitieFacturaIesire
+            {
+                Cantitate = 10,
+                IdStoc = 26,
+                PretUnitar = 55,
+            });
+            var stoc2 = Stoc.GetAll().Where(p => p.ID == 25).First();
+            stoc2.Cantitate -= 10;
+            pozitiiList.Add(new PozitieFacturaIesire
+            {
+                Cantitate = 10,
+                IdStoc = 25,
+                PretUnitar = 55,
+            });
+
+            PersistenceResult actual = target.Save(pozitiiList);
+            if (actual.Status == StatusEnum.Errors)
             {
                 Assert.Fail();
             }

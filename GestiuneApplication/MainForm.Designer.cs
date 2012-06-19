@@ -46,12 +46,12 @@
             this.inchiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.iesireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usernameTssl = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.roleTssl = new System.Windows.Forms.ToolStripStatusLabel();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.iesireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
@@ -101,12 +101,12 @@
             treeNode2.Tag = "Produse";
             treeNode2.Text = "Produse";
             treeNode3.ImageIndex = 2;
-            treeNode3.Name = "FacturiIntrareNode";
+            treeNode3.Name = "facturiIntrareNode";
             treeNode3.SelectedImageIndex = 2;
             treeNode3.Tag = "FacturiIntrare";
             treeNode3.Text = "Facturi Intrare";
             treeNode4.ImageIndex = 2;
-            treeNode4.Name = "FacturiIesireNode";
+            treeNode4.Name = "facturiIesireNode";
             treeNode4.SelectedImageIndex = 2;
             treeNode4.Tag = "FacturiIesire";
             treeNode4.Text = "Facturi Iesire";
@@ -200,6 +200,24 @@
             this.statusStrip.TabIndex = 1;
             this.statusStrip.Text = "statusStrip1";
             // 
+            // usernameTssl
+            // 
+            this.usernameTssl.Name = "usernameTssl";
+            this.usernameTssl.Size = new System.Drawing.Size(118, 17);
+            this.usernameTssl.Text = "toolStripStatusLabel1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel1.Text = "|";
+            // 
+            // roleTssl
+            // 
+            this.roleTssl.Name = "roleTssl";
+            this.roleTssl.Size = new System.Drawing.Size(118, 17);
+            this.roleTssl.Text = "toolStripStatusLabel2";
+            // 
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -229,24 +247,6 @@
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
-            // usernameTssl
-            // 
-            this.usernameTssl.Name = "usernameTssl";
-            this.usernameTssl.Size = new System.Drawing.Size(118, 17);
-            this.usernameTssl.Text = "toolStripStatusLabel1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(10, 17);
-            this.toolStripStatusLabel1.Text = "|";
-            // 
-            // roleTssl
-            // 
-            this.roleTssl.Name = "roleTssl";
-            this.roleTssl.Size = new System.Drawing.Size(118, 17);
-            this.roleTssl.Text = "toolStripStatusLabel2";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,6 +259,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.mainSplitContainer.Panel1.ResumeLayout(false);

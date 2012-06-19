@@ -30,7 +30,8 @@ namespace GestiuneBusiness.DataHelper
                 Serie = reader[1].ToString(),
                 Numar = reader[2].ToString(),
                 Data = (DateTime)reader[3],
-                IdFirma = (int)reader[4]
+                IdFirma = (int)reader[4],
+                CotaTva = (decimal)reader[5]
             };
         }
     }

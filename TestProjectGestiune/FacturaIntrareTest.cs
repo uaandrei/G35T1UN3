@@ -3,6 +3,7 @@ using GestiuneBusiness.Poco;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using GestiuneBusiness.DataHelper.Kernel;
+using System.Collections.Generic;
 
 namespace TestProjectGestiune
 {
@@ -75,7 +76,7 @@ namespace TestProjectGestiune
             var target = new FacturaIntrare
             {
                 Data = DateTime.Now,
-                IdFirma = 1,
+                IdFirma = 2,
                 Numar = "Testing",
                 Serie = "Testing"
             };
@@ -109,6 +110,53 @@ namespace TestProjectGestiune
         {
             var target = FacturaIntrare.GetAll();
             if (target == null)
+            {
+                Assert.Fail();
+            }
+        }
+
+        /// <summary>
+        ///A test for Save
+        ///</summary>
+        [TestMethod()]
+        public void SalvareFacturaIntrareCuPozitii()
+        {
+            FacturaIntrare target = new FacturaIntrare
+            {
+                CotaTva = 19.00m,
+                IdFirma = 2,
+                Numar = "bla bla",
+                Serie = "bla bla 2",
+                Data=DateTime.Now
+            };
+            List<PozitieFacturaIntrare> pozitieFacturaIntrareList = new List<PozitieFacturaIntrare>();
+            pozitieFacturaIntrareList.Add(new PozitieFacturaIntrare
+            {
+                Cantitate = 10,
+                IdProdus = 1,
+                PretUnitar = 123
+            });
+            pozitieFacturaIntrareList.Add(new PozitieFacturaIntrare
+            {
+                Cantitate = 110,
+                IdProdus = 2,
+                PretUnitar = 1223
+            });
+            pozitieFacturaIntrareList.Add(new PozitieFacturaIntrare
+            {
+                Cantitate = 105,
+                IdProdus = 17,
+                PretUnitar = 1236
+            });
+            pozitieFacturaIntrareList.Add(new PozitieFacturaIntrare
+            {
+                Cantitate = 160,
+                IdProdus = 1,
+                PretUnitar = 1623
+            });
+            PersistenceResult actual;
+            actual = target.Save(pozitieFacturaIntrareList);
+            if (actual.Status == StatusEnum.Errors)
             {
                 Assert.Fail();
             }

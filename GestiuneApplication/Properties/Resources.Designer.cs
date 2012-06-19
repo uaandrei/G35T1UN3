@@ -130,6 +130,13 @@ namespace GestiuneApplication.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Remove_32 {
+            get {
+                object obj = ResourceManager.GetObject("Remove_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Report_32 {
             get {
                 object obj = ResourceManager.GetObject("Report_32", resourceCulture);

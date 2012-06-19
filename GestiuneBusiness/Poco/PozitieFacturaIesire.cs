@@ -86,8 +86,8 @@ namespace GestiuneBusiness.Poco
             get
             {
                 List<DbObject> result = new List<DbObject>();
-                result.Add(new DbObject { Name = "@IdFacturaIesire", Value = this.IdFacturaIesire, FriendlyName = "Factura iesire" });
-                result.Add(new DbObject { Name = "@IdStoc", Value = this.IdStoc, FriendlyName = "Stoc" });
+                result.Add(new DbObject { Name = "@IdFacturaIesire", Value = this.IdFacturaIesire, FriendlyName = "" });
+                result.Add(new DbObject { Name = "@IdStoc", Value = this.IdStoc, FriendlyName = "Produs" });
                 result.Add(new DbObject { Name = "@Cantitate", Value = this.Cantitate, FriendlyName = "Cantitate" });
                 result.Add(new DbObject { Name = "@PretUnitar", Value = this.PretUnitar, FriendlyName = "Pret unitar" });
                 return result;

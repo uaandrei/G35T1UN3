@@ -1,4 +1,5 @@
-﻿using GestiuneBusiness.Enums;
+﻿using System.Linq;
+using GestiuneBusiness.Enums;
 using GestiuneBusiness.Poco;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -76,7 +77,6 @@ namespace TestProjectGestiune
             {
                 Nume = "Testing1",
                 Pret = 123m,
-                RataTva = 0.12m,
                 StocMinim = 12,
                 Um = "Testing"
             };
@@ -93,10 +93,9 @@ namespace TestProjectGestiune
             {
                 Nume = "Modificat",
                 Pret = 123m,
-                RataTva = 0.12m,
                 StocMinim = 122,
                 Um = "Modificat",
-                ID=1
+                ID = 1
             };
             if (target.Save().Status == StatusEnum.Errors)
             {
@@ -107,8 +106,26 @@ namespace TestProjectGestiune
         [TestMethod()]
         public void GetAllProdusTest()
         {
-            var list=Produs.GetAll();
+            var list = Produs.GetAll();
             if (list == null)
+            {
+                Assert.Fail();
+            }
+        }
+
+        /// <summary>
+        ///A test for CantitateDisponibila
+        ///</summary>
+        [TestMethod()]
+        public void CantitateDisponibilaProdusTest()
+        {
+            var produs = Produs.GetAll().FirstOrDefault();
+            if (produs == null) return;
+            try
+            {
+                var disp = produs.CantitateDisponibila();
+            }
+            catch (Exception)
             {
                 Assert.Fail();
             }

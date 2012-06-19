@@ -75,8 +75,8 @@ namespace TestProjectGestiune
             var target = new PozitieFacturaIesire
             {
                 Cantitate = 12m,
-                IdFacturaIesire = 1,
-                IdStoc = 1,
+                IdFacturaIesire = 23,
+                IdStoc = 26,
                 PretUnitar = 12m
             };
             if (target.Save().Status == StatusEnum.Errors)

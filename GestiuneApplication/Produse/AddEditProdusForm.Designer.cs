@@ -31,8 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.saveTbox = new System.Windows.Forms.Button();
             this.numeTbox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rataTvaTbox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.umTbox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -69,27 +67,10 @@
             this.numeTbox.Size = new System.Drawing.Size(206, 20);
             this.numeTbox.TabIndex = 0;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 87);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Rata T.V.A.";
-            // 
-            // rataTvaTbox
-            // 
-            this.rataTvaTbox.Location = new System.Drawing.Point(12, 103);
-            this.rataTvaTbox.MaxLength = 14;
-            this.rataTvaTbox.Name = "rataTvaTbox";
-            this.rataTvaTbox.Size = new System.Drawing.Size(100, 20);
-            this.rataTvaTbox.TabIndex = 3;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(118, 87);
+            this.label3.Location = new System.Drawing.Point(12, 87);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 13);
             this.label3.TabIndex = 0;
@@ -97,10 +78,10 @@
             // 
             // umTbox
             // 
-            this.umTbox.Location = new System.Drawing.Point(118, 103);
+            this.umTbox.Location = new System.Drawing.Point(12, 103);
             this.umTbox.MaxLength = 10;
             this.umTbox.Name = "umTbox";
-            this.umTbox.Size = new System.Drawing.Size(100, 20);
+            this.umTbox.Size = new System.Drawing.Size(206, 20);
             this.umTbox.TabIndex = 4;
             // 
             // label4
@@ -123,7 +104,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(118, 48);
+            this.label5.Location = new System.Drawing.Point(116, 48);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(26, 13);
             this.label5.TabIndex = 0;
@@ -131,7 +112,7 @@
             // 
             // pretTbox
             // 
-            this.pretTbox.Location = new System.Drawing.Point(118, 64);
+            this.pretTbox.Location = new System.Drawing.Point(116, 64);
             this.pretTbox.MaxLength = 14;
             this.pretTbox.Name = "pretTbox";
             this.pretTbox.Size = new System.Drawing.Size(100, 20);
@@ -157,11 +138,9 @@
             this.Controls.Add(this.stocMinimTbox);
             this.Controls.Add(this.umTbox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.rataTvaTbox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.numeTbox);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.exitTbox);
             this.Controls.Add(this.saveTbox);
             this.Controls.Add(this.label1);
@@ -183,8 +162,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button saveTbox;
         private System.Windows.Forms.TextBox numeTbox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox rataTvaTbox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox umTbox;
         private System.Windows.Forms.Label label4;

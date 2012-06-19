@@ -29,19 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.produseGrid = new System.Windows.Forms.DataGridView();
-            this.produsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.titleLbl = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.modifyBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
+            this.produsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.numeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stocMinimDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pretDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rataTvaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.umDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.produseGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produsBindingSource)).BeginInit();
@@ -63,7 +59,6 @@
             this.numeDataGridViewTextBoxColumn,
             this.stocMinimDataGridViewTextBoxColumn,
             this.pretDataGridViewTextBoxColumn,
-            this.rataTvaDataGridViewTextBoxColumn,
             this.umDataGridViewTextBoxColumn});
             this.produseGrid.DataSource = this.produsBindingSource;
             this.produseGrid.Location = new System.Drawing.Point(0, 59);
@@ -71,10 +66,6 @@
             this.produseGrid.ReadOnly = true;
             this.produseGrid.Size = new System.Drawing.Size(544, 281);
             this.produseGrid.TabIndex = 0;
-            // 
-            // produsBindingSource
-            // 
-            this.produsBindingSource.DataSource = typeof(GestiuneBusiness.Poco.Produs);
             // 
             // titleLbl
             // 
@@ -111,6 +102,10 @@
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
+            // produsBindingSource
+            // 
+            this.produsBindingSource.DataSource = typeof(GestiuneBusiness.Poco.Produs);
+            // 
             // numeDataGridViewTextBoxColumn
             // 
             this.numeDataGridViewTextBoxColumn.DataPropertyName = "Nume";
@@ -121,37 +116,21 @@
             // stocMinimDataGridViewTextBoxColumn
             // 
             this.stocMinimDataGridViewTextBoxColumn.DataPropertyName = "StocMinim";
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.stocMinimDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.stocMinimDataGridViewTextBoxColumn.HeaderText = "Stoc Minim";
+            this.stocMinimDataGridViewTextBoxColumn.HeaderText = "StocMinim";
             this.stocMinimDataGridViewTextBoxColumn.Name = "stocMinimDataGridViewTextBoxColumn";
             this.stocMinimDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pretDataGridViewTextBoxColumn
             // 
             this.pretDataGridViewTextBoxColumn.DataPropertyName = "Pret";
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.pretDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.pretDataGridViewTextBoxColumn.HeaderText = "Pret";
             this.pretDataGridViewTextBoxColumn.Name = "pretDataGridViewTextBoxColumn";
             this.pretDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // rataTvaDataGridViewTextBoxColumn
-            // 
-            this.rataTvaDataGridViewTextBoxColumn.DataPropertyName = "RataTva";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.rataTvaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.rataTvaDataGridViewTextBoxColumn.HeaderText = "Rata Tva";
-            this.rataTvaDataGridViewTextBoxColumn.Name = "rataTvaDataGridViewTextBoxColumn";
-            this.rataTvaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // umDataGridViewTextBoxColumn
             // 
             this.umDataGridViewTextBoxColumn.DataPropertyName = "Um";
-            this.umDataGridViewTextBoxColumn.HeaderText = "UM";
+            this.umDataGridViewTextBoxColumn.HeaderText = "Um";
             this.umDataGridViewTextBoxColumn.Name = "umDataGridViewTextBoxColumn";
             this.umDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -184,7 +163,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn numeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stocMinimDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pretDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rataTvaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn umDataGridViewTextBoxColumn;
     }
 }

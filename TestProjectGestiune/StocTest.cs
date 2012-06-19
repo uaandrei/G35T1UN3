@@ -74,9 +74,9 @@ namespace TestProjectGestiune
         {
             var target = new Stoc
             {
-                IdPozitieFacturaIntrare = 1,
-                IdProdus = 1,
-                Pret = 15m
+                IdPozitieFacturaIntrare =28,
+                IdProdus = 2,
+                Cantitate=30.123123m
             };
             if (target.Save().Status == StatusEnum.Errors)
             {
@@ -91,7 +91,7 @@ namespace TestProjectGestiune
             {
                 IdPozitieFacturaIntrare = 1,
                 IdProdus = 1,
-                Pret = 123m,
+                Cantitate=30,
                 ID = 1
             };
             if (target.Save().Status == StatusEnum.Errors)
@@ -110,5 +110,11 @@ namespace TestProjectGestiune
             }
         }
 
+        [TestMethod]
+        public void GetAllStocGroupedByProdus()
+        {
+            var list = Stoc.GetAllGroupedByProdus();
+
+        }
     }
 }

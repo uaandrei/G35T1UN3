@@ -32,7 +32,6 @@ namespace GestiuneApplication.Produse
                 numeTbox.Text = ProdusObject.Nume;
                 stocMinimTbox.Text = ProdusObject.StocMinim.ToString("0.00");
                 pretTbox.Text = ProdusObject.Pret.ToString("0.00");
-                rataTvaTbox.Text = ProdusObject.RataTva.ToString("0.00");
                 umTbox.Text = ProdusObject.Um;
             }
         }
@@ -50,8 +49,6 @@ namespace GestiuneApplication.Produse
             ProdusObject.StocMinim = value;
             decimal.TryParse(pretTbox.Text, out value);
             ProdusObject.Pret = value;
-            decimal.TryParse(rataTvaTbox.Text, out value);
-            ProdusObject.RataTva = value;
             ProdusObject.Um = umTbox.Text;
             var errors = ProdusObject.GetErrorString();
             if (errors.Trim() == string.Empty)

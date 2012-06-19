@@ -13,7 +13,6 @@ namespace GestiuneBusiness.Poco
         public string Nume { get; set; }
         public decimal StocMinim { get; set; }
         public decimal Pret { get; set; }
-        public decimal RataTva { get; set; }
         public string Um { get; set; }
         #endregion
 
@@ -69,6 +68,14 @@ namespace GestiuneBusiness.Poco
             }
         }
 
+        public decimal CantitateDisponibila()
+        {
+            return (from s in Stoc.GetAll()
+                    where s.IdProdus == this.ID
+                    group s by s.NumeProdus into s_nou
+                    select s_nou.Sum(p => p.Cantitate)).FirstOrDefault();
+        }
+
         public override List<DbObject> PropertiesNamesWithValues
         {
             get
@@ -77,7 +84,6 @@ namespace GestiuneBusiness.Poco
                 result.Add(new DbObject { Name = "@Nume", Value = this.Nume, FriendlyName = "Nume" });
                 result.Add(new DbObject { Name = "@StocMinim", Value = this.StocMinim, FriendlyName = "Stoc minim" });
                 result.Add(new DbObject { Name = "@Pret", Value = this.Pret, FriendlyName = "Pret" });
-                result.Add(new DbObject { Name = "@RataTva", Value = this.RataTva, FriendlyName = "Rata T.V.A." });
                 result.Add(new DbObject { Name = "@Um", Value = this.Um, FriendlyName = "Unitatea de masura" });
                 return result;
             }

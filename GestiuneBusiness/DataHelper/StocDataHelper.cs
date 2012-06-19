@@ -28,9 +28,8 @@ namespace GestiuneBusiness.DataHelper
             {
                 ID = (int)reader[0],
                 IdProdus = (int)reader[1],
-                Pret = (decimal)reader[2],
-                IdPozitieFacturaIntrare = (int)reader[3],
-                Cantitate=(decimal)reader[4]
+                IdPozitieFacturaIntrare = (int)reader[2],
+                Cantitate=(decimal)reader[3]
             };
         }
     }

@@ -9,15 +9,56 @@ using System.Windows.Forms;
 using System.Reflection;
 using GestiuneApplication.Interfaces;
 using GestiuneBusiness.Poco.Administration;
-using WpfLibrary;
+//using WpfLibrary;
 
 namespace GestiuneApplication
 {
     public partial class MainForm : Form
     {
+        #region [LOGIN REGION]
+        // UNCOMMENT THIS TO ENABLE LOGIN FEATURE
+        //private LoginWindow loginWindow;
+
+        //private void loginWindow_OnLoginClick(string username, string password)
+        //{
+        //    if (VerifyLogin(username, password))
+        //    {
+        //loginWindow.DialogResult = true;
+        //    }
+        //    else
+        //    {
+        //loginWindow.DialogResult = null;
+        //    }
+        //}
+
+        private void InitializeLoginWindow()
+        {
+            VerifyLogin("admin", "admin");//COMMENT THIS FOR LOGIN FEATURE
+            //    this.Hide();
+            //    if (tabControl.TabCount > 0)
+            //    {
+            //        tabControl.TabPages.Clear();
+            //    }
+            //    treeView.CollapseAll();
+            //    loginWindow = new LoginWindow();
+            //    loginWindow.OnLoginClick += new ChangedEventHandler(loginWindow_OnLoginClick);
+            //    var dialogResult = loginWindow.ShowDialog();
+            //    if (dialogResult.Value == false)
+            //    {
+            //        loginWindowFlag = true;
+            //        Application.Exit();
+            //    }
+            //    if (dataLoadedFlag == false)
+            //    {
+            //        new LoadingForm().ShowDialog();
+            //        dataLoadedFlag = true;
+            //    }
+            //    this.Show();
+        }
+        #endregion [LOGIN REGION]
+
         #region [MEMBERS]
         public static Utilizator LoggedUser { get; set; }
-        private LoginWindow loginWindow;
         private bool loginWindowFlag = false;
         private bool dataLoadedFlag = false;
         #endregion [MEMBERS]
@@ -47,18 +88,6 @@ namespace GestiuneApplication
                 {
                     e.Cancel = true;
                 }
-            }
-        }
-
-        private void loginWindow_OnLoginClick(string username, string password)
-        {
-            if (VerifyLogin(username, password))
-            {
-                loginWindow.DialogResult = true;
-            }
-            else
-            {
-                loginWindow.DialogResult = null;
             }
         }
 
@@ -159,8 +188,9 @@ namespace GestiuneApplication
                 }
                 LoggedUser = utilizator;
             }
-            roleTssl.Text = LoggedUser.RolObject == null ? "admin" : LoggedUser.RolObject.Nume;
-            usernameTssl.Text = LoggedUser.Nume;
+            roleTssl.Text = "Rol: ";
+            roleTssl.Text += LoggedUser.RolObject == null ? "admin" : LoggedUser.RolObject.Nume;
+            usernameTssl.Text = "Utilizator logat: " + LoggedUser.Nume;
             return true;
         }
 
@@ -203,30 +233,6 @@ namespace GestiuneApplication
                     treeView.Nodes[item.ParentName].Nodes.Add(node);
                 }
             }
-        }
-
-        private void InitializeLoginWindow()
-        {
-            this.Hide();
-            if (tabControl.TabCount > 0)
-            {
-                tabControl.TabPages.Clear();
-            }
-            treeView.CollapseAll();
-            loginWindow = new LoginWindow();
-            loginWindow.OnLoginClick += new ChangedEventHandler(loginWindow_OnLoginClick);
-            var dialogResult = loginWindow.ShowDialog();
-            if (dialogResult.Value == false)
-            {
-                loginWindowFlag = true;
-                Application.Exit();
-            }
-            if (dataLoadedFlag == false)
-            {
-                new LoadingForm().ShowDialog();
-                dataLoadedFlag = true;
-            }
-            this.Show();
         }
         #endregion [METHODS]
 

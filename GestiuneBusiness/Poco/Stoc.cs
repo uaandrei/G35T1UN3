@@ -11,7 +11,6 @@ namespace GestiuneBusiness.Poco
         #region [MEMBERS]
         public int IdProdus { get; set; }
         public int IdPozitieFacturaIntrare { get; set; }
-        public decimal Pret { get; set; }
         public decimal Cantitate { get; set; }
         public PozitieFacturaIntrare PozitieFacturaIntrareObject
         {
@@ -22,6 +21,13 @@ namespace GestiuneBusiness.Poco
             get
             {
                 return Produs.GetAll().FirstOrDefault(p => p.ID == IdProdus);
+            }
+        }
+        public string NumeProdus
+        {
+            get
+            {
+                return this.ProdusObject.Nume;
             }
         }
         #endregion
@@ -80,13 +86,29 @@ namespace GestiuneBusiness.Poco
             }
         }
 
+        /// <summary>
+        /// Id-ul pozitiei de intrare nu reflecta stocul insumat, deoarece un stoc poate contine produse din mai multe facturi de intrare.
+        /// </summary>
+        public static List<Stoc> GetAllGroupedByProdus()
+        {
+            var query = from s in Stoc.GetAll()
+                        group s by s.IdProdus into s_nou
+                        select new Stoc
+                        {
+                            ID = s_nou.Max(p=>p.ID),
+                            Cantitate = s_nou.Sum(p => p.Cantitate),
+                            IdPozitieFacturaIntrare = s_nou.Select(p => p.IdPozitieFacturaIntrare).First(),
+                            IdProdus = s_nou.Select(p => p.IdProdus).First()
+                        };
+            return query.ToList();
+        }
+
         public override List<DbObject> PropertiesNamesWithValues
         {
             get
             {
                 List<DbObject> result = new List<DbObject>();
                 result.Add(new DbObject { Name = "@IdProdus", Value = this.IdProdus, FriendlyName = "Produs" });
-                result.Add(new DbObject { Name = "@Pret", Value = this.Pret, FriendlyName = "Pret" });
                 result.Add(new DbObject { Name = "@Cantitate", Value = this.Cantitate, FriendlyName = "Cantitate produs" });
                 result.Add(new DbObject { Name = "@IdPozitieFacturaIntrare", Value = this.IdPozitieFacturaIntrare, FriendlyName = "Serie factura intrare" });
                 return result;

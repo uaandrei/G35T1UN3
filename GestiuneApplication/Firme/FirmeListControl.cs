@@ -64,7 +64,7 @@ namespace GestiuneApplication.Firme
             int index = 0;
             foreach (var item in Firma.GetAll())
             {
-                firmeGrid.Rows.Add(item.Nume, item.Cui, item.Rc, item.Iban, item.Adresa, item.Telefon, item.DataInfiintarii.ToString("dd-MM-yyyy"), item.BancaObject.Nume, item.DelegatObject.Nume);
+                firmeGrid.Rows.Add(item.Nume, item.Cui, item.Rc, item.Iban, item.Adresa, item.Telefon, item.DataInfiintarii.ToString("dd/MM/yyyy"), item.BancaObject.Nume, item.DelegatObject.Nume);
                 firmeGrid.Rows[index++].Tag = item;
             }
         }

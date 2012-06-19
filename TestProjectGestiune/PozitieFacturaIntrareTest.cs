@@ -75,7 +75,7 @@ namespace TestProjectGestiune
             PozitieFacturaIntrare target = new PozitieFacturaIntrare
             {
                 Cantitate = 130m,
-                IdFacturaIntrare = 4,
+                IdFacturaIntrare = 25,
                 IdProdus = 1,
                 PretUnitar = 15
             };
