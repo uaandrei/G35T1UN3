@@ -61,7 +61,7 @@ namespace GestiuneApplication.FacturiIesire
             }
             decimal cantitate = 0m;
             decimal.TryParse(cantitateTbox.Text, out cantitate);
-            if (cantitate == 0)
+            if (cantitate <= 0)
             {
                 MessageBox.Show("Introduceti o cantitate!");
                 return;

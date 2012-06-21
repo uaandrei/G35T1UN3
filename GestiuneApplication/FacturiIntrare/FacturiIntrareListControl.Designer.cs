@@ -32,21 +32,24 @@
             this.titleLbl = new System.Windows.Forms.Label();
             this.addBtn = new System.Windows.Forms.Button();
             this.facturiGrid = new System.Windows.Forms.DataGridView();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.serieColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numarColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.furnizorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.refreshBtn = new System.Windows.Forms.Button();
+            this.filterTbox = new System.Windows.Forms.TextBox();
+            this.searchBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.facturiGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // titleLbl
             // 
             this.titleLbl.AutoSize = true;
-            this.titleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLbl.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.titleLbl.Location = new System.Drawing.Point(59, 11);
+            this.titleLbl.Location = new System.Drawing.Point(115, 11);
             this.titleLbl.Name = "titleLbl";
             this.titleLbl.Size = new System.Drawing.Size(248, 42);
             this.titleLbl.TabIndex = 18;
@@ -81,10 +84,10 @@
             this.dataColumn,
             this.furnizorColumn,
             this.btnColumn});
-            this.facturiGrid.Location = new System.Drawing.Point(0, 59);
+            this.facturiGrid.Location = new System.Drawing.Point(0, 85);
             this.facturiGrid.Name = "facturiGrid";
             this.facturiGrid.ReadOnly = true;
-            this.facturiGrid.Size = new System.Drawing.Size(534, 261);
+            this.facturiGrid.Size = new System.Drawing.Size(534, 235);
             this.facturiGrid.TabIndex = 15;
             this.facturiGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.facturiGrid_CellContentClick);
             // 
@@ -127,10 +130,42 @@
             this.btnColumn.ToolTipText = "Vizualizati aceasta factura de intrare";
             this.btnColumn.UseColumnTextForButtonValue = true;
             // 
+            // refreshBtn
+            // 
+            this.refreshBtn.Image = global::GestiuneApplication.Properties.Resources.Refresh_32;
+            this.refreshBtn.Location = new System.Drawing.Point(59, 3);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(50, 50);
+            this.refreshBtn.TabIndex = 23;
+            this.refreshBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.refreshBtn.UseVisualStyleBackColor = true;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
+            // 
+            // filterTbox
+            // 
+            this.filterTbox.Location = new System.Drawing.Point(3, 59);
+            this.filterTbox.Name = "filterTbox";
+            this.filterTbox.Size = new System.Drawing.Size(106, 20);
+            this.filterTbox.TabIndex = 26;
+            this.filterTbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterTbox_KeyPress);
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.Location = new System.Drawing.Point(115, 59);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(50, 20);
+            this.searchBtn.TabIndex = 25;
+            this.searchBtn.Text = "Cauta";
+            this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            // 
             // FacturiIntrareListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.filterTbox);
+            this.Controls.Add(this.searchBtn);
+            this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.titleLbl);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.facturiGrid);
@@ -154,5 +189,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn furnizorColumn;
         private System.Windows.Forms.DataGridViewButtonColumn btnColumn;
+        private System.Windows.Forms.Button refreshBtn;
+        private System.Windows.Forms.TextBox filterTbox;
+        private System.Windows.Forms.Button searchBtn;
     }
 }

@@ -8,18 +8,16 @@ using System.Text;
 using System.Windows.Forms;
 using GestiuneApplication.Interfaces;
 
-namespace GestiuneApplication.Firme
+namespace GestiuneApplication.Plati
 {
-    public partial class AchitareFacturiPeFirmaControl : UserControl, ITreeNode
+    public partial class EfectuarePlataControl : UserControl, ITreeNode
     {
-        #region [CTOR]
-        public AchitareFacturiPeFirmaControl()
+        public EfectuarePlataControl()
         {
             InitializeComponent();
         }
-        #endregion
 
-        #region [ITreeNodeComponent]
+        #region [ITreeNode]
         public string NodeName
         {
             get
@@ -32,7 +30,7 @@ namespace GestiuneApplication.Firme
         {
             get
             {
-                return ConstantsAndEnums.Constants.FirmeNode;
+                return ConstantsAndEnums.Constants.PlatiNode;
             }
         }
 
@@ -49,9 +47,22 @@ namespace GestiuneApplication.Firme
         {
             get
             {
-                return "Achitare facturi";
+                return "Efectuare plati";
             }
         }
-        #endregion
+        #endregion [ITreeNode]
+
+        private void openBtn_Click(object sender, EventArgs e)
+        {
+            if (plataFirmRadioBtn.Checked)
+            {
+                new PlatiPeFirmaForm().ShowDialog();
+            }
+            else
+            {
+                new PlatileMeleForm().ShowDialog();
+            }
+        }
+
     }
 }

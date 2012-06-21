@@ -64,7 +64,7 @@
             this.dataDtp.Location = new System.Drawing.Point(224, 25);
             this.dataDtp.Name = "dataDtp";
             this.dataDtp.Size = new System.Drawing.Size(100, 20);
-            this.dataDtp.TabIndex = 15;
+            this.dataDtp.TabIndex = 2;
             // 
             // label8
             // 
@@ -81,7 +81,7 @@
             this.numarTbox.MaxLength = 15;
             this.numarTbox.Name = "numarTbox";
             this.numarTbox.Size = new System.Drawing.Size(100, 20);
-            this.numarTbox.TabIndex = 14;
+            this.numarTbox.TabIndex = 1;
             // 
             // cotaTvaTbox
             // 
@@ -89,7 +89,7 @@
             this.cotaTvaTbox.MaxLength = 15;
             this.cotaTvaTbox.Name = "cotaTvaTbox";
             this.cotaTvaTbox.Size = new System.Drawing.Size(100, 20);
-            this.cotaTvaTbox.TabIndex = 16;
+            this.cotaTvaTbox.TabIndex = 3;
             // 
             // produsCmb
             // 
@@ -99,7 +99,7 @@
             this.produsCmb.Location = new System.Drawing.Point(224, 64);
             this.produsCmb.Name = "produsCmb";
             this.produsCmb.Size = new System.Drawing.Size(206, 21);
-            this.produsCmb.TabIndex = 27;
+            this.produsCmb.TabIndex = 5;
             this.produsCmb.ValueMember = "ID";
             this.produsCmb.SelectedIndexChanged += new System.EventHandler(this.produsCmb_SelectedIndexChanged);
             // 
@@ -109,7 +109,7 @@
             this.serieTbox.MaxLength = 15;
             this.serieTbox.Name = "serieTbox";
             this.serieTbox.Size = new System.Drawing.Size(100, 20);
-            this.serieTbox.TabIndex = 13;
+            this.serieTbox.TabIndex = 0;
             // 
             // firmeCmb
             // 
@@ -119,7 +119,7 @@
             this.firmeCmb.Location = new System.Drawing.Point(12, 64);
             this.firmeCmb.Name = "firmeCmb";
             this.firmeCmb.Size = new System.Drawing.Size(206, 21);
-            this.firmeCmb.TabIndex = 24;
+            this.firmeCmb.TabIndex = 4;
             this.firmeCmb.ValueMember = "ID";
             // 
             // dataGrid
@@ -151,7 +151,7 @@
             this.saveBtn.Location = new System.Drawing.Point(346, 351);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(84, 23);
-            this.saveBtn.TabIndex = 32;
+            this.saveBtn.TabIndex = 9;
             this.saveBtn.Text = "Salveaza";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
@@ -176,7 +176,7 @@
             this.addBtn.Location = new System.Drawing.Point(360, 92);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(32, 32);
-            this.addBtn.TabIndex = 30;
+            this.addBtn.TabIndex = 8;
             this.addBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.toolTip1.SetToolTip(this.addBtn, "Adauga produs in lista");
             this.addBtn.UseVisualStyleBackColor = true;
@@ -242,7 +242,7 @@
             this.pretUnitarTbox.MaxLength = 10;
             this.pretUnitarTbox.Name = "pretUnitarTbox";
             this.pretUnitarTbox.Size = new System.Drawing.Size(130, 20);
-            this.pretUnitarTbox.TabIndex = 29;
+            this.pretUnitarTbox.TabIndex = 7;
             // 
             // cantitateDisponibilaTbox
             // 
@@ -277,7 +277,7 @@
             this.cantitateTbox.MaxLength = 10;
             this.cantitateTbox.Name = "cantitateTbox";
             this.cantitateTbox.Size = new System.Drawing.Size(100, 20);
-            this.cantitateTbox.TabIndex = 28;
+            this.cantitateTbox.TabIndex = 6;
             // 
             // label10
             // 

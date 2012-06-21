@@ -67,6 +67,13 @@ namespace GestiuneApplication.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Administrator_32 {
+            get {
+                object obj = ResourceManager.GetObject("Administrator_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap apple_32x32 {
             get {
                 object obj = ResourceManager.GetObject("apple_32x32", resourceCulture);
@@ -77,6 +84,13 @@ namespace GestiuneApplication.Properties {
         internal static System.Drawing.Bitmap Boss_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Boss_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Check_32 {
+            get {
+                object obj = ResourceManager.GetObject("Check_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -119,6 +133,13 @@ namespace GestiuneApplication.Properties {
         internal static System.Drawing.Bitmap Logout_32 {
             get {
                 object obj = ResourceManager.GetObject("Logout_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Money_32 {
+            get {
+                object obj = ResourceManager.GetObject("Money_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -30,7 +30,6 @@ namespace GestiuneBusiness.Poco
         #endregion
 
         internal static List<PozitieFacturaIntrare> pozitieFacturaIntrareList = null;
-        // TODO: modifica asta in proprietate, ca altfel, prin referinta, poate fi modificata si din exterior;
         public static List<PozitieFacturaIntrare> GetAll()
         {
             try
@@ -77,8 +76,7 @@ namespace GestiuneBusiness.Poco
 
         public override PersistenceResult Delete()
         {
-            // TODO: Implement this method
-            throw new NotImplementedException();
+            return null;
         }
 
         public override List<DbObject> PropertiesNamesWithValues

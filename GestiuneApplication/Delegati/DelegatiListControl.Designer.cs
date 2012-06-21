@@ -38,6 +38,9 @@
             this.serieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delegatBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.refreshBtn = new System.Windows.Forms.Button();
+            this.filterTbox = new System.Windows.Forms.TextBox();
+            this.searchBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.delegatiGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.delegatBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -45,9 +48,9 @@
             // titleLbl
             // 
             this.titleLbl.AutoSize = true;
-            this.titleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLbl.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.titleLbl.Location = new System.Drawing.Point(115, 11);
+            this.titleLbl.Location = new System.Drawing.Point(171, 11);
             this.titleLbl.Name = "titleLbl";
             this.titleLbl.Size = new System.Drawing.Size(155, 42);
             this.titleLbl.TabIndex = 14;
@@ -94,10 +97,10 @@
             this.cnpDataGridViewTextBoxColumn,
             this.serieDataGridViewTextBoxColumn});
             this.delegatiGrid.DataSource = this.delegatBindingSource;
-            this.delegatiGrid.Location = new System.Drawing.Point(0, 59);
+            this.delegatiGrid.Location = new System.Drawing.Point(0, 85);
             this.delegatiGrid.Name = "delegatiGrid";
             this.delegatiGrid.ReadOnly = true;
-            this.delegatiGrid.Size = new System.Drawing.Size(580, 301);
+            this.delegatiGrid.Size = new System.Drawing.Size(580, 275);
             this.delegatiGrid.TabIndex = 11;
             // 
             // numeDataGridViewTextBoxColumn
@@ -125,10 +128,43 @@
             // 
             this.delegatBindingSource.DataSource = typeof(GestiuneBusiness.Poco.Delegat);
             // 
+            // refreshBtn
+            // 
+            this.refreshBtn.Image = global::GestiuneApplication.Properties.Resources.Refresh_32;
+            this.refreshBtn.Location = new System.Drawing.Point(115, 3);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(50, 50);
+            this.refreshBtn.TabIndex = 15;
+            this.refreshBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolTip1.SetToolTip(this.refreshBtn, "Reimprospateaza stocurile");
+            this.refreshBtn.UseVisualStyleBackColor = true;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
+            // 
+            // filterTbox
+            // 
+            this.filterTbox.Location = new System.Drawing.Point(3, 59);
+            this.filterTbox.Name = "filterTbox";
+            this.filterTbox.Size = new System.Drawing.Size(106, 20);
+            this.filterTbox.TabIndex = 17;
+            this.filterTbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterTbox_KeyPress);
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.Location = new System.Drawing.Point(115, 59);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(50, 20);
+            this.searchBtn.TabIndex = 16;
+            this.searchBtn.Text = "Cauta";
+            this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            // 
             // DelegatiListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.filterTbox);
+            this.Controls.Add(this.searchBtn);
+            this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.titleLbl);
             this.Controls.Add(this.modifyBtn);
             this.Controls.Add(this.addBtn);
@@ -154,5 +190,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn serieDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource delegatBindingSource;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button refreshBtn;
+        private System.Windows.Forms.TextBox filterTbox;
+        private System.Windows.Forms.Button searchBtn;
     }
 }

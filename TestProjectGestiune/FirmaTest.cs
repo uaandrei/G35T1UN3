@@ -66,6 +66,28 @@ namespace TestProjectGestiune
         #endregion
 
         [TestMethod]
+        public void ContainsTextFirmaTest()
+        {
+            var firma = new Firma
+            {
+                Adresa = "abc",
+                Cui = "cde",
+                DataInfiintarii = DateTime.Now,
+                Iban = "xyz",
+                IdBanca = 2,
+                IdDelegat = 2,
+                Nume = "poi",
+                Rc = "pay",
+                Telefon = "y+2223"
+            };
+            string text = "21 2012";
+            var actual = firma.Contains(text);
+            var expected = true;
+            Assert.AreEqual(expected, actual);
+        }
+
+
+        [TestMethod]
         public void InsertFirmaTest()
         {
             var firma = new Firma
@@ -101,7 +123,7 @@ namespace TestProjectGestiune
                 Nume = "Testing",
                 Rc = "Modificat",
                 Telefon = "Modificat",
-                ID=3
+                ID = 3
             };
             var r = firma.Save();
             if (r.Status == StatusEnum.Errors)

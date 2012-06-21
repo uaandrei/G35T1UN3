@@ -103,7 +103,7 @@ namespace GestiuneBusiness.DataHelper.Kernel
                         {
                             con.Open();
                             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("@Id", id);
+                            if (id != 0) cmd.Parameters.AddWithValue("@Id", id);
                             foreach (var dboObject in dbObjects)
                             {
                                 cmd.Parameters.AddWithValue(dboObject.Name, dboObject.Value);

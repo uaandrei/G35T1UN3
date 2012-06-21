@@ -11,7 +11,8 @@
     <RootNamespace>GestiuneApplication</RootNamespace>
     <AssemblyName>GestiuneApplication</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -38,6 +39,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,6 +49,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Reporting, Version=6.0.12.215, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
+    <Reference Include="Telerik.Reporting.Design, Version=6.0.12.215, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
+    <Reference Include="Telerik.ReportViewer.WinForms, Version=6.0.12.215, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -68,11 +73,23 @@
     <Compile Include="Administrare\EditDrepturiPeRolForm.Designer.cs">
       <DependentUpon>EditDrepturiPeRolForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrare\SetariControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Administrare\SetariControl.Designer.cs">
+      <DependentUpon>SetariControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrare\RoleListControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Administrare\RoleListControl.Designer.cs">
       <DependentUpon>RoleListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrare\SchimbaParolaAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrare\SchimbaParolaAdminForm.Designer.cs">
+      <DependentUpon>SchimbaParolaAdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrare\UserListControl.cs">
       <SubType>UserControl</SubType>
@@ -129,12 +146,6 @@
     <Compile Include="FacturiIntrare\FacturiIntrareListControl.Designer.cs">
       <DependentUpon>FacturiIntrareListControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Firme\AchitareFacturiPeFirmaControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Firme\AchitareFacturiPeFirmaControl.Designer.cs">
-      <DependentUpon>AchitareFacturiPeFirmaControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Firme\AddEditFirmaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +170,24 @@
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plati\EfectuarePlataControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Plati\EfectuarePlataControl.Designer.cs">
+      <DependentUpon>EfectuarePlataControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plati\PlatileMeleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plati\PlatileMeleForm.Designer.cs">
+      <DependentUpon>PlatileMeleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plati\PlatiPeFirmaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plati\PlatiPeFirmaForm.Designer.cs">
+      <DependentUpon>PlatiPeFirmaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Produse\AddEditProdusForm.cs">
       <SubType>Form</SubType>
@@ -186,6 +215,18 @@
     <Compile Include="Rapoarte\RaportFacturiNeachitateControl.Designer.cs">
       <DependentUpon>RaportFacturiNeachitateControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rapoarte\RaportProduseSubStocMinimControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rapoarte\RaportProduseSubStocMinimControl.Designer.cs">
+      <DependentUpon>RaportProduseSubStocMinimControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rapoarte\TelerikReports\StocReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rapoarte\TelerikReports\StocReport.Designer.cs">
+      <DependentUpon>StocReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="StocF\StocListControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -201,8 +242,14 @@
     <EmbeddedResource Include="Administrare\EditDrepturiPeRolForm.resx">
       <DependentUpon>EditDrepturiPeRolForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administrare\SetariControl.resx">
+      <DependentUpon>SetariControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administrare\RoleListControl.resx">
       <DependentUpon>RoleListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrare\SchimbaParolaAdminForm.resx">
+      <DependentUpon>SchimbaParolaAdminForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrare\UserListControl.resx">
       <DependentUpon>UserListControl.cs</DependentUpon>
@@ -243,6 +290,15 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Plati\EfectuarePlataControl.resx">
+      <DependentUpon>EfectuarePlataControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plati\PlatileMeleForm.resx">
+      <DependentUpon>PlatileMeleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plati\PlatiPeFirmaForm.resx">
+      <DependentUpon>PlatiPeFirmaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Produse\AddEditProdusForm.resx">
       <DependentUpon>AddEditProdusForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -259,13 +315,25 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Rapoarte\RaportEvolutieVanzariControl.resx">
+      <DependentUpon>RaportEvolutieVanzariControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapoarte\RaportProduseSubStocMinimControl.resx">
+      <DependentUpon>RaportProduseSubStocMinimControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapoarte\TelerikReports\StocReport.resx">
+      <DependentUpon>StocReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StocF\StocListControl.resx">
       <DependentUpon>StocListControl.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\DataSources\GestiuneBusiness.Poco.Administration.Drept.datasource" />
     <None Include="Properties\DataSources\GestiuneBusiness.Poco.Administration.Rol.datasource" />
     <None Include="Properties\DataSources\GestiuneBusiness.Poco.Banca.datasource" />
     <None Include="Properties\DataSources\GestiuneBusiness.Poco.Delegat.datasource" />
+    <None Include="Properties\DataSources\GestiuneBusiness.Poco.FacturaIesire.datasource" />
+    <None Include="Properties\DataSources\GestiuneBusiness.Poco.FacturaIntrare.datasource" />
     <None Include="Properties\DataSources\GestiuneBusiness.Poco.Firma.datasource" />
     <None Include="Properties\DataSources\GestiuneBusiness.Poco.Produs.datasource" />
     <None Include="Properties\Settings.settings">
@@ -305,7 +373,9 @@
       <Name>GestiuneBusiness</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Money-32.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Add-32.png" />
   </ItemGroup>
@@ -321,6 +391,13 @@
   <ItemGroup>
     <None Include="Resources\Remove-32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Administrator-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check-32.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

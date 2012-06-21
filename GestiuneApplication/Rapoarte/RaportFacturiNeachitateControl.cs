@@ -47,7 +47,7 @@ namespace GestiuneApplication.Rapoarte
 
         public string Description
         {
-            get { return "Raport facturi neachitate"; }
+            get { return "Facturi neachitate"; }
         }
         #endregion
     }

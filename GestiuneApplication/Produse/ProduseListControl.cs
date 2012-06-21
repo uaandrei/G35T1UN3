@@ -61,7 +61,11 @@ namespace GestiuneApplication.Produse
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            if ((new AddEditProdusForm()).ShowDialog() == DialogResult.OK) RefreshProduseList();
+            if ((new AddEditProdusForm()).ShowDialog() == DialogResult.OK)
+            {
+                filterTbox.Text = string.Empty;
+                RefreshProduseList();
+            }
         }
 
         private void modifyBtn_Click(object sender, EventArgs e)
@@ -77,12 +81,38 @@ namespace GestiuneApplication.Produse
         #endregion [EVENTS]
 
         #region [METHODS]
-        private void RefreshProduseList()
+        private void RefreshProduseList(string filter = "")
         {
             produsBindingSource.DataSource = null;
-            produsBindingSource.DataSource = Produs.GetAll();
+            produsBindingSource.DataSource = Produs.GetAll().Where(p => p.Contains(filter));
         }
         #endregion [METHODS]
+
+        #region [SEARCH]
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            filterTbox.Text = string.Empty;
+            RefreshProduseList();
+        }
+
+        private void filterTbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                SearchItems();
+            }
+        }
+
+        private void SearchItems()
+        {
+            RefreshProduseList(filterTbox.Text);
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            SearchItems();
+        }
+        #endregion [SEARCH]
 
     }
 }

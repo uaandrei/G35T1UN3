@@ -58,15 +58,13 @@ namespace GestiuneApplication.Banci
             RefreshBanciList();
         }
 
-        private void RefreshBanciList()
-        {
-            bancaBindingSource.DataSource = null;
-            bancaBindingSource.DataSource = Banca.GetAll();
-        }
-
         private void addBtn_Click(object sender, EventArgs e)
         {
-            if (new AddEditBancaForm().ShowDialog() == DialogResult.OK) RefreshBanciList();
+            if (new AddEditBancaForm().ShowDialog() == DialogResult.OK)
+            {
+                filterTbox.Text = string.Empty;
+                RefreshBanciList();
+            }
         }
 
         private void modifyBtn_Click(object sender, EventArgs e)
@@ -80,5 +78,42 @@ namespace GestiuneApplication.Banci
                 RefreshBanciList();
             }
         }
+
+        private void RefreshBanciList()
+        {
+            filterTbox.Text = string.Empty;
+            bancaBindingSource.DataSource = null;
+            bancaBindingSource.DataSource = Banca.GetAll();
+        }
+
+        #region [SEARCH]
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            RefreshBanciList();
+        }
+
+        private void filterTbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                SearchItems();
+            }
+        }
+
+        private void SearchItems()
+        {
+            if (filterTbox.Text.Trim() == string.Empty)
+            {
+                RefreshBanciList();
+            }
+            bancaBindingSource.DataSource = null;
+            bancaBindingSource.DataSource = Banca.GetAll().Where(p => p.Contains(filterTbox.Text) == true).ToList();
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            SearchItems();
+        }
+        #endregion [SEARCH]
     }
 }

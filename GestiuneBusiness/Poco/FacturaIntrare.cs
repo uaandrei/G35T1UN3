@@ -154,5 +154,103 @@ namespace GestiuneBusiness.Poco
                 return result;
             }
         }
+
+        #region [ACHITARE FACTURA INTRARE]
+        private List<Plata> platiPeFactura = null;
+
+        public void AdaugaPlata(Plata plata)
+        {
+            if (platiPeFactura == null)
+            {
+                platiPeFactura = new List<Plata>();
+            }
+            platiPeFactura.Add(plata);
+        }
+
+        public PersistenceResult AchitareFactura()
+        {
+            if (platiPeFactura == null) platiPeFactura = new List<Plata>();
+            if (platiPeFactura.Count == 0)
+            {
+                return new PersistenceResult
+                {
+                    Status = Enums.StatusEnum.Errors,
+                    Message = "Nu ati adaugat nicio plata pentru aceasta factura!"
+                };
+            }
+            var result = new PersistenceResult();
+            try
+            {
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    foreach (var item in platiPeFactura)
+                    {
+                        var pr = item.Save();
+                        if (pr.Status == Enums.StatusEnum.Errors) throw new Exception(pr.Message, pr.ExceptionOccurred);
+                        var plataFactura = new PlataFactura
+                        {
+                            IdFactura = this.ID,
+                            IdPlata = item.ID,
+                            TipFactura = "Intrare"
+                        };
+                        pr = plataFactura.Save();
+                        if (pr.Status == Enums.StatusEnum.Errors) throw new Exception(pr.Message, pr.ExceptionOccurred);
+                    }
+                    scope.Complete();
+                    platiPeFactura = null;
+                }
+                result.Message = "Achitare factura reusita";
+                result.Status = Enums.StatusEnum.Saved;
+            }
+            catch (Exception ex)
+            {
+                Plata.plataList = null;
+                PlataFactura.plataFacturaList = null;
+                result.Message = StringSaveFail;
+                result.Status = Enums.StatusEnum.Errors;
+                result.ExceptionOccurred = ex;
+            }
+            return result;
+        }
+
+        public void AnuleazaPlatile()
+        {
+            platiPeFactura = null;
+        }
+
+        public decimal SumaPlatita
+        {
+            get
+            {
+                return (SumaTotalaDePlatit - SumaRamasaDePlatit);
+            }
+        }
+
+        public decimal SumaTotalaDePlatit
+        {
+            get
+            {
+                var result = from p in PozitieFacturaIntrare.GetAll()
+                             where p.IdFacturaIntrare == this.ID
+                             select (p.PretUnitar * p.Cantitate);
+                var pretFaraTva = result.Sum(p => p);
+                return (pretFaraTva * this.CotaTva / 100) + pretFaraTva;
+            }
+        }
+
+        public decimal SumaRamasaDePlatit
+        {
+            get
+            {
+                var sumaTotala = SumaTotalaDePlatit;
+                var list = from p in PlataFactura.GetAll()
+                           where p.IdFactura == this.ID && p.TipFactura == "Intrare"
+                           select p.PlataObject.Suma;
+                var sumaPlatita = list.Sum(p => p);
+                return (sumaTotala - sumaPlatita);
+            }
+        }
+        #endregion [ACHITARE FACTURA INTRARE]
+
     }
 }

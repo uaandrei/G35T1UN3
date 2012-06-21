@@ -63,6 +63,7 @@
     <Compile Include="DataHelper\ProduseDataHelper.cs" />
     <Compile Include="DataHelper\RoluriDataHelper.cs" />
     <Compile Include="DataHelper\RoluriDrepturiDataHelper.cs" />
+    <Compile Include="DataHelper\SetareDataHelper.cs" />
     <Compile Include="DataHelper\StocDataHelper.cs" />
     <Compile Include="DataHelper\UtilizatoriDataHelper.cs" />
     <Compile Include="Interfaces\IDataPersistence.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Poco\Administration\Drept.cs" />
     <Compile Include="Poco\Administration\Rol.cs" />
     <Compile Include="Poco\Administration\RolDrept.cs" />
+    <Compile Include="Poco\Administration\Setare.cs" />
     <Compile Include="Poco\Administration\Utilizator.cs" />
     <Compile Include="Poco\Banca.cs" />
     <Compile Include="Poco\PozitieFacturaIesire.cs" />

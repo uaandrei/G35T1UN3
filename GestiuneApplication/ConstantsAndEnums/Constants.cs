@@ -14,5 +14,6 @@ namespace GestiuneApplication.ConstantsAndEnums
         public const string FacturiIesireNode = "facturiIesireNode";
         public const string StocNode = "stocNode";
         public const string AdministrareNode = "administrareNode";
+        public const string PlatiNode = "platiNode";
     }
 }

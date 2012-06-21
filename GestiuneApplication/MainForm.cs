@@ -64,7 +64,6 @@ namespace GestiuneApplication
         #endregion [MEMBERS]
 
         #region [EVENTS]
-
         private void inchiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // close all tabs but this

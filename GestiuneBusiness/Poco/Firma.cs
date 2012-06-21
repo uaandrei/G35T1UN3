@@ -64,6 +64,7 @@ namespace GestiuneBusiness.Poco
         }
 
         private static List<Firma> firmaList = null;
+        //TODO: sa ma scot pe mine de aici ca firma de aici, dupa ce imi fac partea de autoidentificare
         public static List<Firma> GetAll()
         {
             try

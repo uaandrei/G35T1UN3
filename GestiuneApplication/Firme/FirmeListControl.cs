@@ -58,11 +58,11 @@ namespace GestiuneApplication.Firme
             RefreshFirmeList();
         }
 
-        private void RefreshFirmeList()
+        private void RefreshFirmeList(string filter = "")
         {
             firmeGrid.Rows.Clear();
             int index = 0;
-            foreach (var item in Firma.GetAll())
+            foreach (var item in Firma.GetAll().Where(p => p.Contains(filter)))
             {
                 firmeGrid.Rows.Add(item.Nume, item.Cui, item.Rc, item.Iban, item.Adresa, item.Telefon, item.DataInfiintarii.ToString("dd/MM/yyyy"), item.BancaObject.Nume, item.DelegatObject.Nume);
                 firmeGrid.Rows[index++].Tag = item;
@@ -71,7 +71,11 @@ namespace GestiuneApplication.Firme
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            if ((new AddEditFirmaForm()).ShowDialog() == DialogResult.OK) RefreshFirmeList();
+            if ((new AddEditFirmaForm()).ShowDialog() == DialogResult.OK)
+            {
+                filterTbox.Text = string.Empty;
+                RefreshFirmeList();
+            }
         }
 
         private void modifyBtn_Click(object sender, EventArgs e)
@@ -85,6 +89,32 @@ namespace GestiuneApplication.Firme
                 RefreshFirmeList();
             }
         }
+
+        #region [SEARCH]
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            filterTbox.Text = string.Empty;
+            RefreshFirmeList();
+        }
+
+        private void filterTbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                SearchItems();
+            }
+        }
+
+        private void SearchItems()
+        {
+            RefreshFirmeList(filterTbox.Text);
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            SearchItems();
+        }
+        #endregion [SEARCH]
 
     }
 }

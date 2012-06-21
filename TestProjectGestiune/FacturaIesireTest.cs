@@ -158,5 +158,60 @@ namespace TestProjectGestiune
                 Assert.Fail();
             }
         }
+
+        [TestMethod]
+        public void SumaTotalaDePlataFacturaIesireTest()
+        {
+            var factura = FacturaIesire.GetAll().First();
+            if (factura == null) return;
+            try
+            {
+                var sumaTotalaDePlata = factura.SumaTotalaDePlatit;
+            }
+            catch (Exception)
+            {
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public void SumaRamasaDePlatitTest()
+        {
+            var factura = FacturaIesire.GetAll().First();
+            try
+            {
+                var sumaRamasaDePlatit = factura.SumaRamasaDePlatit;
+            }
+            catch (Exception)
+            {
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public void AchitareFacturaIesireTest()
+        {
+            var factura = FacturaIesire.GetAll().First();
+            var actual = factura.SumaRamasaDePlatit;
+            factura.AdaugaPlata(new Plata
+            {
+                Data = DateTime.Now,
+                Numar = "xxx",
+                Serie = "xxx",
+                Suma = 200,
+                TipPlata = "CEC"
+            });
+            factura.AdaugaPlata(new Plata
+            {
+                Data = DateTime.Now,
+                Numar = "xxx",
+                Serie = "xxx",
+                Suma = 20,
+                TipPlata = "CEC"
+            });
+            factura.AchitareFactura();
+            var expected = actual - 220m;
+            Assert.AreEqual(expected, factura.SumaRamasaDePlatit);
+        }
     }
 }

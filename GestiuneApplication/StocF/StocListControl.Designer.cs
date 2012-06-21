@@ -37,13 +37,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.filterTbox = new System.Windows.Forms.TextBox();
+            this.searchBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.stocGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // titleLbl
             // 
             this.titleLbl.AutoSize = true;
-            this.titleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLbl.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.titleLbl.Location = new System.Drawing.Point(59, 11);
             this.titleLbl.Name = "titleLbl";
@@ -62,10 +64,10 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.stocGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.stocGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.stocGrid.Location = new System.Drawing.Point(0, 59);
+            this.stocGrid.Location = new System.Drawing.Point(0, 85);
             this.stocGrid.Name = "stocGrid";
             this.stocGrid.ReadOnly = true;
-            this.stocGrid.Size = new System.Drawing.Size(594, 387);
+            this.stocGrid.Size = new System.Drawing.Size(594, 361);
             this.stocGrid.TabIndex = 3;
             this.stocGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.stocGrid_CellFormatting);
             // 
@@ -125,10 +127,30 @@
             this.button2.TabIndex = 5;
             this.button2.UseVisualStyleBackColor = false;
             // 
+            // filterTbox
+            // 
+            this.filterTbox.Location = new System.Drawing.Point(3, 59);
+            this.filterTbox.Name = "filterTbox";
+            this.filterTbox.Size = new System.Drawing.Size(106, 20);
+            this.filterTbox.TabIndex = 30;
+            this.filterTbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterTbox_KeyPress);
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.Location = new System.Drawing.Point(115, 59);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(50, 20);
+            this.searchBtn.TabIndex = 29;
+            this.searchBtn.Text = "Cauta";
+            this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            // 
             // StocListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.filterTbox);
+            this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
@@ -155,6 +177,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox filterTbox;
+        private System.Windows.Forms.Button searchBtn;
 
     }
 }

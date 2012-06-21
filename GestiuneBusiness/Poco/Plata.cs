@@ -51,7 +51,7 @@ namespace GestiuneBusiness.Poco
             throw new NotImplementedException();
         }
 
-        private static List<Plata> plataList = null;
+        internal static List<Plata> plataList = null;
         public static List<Plata> GetAll()
         {
             try

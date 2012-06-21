@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Firme");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Produse", 1, 1);
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Facturi Intrare", 2, 2);
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Facturi Iesire", 2, 2);
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Stoc", 3, 3);
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Rapoarte", 4, 4);
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Administrare", -2, -2);
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Plati", 6, 6);
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Firme");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Produse", 1, 1);
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Facturi Intrare", 2, 2);
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Facturi Iesire", 2, 2);
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Stoc", 3, 3);
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Rapoarte", 4, 4);
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Administrare", 5, 5);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.treeView = new System.Windows.Forms.TreeView();
@@ -91,40 +92,45 @@
             this.treeView.ImageList = this.imageListIcons;
             this.treeView.Location = new System.Drawing.Point(0, 0);
             this.treeView.Name = "treeView";
-            treeNode1.ImageIndex = 0;
-            treeNode1.Name = "firmeNode";
-            treeNode1.Tag = "Firme";
-            treeNode1.Text = "Firme";
-            treeNode2.ImageIndex = 1;
-            treeNode2.Name = "produseNode";
-            treeNode2.SelectedImageIndex = 1;
-            treeNode2.Tag = "Produse";
-            treeNode2.Text = "Produse";
-            treeNode3.ImageIndex = 2;
-            treeNode3.Name = "facturiIntrareNode";
-            treeNode3.SelectedImageIndex = 2;
-            treeNode3.Tag = "FacturiIntrare";
-            treeNode3.Text = "Facturi Intrare";
+            treeNode1.ImageIndex = 6;
+            treeNode1.Name = "platiNode";
+            treeNode1.SelectedImageIndex = 6;
+            treeNode1.Tag = "";
+            treeNode1.Text = "Plati";
+            treeNode2.ImageIndex = 0;
+            treeNode2.Name = "firmeNode";
+            treeNode2.Tag = "";
+            treeNode2.Text = "Firme";
+            treeNode3.ImageIndex = 1;
+            treeNode3.Name = "produseNode";
+            treeNode3.SelectedImageIndex = 1;
+            treeNode3.Tag = "";
+            treeNode3.Text = "Produse";
             treeNode4.ImageIndex = 2;
-            treeNode4.Name = "facturiIesireNode";
+            treeNode4.Name = "facturiIntrareNode";
             treeNode4.SelectedImageIndex = 2;
-            treeNode4.Tag = "FacturiIesire";
-            treeNode4.Text = "Facturi Iesire";
-            treeNode5.ImageIndex = 3;
-            treeNode5.Name = "stocNode";
-            treeNode5.SelectedImageIndex = 3;
-            treeNode5.Tag = "Stoc";
-            treeNode5.Text = "Stoc";
-            treeNode6.ImageIndex = 4;
-            treeNode6.Name = "rapoarteNode";
-            treeNode6.SelectedImageIndex = 4;
-            treeNode6.Tag = "Rapoarte";
-            treeNode6.Text = "Rapoarte";
-            treeNode7.ImageIndex = -2;
-            treeNode7.Name = "administrareNode";
-            treeNode7.SelectedImageIndex = -2;
-            treeNode7.Tag = "Administrare";
-            treeNode7.Text = "Administrare";
+            treeNode4.Tag = "";
+            treeNode4.Text = "Facturi Intrare";
+            treeNode5.ImageIndex = 2;
+            treeNode5.Name = "facturiIesireNode";
+            treeNode5.SelectedImageIndex = 2;
+            treeNode5.Tag = "";
+            treeNode5.Text = "Facturi Iesire";
+            treeNode6.ImageIndex = 3;
+            treeNode6.Name = "stocNode";
+            treeNode6.SelectedImageIndex = 3;
+            treeNode6.Tag = "";
+            treeNode6.Text = "Stoc";
+            treeNode7.ImageIndex = 4;
+            treeNode7.Name = "rapoarteNode";
+            treeNode7.SelectedImageIndex = 4;
+            treeNode7.Tag = "";
+            treeNode7.Text = "Rapoarte";
+            treeNode8.ImageIndex = 5;
+            treeNode8.Name = "administrareNode";
+            treeNode8.SelectedImageIndex = 5;
+            treeNode8.Tag = "";
+            treeNode8.Text = "Administrare";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
@@ -132,7 +138,8 @@
             treeNode4,
             treeNode5,
             treeNode6,
-            treeNode7});
+            treeNode7,
+            treeNode8});
             this.treeView.SelectedImageIndex = 0;
             this.treeView.Size = new System.Drawing.Size(212, 424);
             this.treeView.TabIndex = 0;
@@ -147,6 +154,8 @@
             this.imageListIcons.Images.SetKeyName(2, "Invoice-32.png");
             this.imageListIcons.Images.SetKeyName(3, "Crate-32.png");
             this.imageListIcons.Images.SetKeyName(4, "Report-32.png");
+            this.imageListIcons.Images.SetKeyName(5, "Administrator-32.png");
+            this.imageListIcons.Images.SetKeyName(6, "Sign - Dollar-32.png");
             // 
             // tabControl
             // 
@@ -165,12 +174,12 @@
             this.inchiToolStripMenuItem,
             this.deToolStripMenuItem});
             this.tabControlContextMenuStrip.Name = "tabControlContextMenuStrip";
-            this.tabControlContextMenuStrip.Size = new System.Drawing.Size(269, 92);
+            this.tabControlContextMenuStrip.Size = new System.Drawing.Size(269, 70);
             // 
             // inchideToolStripMenuItem
             // 
             this.inchideToolStripMenuItem.Name = "inchideToolStripMenuItem";
-            this.inchideToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.inchideToolStripMenuItem.Size = new System.Drawing.Size(268, 22);
             this.inchideToolStripMenuItem.Text = "Inchide tab curent";
             this.inchideToolStripMenuItem.Click += new System.EventHandler(this.inchideToolStripMenuItem_Click);
             // 

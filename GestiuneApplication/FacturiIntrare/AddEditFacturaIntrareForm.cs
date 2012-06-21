@@ -94,7 +94,7 @@ namespace GestiuneApplication.FacturiIntrare
                 pozitieFacturaIntrareList.Add(pozitieFacturaIntrare);
             }
             decimal value = 0m;
-            decimal.TryParse(cotaTvaTbox.Text, out value); 
+            decimal.TryParse(cotaTvaTbox.Text, out value);
             FacturaIntrareObject.CotaTva = value;
             FacturaIntrareObject.Data = dataDtp.Value;
             FacturaIntrareObject.IdFirma = furnizorCmb.SelectedValue == null ? 0 : (int)furnizorCmb.SelectedValue;
@@ -114,6 +114,14 @@ namespace GestiuneApplication.FacturiIntrare
             {
                 MessageBox.Show(errors);
             }
+        }
+
+        private void produsCmb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (produsCmb.SelectedItem == null) return;
+            var produs = (Produs)produsCmb.SelectedItem;
+            pretUnitarTbox.Text = produs.Pret.ToString("0.00");
+            umTbox.Text = produs.Um;
         }
     }
 }

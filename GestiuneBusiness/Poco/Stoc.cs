@@ -89,13 +89,14 @@ namespace GestiuneBusiness.Poco
         /// <summary>
         /// Id-ul pozitiei de intrare nu reflecta stocul insumat, deoarece un stoc poate contine produse din mai multe facturi de intrare.
         /// </summary>
-        public static List<Stoc> GetAllGroupedByProdus()
+        public static List<Stoc> GetAllGroupedByProdus(string produsName = "")
         {
             var query = from s in Stoc.GetAll()
+                        where s.NumeProdus.ToLower().Contains(produsName.ToLower())
                         group s by s.IdProdus into s_nou
                         select new Stoc
                         {
-                            ID = s_nou.Max(p=>p.ID),
+                            ID = s_nou.Max(p => p.ID),
                             Cantitate = s_nou.Sum(p => p.Cantitate),
                             IdPozitieFacturaIntrare = s_nou.Select(p => p.IdPozitieFacturaIntrare).First(),
                             IdProdus = s_nou.Select(p => p.IdProdus).First()

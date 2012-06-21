@@ -63,8 +63,7 @@ namespace GestiuneBusiness.Poco.Administration
 
         public override PersistenceResult Delete()
         {
-            // TODO: Implement this method
-            throw new NotImplementedException();
+            return null;
         }
 
         public override List<DbObject> PropertiesNamesWithValues

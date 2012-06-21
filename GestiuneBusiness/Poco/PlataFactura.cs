@@ -67,11 +67,10 @@ namespace GestiuneBusiness.Poco
 
         public override PersistenceResult Delete()
         {
-            // TODO: Implement this method
-            throw new NotImplementedException();
+            return null;
         }
 
-        private static List<PlataFactura> plataFacturaList = null;
+        internal static List<PlataFactura> plataFacturaList = null;
 
         public static List<PlataFactura> GetAll()
         {

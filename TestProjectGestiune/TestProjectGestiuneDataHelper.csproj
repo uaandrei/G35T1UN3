@@ -68,6 +68,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolDreptTest.cs" />
     <Compile Include="RolTest.cs" />
+    <Compile Include="SetariTest.cs" />
     <Compile Include="StocTest.cs" />
     <Compile Include="UtilizatorTest.cs" />
   </ItemGroup>

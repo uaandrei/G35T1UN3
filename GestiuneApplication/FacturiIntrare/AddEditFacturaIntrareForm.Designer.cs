@@ -52,6 +52,8 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cotaTvaTbox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.umTbox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pozitieFacturaIntrareGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,6 +166,7 @@
             this.produsCmb.Size = new System.Drawing.Size(206, 21);
             this.produsCmb.TabIndex = 5;
             this.produsCmb.ValueMember = "ID";
+            this.produsCmb.SelectedIndexChanged += new System.EventHandler(this.produsCmb_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -179,7 +182,7 @@
             this.cantitateTbox.Location = new System.Drawing.Point(12, 104);
             this.cantitateTbox.MaxLength = 10;
             this.cantitateTbox.Name = "cantitateTbox";
-            this.cantitateTbox.Size = new System.Drawing.Size(206, 20);
+            this.cantitateTbox.Size = new System.Drawing.Size(100, 20);
             this.cantitateTbox.TabIndex = 6;
             // 
             // label6
@@ -222,7 +225,7 @@
             this.saveBtn.Location = new System.Drawing.Point(346, 351);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(84, 23);
-            this.saveBtn.TabIndex = 10;
+            this.saveBtn.TabIndex = 9;
             this.saveBtn.Text = "Salveaza";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
@@ -232,7 +235,7 @@
             this.exitBtn.Location = new System.Drawing.Point(256, 351);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(84, 23);
-            this.exitBtn.TabIndex = 11;
+            this.exitBtn.TabIndex = 10;
             this.exitBtn.Text = "Iesire";
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
@@ -244,7 +247,7 @@
             this.removeBtn.Location = new System.Drawing.Point(398, 92);
             this.removeBtn.Name = "removeBtn";
             this.removeBtn.Size = new System.Drawing.Size(32, 32);
-            this.removeBtn.TabIndex = 12;
+            this.removeBtn.TabIndex = 11;
             this.removeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.toolTip1.SetToolTip(this.removeBtn, "Sterge produs din lista");
             this.removeBtn.UseVisualStyleBackColor = true;
@@ -267,6 +270,24 @@
             this.label9.TabIndex = 4;
             this.label9.Text = "Cota TVA";
             // 
+            // umTbox
+            // 
+            this.umTbox.Location = new System.Drawing.Point(118, 104);
+            this.umTbox.MaxLength = 10;
+            this.umTbox.Name = "umTbox";
+            this.umTbox.ReadOnly = true;
+            this.umTbox.Size = new System.Drawing.Size(100, 20);
+            this.umTbox.TabIndex = 6;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(118, 88);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(93, 13);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Unitate de masura";
+            // 
             // AddEditFacturaIntrareForm
             // 
             this.AcceptButton = this.saveBtn;
@@ -279,9 +300,11 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pretUnitarTbox);
+            this.Controls.Add(this.umTbox);
             this.Controls.Add(this.cantitateTbox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label1);
@@ -334,5 +357,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TextBox cotaTvaTbox;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox umTbox;
+        private System.Windows.Forms.Label label10;
     }
 }

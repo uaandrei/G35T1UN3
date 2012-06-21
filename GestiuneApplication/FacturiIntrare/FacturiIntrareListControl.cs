@@ -49,11 +49,11 @@ namespace GestiuneApplication.FacturiIntrare
             RefreshFacturiList();
         }
 
-        private void RefreshFacturiList()
+        private void RefreshFacturiList(string filter = "")
         {
             facturiGrid.Rows.Clear();
             int index = 0;
-            foreach (var item in FacturaIntrare.GetAll())
+            foreach (var item in FacturaIntrare.GetAll().Where(p => p.Contains(filter)))
             {
                 facturiGrid.Rows.Add(item.Serie, item.Numar, item.Data.ToString("dd/MM/yyyy"), item.FirmaObject.Nume);
                 facturiGrid.Rows[index++].Tag = item;
@@ -73,9 +73,35 @@ namespace GestiuneApplication.FacturiIntrare
         {
             if (new AddEditFacturaIntrareForm().ShowDialog() == DialogResult.OK)
             {
+                filterTbox.Text = string.Empty;
                 RefreshFacturiList();
             }
         }
 
+        #region [SEARCH]
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            filterTbox.Text = string.Empty;
+            RefreshFacturiList();
+        }
+
+        private void filterTbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                SearchItems();
+            }
+        }
+
+        private void SearchItems()
+        {
+            RefreshFacturiList(filterTbox.Text);
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            SearchItems();
+        }
+        #endregion [SEARCH]
     }
 }

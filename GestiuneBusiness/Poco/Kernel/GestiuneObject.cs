@@ -14,6 +14,25 @@ namespace GestiuneBusiness.Poco.Kernel
 
         public abstract PersistenceResult Delete();
 
+        public bool Contains(string text)
+        {
+            if (text == string.Empty)
+            {
+                return true;
+            }
+            string[] items = text.ToLower().Split(' ');
+            foreach (var item in items)
+            {
+                foreach (var prop in PropertiesNamesWithValues)
+                {
+                    if (prop.Value == null) continue;
+                    if (prop.Value.GetType() == typeof(int)) continue;
+                    if (prop.Value.ToString().ToLower().Contains(item)) return true;
+                }
+            }
+            return false;
+        }
+
         public string GetErrorString()
         {
             string errorString = "";
@@ -37,7 +56,7 @@ namespace GestiuneBusiness.Poco.Kernel
                 if (item.Value.GetType() == typeof(decimal))
                 {
                     var check = (decimal)item.Value;
-                    if (check == 0m)
+                    if (check <= 0m)
                     {
                         errorString += String.Format("Introduceti o valoare pentru {0}!", item.FriendlyName) + Environment.NewLine;
                     }

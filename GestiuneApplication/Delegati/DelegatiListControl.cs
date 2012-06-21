@@ -55,7 +55,11 @@ namespace GestiuneApplication.Delegati
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            if (new AddEditDelegatForm().ShowDialog() == DialogResult.OK) RefreshDelegatList();
+            if (new AddEditDelegatForm().ShowDialog() == DialogResult.OK)
+            {
+                filterTbox.Text = string.Empty;
+                RefreshDelegatList();
+            }
         }
 
         private void modifyBtn_Click(object sender, EventArgs e)
@@ -77,9 +81,41 @@ namespace GestiuneApplication.Delegati
 
         private void RefreshDelegatList()
         {
+            filterTbox.Text = string.Empty;
             this.delegatBindingSource.DataSource = null;
             this.delegatBindingSource.DataSource = Delegat.GetAll();
         }
+
+        #region [SEARCH]
+        private void filterTbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                SearchItems();
+            }
+        }
+
+        private void SearchItems()
+        {
+            if (filterTbox.Text.Trim() == string.Empty)
+            {
+                RefreshDelegatList();
+            }
+            delegatBindingSource.DataSource = null;
+            delegatBindingSource.DataSource = Delegat.GetAll().Where(p => p.Contains(filterTbox.Text) == true).ToList();
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            SearchItems();
+        }
+
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            RefreshDelegatList();
+        }
+        #endregion [SEARCH]
+
 
     }
 }
