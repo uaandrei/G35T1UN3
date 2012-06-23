@@ -14,6 +14,14 @@ namespace GestiuneBusiness.Poco.Administration
         public string Parola { get; set; }
         public bool Activ { get; set; }
         public int IdRol { get; set; }
+        public override string NumeCompact
+        {
+            get
+            {
+                return Nume;
+            }
+        }
+
         public Rol RolObject
         {
             get

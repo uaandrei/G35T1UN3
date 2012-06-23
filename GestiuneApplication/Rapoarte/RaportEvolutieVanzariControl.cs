@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using GestiuneApplication.Interfaces;
 using GestiuneBusiness.Poco;
+using GestiuneBusiness.Poco.Kernel;
 
 namespace GestiuneApplication.Rapoarte
 {
@@ -41,7 +42,7 @@ namespace GestiuneApplication.Rapoarte
         {
             get
             {
-                return "Evolutie vanzari";
+                return "Evolutie vanzari pe produs";
             }
         }
 
@@ -61,15 +62,14 @@ namespace GestiuneApplication.Rapoarte
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-            if (produseCmb.SelectedItem == null) return;
+            if (SelectedProdus == null) return;
             if (endDtp.Value.Date < startDtp.Value.Date)
             {
                 MessageBox.Show("Data sfarsit nu poate fi mai mica decat data de inceput!");
                 return;
             }
-            var produs = (Produs)produseCmb.SelectedItem;
             var interval = (IntervalType)intervalCmb.SelectedItem;
-            MakeChartWithProdus(produs, startDtp.Value.Date, endDtp.Value.Date,interval);
+            MakeChartWithProdus(SelectedProdus, startDtp.Value.Date, endDtp.Value.Date, interval);
         }
         #endregion [EVENTS]
 
@@ -129,6 +129,28 @@ namespace GestiuneApplication.Rapoarte
         {
             public string DataVanzarii { get; set; }
             public string Cantitate { get; set; }
+        }
+
+        private Produs produs;
+        public Produs SelectedProdus
+        {
+            get { return produs; }
+            set
+            {
+                produsTbox.Text = value == null ? "Alegeti un produs..." : value.Nume;
+                produs = value;
+            }
+        }
+
+        private void searchProdusBtn_Click(object sender, EventArgs e)
+        {
+            var form = new SelectItemForm
+            {
+                Datas = Produs.GetAll().Cast<GestiuneObject>().ToList(),
+                Text = "Cautare produs"
+            };
+            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                SelectedProdus = form.SelectedObject == null ? null : (Produs)form.SelectedObject;
         }
     }
 }

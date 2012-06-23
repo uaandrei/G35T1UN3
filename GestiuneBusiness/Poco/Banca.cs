@@ -16,6 +16,14 @@ namespace GestiuneBusiness.Poco
         public decimal CapitalSocial { get; set; }
         #endregion
 
+        public override string NumeCompact
+        {
+            get
+            {
+                return Nume;    
+            }
+        }
+
         public override PersistenceResult Save()
         {
             PersistenceResult persistenceResult = new PersistenceResult();

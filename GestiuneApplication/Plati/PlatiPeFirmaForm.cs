@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using GestiuneBusiness.Poco;
+using GestiuneBusiness.Poco.Kernel;
 
 namespace GestiuneApplication.Plati
 {
@@ -22,7 +23,7 @@ namespace GestiuneApplication.Plati
             if (facturaIesireBound == null) return;
             while (sumaDisponibila > 0) // ies daca nu mai am cu ce plati
             {
-                var factura = FacturaIesire.GetAll().OrderBy(p => p.Data).Where(p => p.IdFirma == facturaIesireBound.ID && p.SumaRamasaDePlatit > 0).FirstOrDefault();
+                var factura = FacturaIesire.GetAll().OrderBy(p => p.Data).Where(p => p.IdFirma == SelectedFirma.ID && p.SumaRamasaDePlatit > 0).FirstOrDefault();
                 if (factura == null) return; // ies daca nu mai gasesc facturi de platit
                 if (!PlatesteFactura(factura)) return;
             }
@@ -30,7 +31,11 @@ namespace GestiuneApplication.Plati
 
         private void platesteFacturaBtn_Click(object sender, EventArgs e)
         {
-            if (firmaBound == null) return;
+            if (SelectedFirma == null)
+            {
+                MessageBox.Show("Alegeti o firma!");
+                return;
+            }
             if (facturaIesireBound == null) return;
             PlatesteFactura(facturaIesireBound);
         }
@@ -54,7 +59,7 @@ namespace GestiuneApplication.Plati
             }
             factura.AdaugaPlata(plata);
             var result = factura.AchitareFactura();
-            MessageBox.Show(String.Format("Plata inregistrata pentru factura cu seria '{0}' si 'numarul'", factura.Serie, factura.Numar));
+            MessageBox.Show(String.Format("Plata inregistrata pentru factura cu seria '{0}' si numarul '{1}'", factura.Serie, factura.Numar));
             if (result.Status == GestiuneBusiness.Enums.StatusEnum.Saved)
             {
                 sumaDisponibila = sumaDisponibila - sumaDePlatit;
@@ -80,8 +85,8 @@ namespace GestiuneApplication.Plati
         private void RefreshFacturiIesireGrid()
         {
             facturaIesireBindingSource.DataSource = null;
-            if (firmaBound == null) return;
-            var facturi = FacturaIesire.GetAll().Where(p => p.IdFirma == firmaBound.ID && p.SumaRamasaDePlatit > 0).ToList();
+            if (SelectedFirma == null) return;
+            var facturi = FacturaIesire.GetAll().Where(p => p.IdFirma == SelectedFirma.ID && p.SumaRamasaDePlatit > 0).ToList();
             facturaIesireBindingSource.DataSource = facturi;
         }
 
@@ -99,12 +104,16 @@ namespace GestiuneApplication.Plati
             }
         }
 
-        private Firma firmaBound
+        private Firma firmaBound = null;
+
+        public Firma SelectedFirma
         {
-            get
+            get { return firmaBound; }
+            set
             {
-                if (firmeCmb.SelectedItem == null) return null;
-                return (Firma)firmeCmb.SelectedItem;
+                firmaBound = value;
+                firmaTbox.Text = value == null ? "Alegeti o firma..." : value.Nume;
+                RefreshFacturiIesireGrid();
             }
         }
 
@@ -133,9 +142,15 @@ namespace GestiuneApplication.Plati
             this.DialogResult = DialogResult.OK;
         }
 
-        private void PlatiPeFirmaForm_Load(object sender, EventArgs e)
+        private void searchBtn_Click(object sender, EventArgs e)
         {
-            firmeCmb.DataSource = Firma.GetAll();
+            var form = new SelectItemForm
+            {
+                Datas = Firma.GetAll().Cast<GestiuneObject>().ToList(),
+                Text = "Cautare firma"
+            };
+            if (form.ShowDialog() == DialogResult.OK)
+                SelectedFirma = form.SelectedObject == null ? null : (Firma)form.SelectedObject;
         }
     }
 }

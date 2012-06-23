@@ -14,6 +14,14 @@ namespace GestiuneBusiness.Poco
         public string Nume { get; set; }
         #endregion
 
+        public override string NumeCompact
+        {
+            get
+            {
+                return Nume;
+            }
+        }
+
         public override GestiuneBusiness.DataHelper.Kernel.PersistenceResult Save()
         {
             PersistenceResult persistenceResult = new PersistenceResult();
@@ -24,7 +32,7 @@ namespace GestiuneBusiness.Poco
                 {
                     // obiectul este nou, deci trebuie creat
                     this.ID = DelegatiDataHelper.GetInstance().Create(PropertiesNamesWithValues);
-                    if (delegatList==null)
+                    if (delegatList == null)
                     {
                         delegatList = new List<Delegat>();
                     }

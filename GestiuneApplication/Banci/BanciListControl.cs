@@ -105,6 +105,7 @@ namespace GestiuneApplication.Banci
             if (filterTbox.Text.Trim() == string.Empty)
             {
                 RefreshBanciList();
+                return;
             }
             bancaBindingSource.DataSource = null;
             bancaBindingSource.DataSource = Banca.GetAll().Where(p => p.Contains(filterTbox.Text) == true).ToList();

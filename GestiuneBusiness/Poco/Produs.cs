@@ -16,6 +16,14 @@ namespace GestiuneBusiness.Poco
         public string Um { get; set; }
         #endregion
 
+        public override string NumeCompact
+        {
+            get
+            {
+                return Nume + " " + Um;
+            }
+        }
+
         public override GestiuneBusiness.DataHelper.Kernel.PersistenceResult Save()
         {
             var result = new PersistenceResult();

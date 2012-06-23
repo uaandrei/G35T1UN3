@@ -12,6 +12,14 @@ namespace GestiuneBusiness.Poco
         public int IdProdus { get; set; }
         public int IdPozitieFacturaIntrare { get; set; }
         public decimal Cantitate { get; set; }
+        public override string NumeCompact
+        {
+            get
+            {
+                return ProdusObject.Nume;
+            }
+        }
+
         public PozitieFacturaIntrare PozitieFacturaIntrareObject
         {
             get { return PozitieFacturaIntrare.GetAll().FirstOrDefault(p => p.ID == IdPozitieFacturaIntrare); }

@@ -13,6 +13,14 @@ namespace GestiuneBusiness.Poco.Administration
         public int IdRol { get; set; }
         public int IdDrept { get; set; }
         public bool AreDrept { get; set; }
+        public override string NumeCompact
+        {
+            get
+            {
+                return "RolDrept";
+            }
+        }
+
         public Drept DreptObject
         {
             get

@@ -14,6 +14,14 @@ namespace GestiuneBusiness.Poco
         public int IdStoc { get; set; }
         public decimal Cantitate { get; set; }
         public decimal PretUnitar { get; set; }
+        public override string NumeCompact
+        {
+            get
+            {
+                return "PozitieFacturaIesire";
+            }
+        }
+
         public FacturaIesire FacturaIesireObject
         {
             get

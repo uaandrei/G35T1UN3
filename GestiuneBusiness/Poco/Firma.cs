@@ -18,6 +18,14 @@ namespace GestiuneBusiness.Poco
         public DateTime DataInfiintarii { get; set; }
         public int IdBanca { get; set; }
         public int IdDelegat { get; set; }
+        public override string NumeCompact
+        {
+            get
+            {
+                return Nume;
+            }
+        }
+
         public Banca BancaObject
         {
             get { return Banca.GetAll().FirstOrDefault(p => p.ID == IdBanca); }

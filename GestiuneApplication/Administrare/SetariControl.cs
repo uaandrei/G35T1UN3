@@ -30,7 +30,7 @@ namespace GestiuneApplication.Administrare
             get { return ConstantsAndEnums.Constants.AdministrareNode; }
         }
 
-        public new UserControl Control
+        public UserControl Control
         {
             get
             {

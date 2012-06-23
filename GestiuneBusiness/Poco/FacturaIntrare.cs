@@ -15,6 +15,14 @@ namespace GestiuneBusiness.Poco
         public DateTime Data { get; set; }
         public int IdFirma { get; set; }
         public decimal CotaTva { get; set; }
+        public override string NumeCompact
+        {
+            get
+            {
+                return "FacturaIntrare";
+            }
+        }
+
         public Firma FirmaObject
         {
             get

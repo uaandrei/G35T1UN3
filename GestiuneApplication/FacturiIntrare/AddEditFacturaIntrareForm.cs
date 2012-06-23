@@ -8,12 +8,39 @@ using System.Text;
 using System.Windows.Forms;
 using GestiuneBusiness.Enums;
 using GestiuneBusiness.Poco;
+using GestiuneBusiness.Poco.Kernel;
 
 namespace GestiuneApplication.FacturiIntrare
 {
     public partial class AddEditFacturaIntrareForm : Form
     {
         public FacturaIntrare FacturaIntrareObject { get; set; }
+
+        private Produs produs;
+
+        public Produs SelectedProdus
+        {
+            get { return produs; }
+            set
+            {
+                pretUnitarTbox.Text = value == null ? "" : value.Pret.ToString("0.00");
+                umTbox.Text = value == null ? "" : value.Um;
+                produsTbox.Text = value == null ? "Alegeti un produs..." : value.Nume;
+                produs = value;
+            }
+        }
+
+        private Firma firma;
+
+        public Firma SelectedFirma
+        {
+            get { return firma; }
+            set
+            {
+                firmaTbox.Text = value == null ? "Alegeti o firma..." : value.Nume;
+                firma = value;
+            }
+        }
 
         public AddEditFacturaIntrareForm()
         {
@@ -25,8 +52,6 @@ namespace GestiuneApplication.FacturiIntrare
                     pozitieFacturaIntrareGrid.Columns.Add(item.Name, item.FriendlyName);
                 }
             }
-            furnizorCmb.DataSource = Firma.GetAll();
-            produsCmb.DataSource = Produs.GetAll();
         }
 
         private void AddEditFacturaIntrareForm_Load(object sender, EventArgs e)
@@ -52,7 +77,7 @@ namespace GestiuneApplication.FacturiIntrare
             pozitieIn.IdFacturaIntrare = 2; // doar ca sa nu dea mesaj
             decimal.TryParse(pretUnitarTbox.Text, out value);
             pozitieIn.PretUnitar = value;
-            pozitieIn.IdProdus = produsCmb.SelectedValue == null ? 0 : (int)produsCmb.SelectedValue;
+            pozitieIn.IdProdus = SelectedProdus == null ? 0 : SelectedProdus.ID;
             var errors = pozitieIn.GetErrorString();
             if (errors.Trim() == string.Empty)
             {
@@ -97,7 +122,7 @@ namespace GestiuneApplication.FacturiIntrare
             decimal.TryParse(cotaTvaTbox.Text, out value);
             FacturaIntrareObject.CotaTva = value;
             FacturaIntrareObject.Data = dataDtp.Value;
-            FacturaIntrareObject.IdFirma = furnizorCmb.SelectedValue == null ? 0 : (int)furnizorCmb.SelectedValue;
+            FacturaIntrareObject.IdFirma = SelectedFirma == null ? 0 : SelectedFirma.ID;
             FacturaIntrareObject.Numar = numarTbox.Text;
             FacturaIntrareObject.Serie = serieTbox.Text;
             var errors = FacturaIntrareObject.GetErrorString();
@@ -116,12 +141,31 @@ namespace GestiuneApplication.FacturiIntrare
             }
         }
 
-        private void produsCmb_SelectedIndexChanged(object sender, EventArgs e)
+        private void searchFirmaBtn_Click(object sender, EventArgs e)
         {
-            if (produsCmb.SelectedItem == null) return;
-            var produs = (Produs)produsCmb.SelectedItem;
-            pretUnitarTbox.Text = produs.Pret.ToString("0.00");
-            umTbox.Text = produs.Um;
+            var form = new SelectItemForm
+            {
+                Datas = Firma.GetAll().Cast<GestiuneObject>().ToList(),
+                Text = "Cautare firma"
+            };
+            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                SelectedFirma = form.SelectedObject == null ? null : (Firma)form.SelectedObject;
+        }
+
+        private void searchProdusBtn_Click(object sender, EventArgs e)
+        {
+            var form = new SelectItemForm
+            {
+                Datas = Produs.GetAll().Cast<GestiuneObject>().ToList(),
+                Text = "Cautare produs"
+            };
+            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                SelectedProdus = form.SelectedObject == null ? null : (Produs)form.SelectedObject;
+        }
+
+        private void produsTbox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

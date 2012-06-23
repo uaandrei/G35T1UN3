@@ -16,6 +16,14 @@ namespace GestiuneBusiness.Poco
         public decimal Suma { get; set; }
         #endregion
 
+        public override string NumeCompact
+        {
+            get
+            {
+                return "Plata";
+            }
+        }
+
         public override GestiuneBusiness.DataHelper.Kernel.PersistenceResult Save()
         {
             var result = new PersistenceResult();

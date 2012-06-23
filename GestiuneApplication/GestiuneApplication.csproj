@@ -221,11 +221,23 @@
     <Compile Include="Rapoarte\RaportProduseSubStocMinimControl.Designer.cs">
       <DependentUpon>RaportProduseSubStocMinimControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rapoarte\TelerikReports\FacturiNeachitateReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rapoarte\TelerikReports\FacturiNeachitateReport.Designer.cs">
+      <DependentUpon>FacturiNeachitateReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rapoarte\TelerikReports\StocReport.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Rapoarte\TelerikReports\StocReport.Designer.cs">
       <DependentUpon>StocReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectItemForm.Designer.cs">
+      <DependentUpon>SelectItemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StocF\StocListControl.cs">
       <SubType>UserControl</SubType>
@@ -318,11 +330,20 @@
     <EmbeddedResource Include="Rapoarte\RaportEvolutieVanzariControl.resx">
       <DependentUpon>RaportEvolutieVanzariControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Rapoarte\RaportFacturiNeachitateControl.resx">
+      <DependentUpon>RaportFacturiNeachitateControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rapoarte\RaportProduseSubStocMinimControl.resx">
       <DependentUpon>RaportProduseSubStocMinimControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Rapoarte\TelerikReports\FacturiNeachitateReport.resx">
+      <DependentUpon>FacturiNeachitateReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rapoarte\TelerikReports\StocReport.resx">
       <DependentUpon>StocReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectItemForm.resx">
+      <DependentUpon>SelectItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StocF\StocListControl.resx">
       <DependentUpon>StocListControl.cs</DependentUpon>
@@ -335,6 +356,7 @@
     <None Include="Properties\DataSources\GestiuneBusiness.Poco.FacturaIesire.datasource" />
     <None Include="Properties\DataSources\GestiuneBusiness.Poco.FacturaIntrare.datasource" />
     <None Include="Properties\DataSources\GestiuneBusiness.Poco.Firma.datasource" />
+    <None Include="Properties\DataSources\GestiuneBusiness.Poco.Kernel.GestiuneObject.datasource" />
     <None Include="Properties\DataSources\GestiuneBusiness.Poco.Produs.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -372,6 +394,10 @@
       <Project>{85947851-A8FF-4718-A1DD-ED11D56E12DE}</Project>
       <Name>GestiuneBusiness</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WpfLibrary\WpfLibrary.csproj">
+      <Project>{D9E846EF-506F-42D3-B2E7-1F775A6787CF}</Project>
+      <Name>WpfLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Money-32.png" />
@@ -397,7 +423,9 @@
   <ItemGroup>
     <None Include="Resources\Check-32.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Search-32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

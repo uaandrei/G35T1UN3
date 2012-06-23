@@ -6,7 +6,7 @@ namespace WpfLibrary
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    
+
     public delegate void ChangedEventHandler(string username, string password);
 
     public partial class LoginWindow : Window
@@ -25,7 +25,8 @@ namespace WpfLibrary
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-          OnLoginClick(usernameTbox.Text, pwdBox.Password);
+            OnLoginClick(usernameTbox.Text, pwdBox.Password);
+            pwdBox.Password = string.Empty;
         }
     }
 }

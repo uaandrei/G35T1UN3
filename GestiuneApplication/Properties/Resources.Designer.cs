@@ -164,5 +164,12 @@ namespace GestiuneApplication.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap Search_32 {
+            get {
+                object obj = ResourceManager.GetObject("Search_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

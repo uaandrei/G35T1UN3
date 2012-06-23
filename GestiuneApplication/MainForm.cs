@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using GestiuneApplication.Interfaces;
 using GestiuneBusiness.Poco.Administration;
-//using WpfLibrary;
+using WpfLibrary;
 
 namespace GestiuneApplication
 {
@@ -17,43 +17,44 @@ namespace GestiuneApplication
     {
         #region [LOGIN REGION]
         // UNCOMMENT THIS TO ENABLE LOGIN FEATURE
-        //private LoginWindow loginWindow;
+        private LoginWindow loginWindow;
 
-        //private void loginWindow_OnLoginClick(string username, string password)
-        //{
-        //    if (VerifyLogin(username, password))
-        //    {
-        //loginWindow.DialogResult = true;
-        //    }
-        //    else
-        //    {
-        //loginWindow.DialogResult = null;
-        //    }
-        //}
+        private void loginWindow_OnLoginClick(string username, string password)
+        {
+            if (VerifyLogin(username, password))
+            {
+                loginWindow.DialogResult = true;
+            }
+            else
+            {
+                loginWindow.DialogResult = null;
+            }
+        }
 
         private void InitializeLoginWindow()
         {
-            VerifyLogin("admin", "admin");//COMMENT THIS FOR LOGIN FEATURE
-            //    this.Hide();
-            //    if (tabControl.TabCount > 0)
-            //    {
-            //        tabControl.TabPages.Clear();
-            //    }
-            //    treeView.CollapseAll();
-            //    loginWindow = new LoginWindow();
-            //    loginWindow.OnLoginClick += new ChangedEventHandler(loginWindow_OnLoginClick);
-            //    var dialogResult = loginWindow.ShowDialog();
-            //    if (dialogResult.Value == false)
-            //    {
-            //        loginWindowFlag = true;
-            //        Application.Exit();
-            //    }
-            //    if (dataLoadedFlag == false)
-            //    {
-            //        new LoadingForm().ShowDialog();
-            //        dataLoadedFlag = true;
-            //    }
-            //    this.Show();
+            //VerifyLogin("admin", "admin");//COMMENT THIS FOR LOGIN FEATURE
+            this.Hide();
+            if (tabControl.TabCount > 0)
+            {
+                tabControl.TabPages.Clear();
+            }
+            treeView.CollapseAll();
+            loginWindow = new LoginWindow();
+            loginWindow.OnLoginClick += new ChangedEventHandler(loginWindow_OnLoginClick);
+            var dialogResult = loginWindow.ShowDialog();
+            if (dialogResult.Value == false)
+            {
+                loginWindowFlag = true;
+                Application.Exit();
+                return;
+            }
+            if (dataLoadedFlag == false)
+            {
+                new LoadingForm().ShowDialog();
+                dataLoadedFlag = true;
+            }
+            this.Show();
         }
         #endregion [LOGIN REGION]
 
@@ -168,9 +169,17 @@ namespace GestiuneApplication
 
         private bool VerifyLogin(string username, string password)
         {
-            if (username == "admin" && password == "admin")
+            if (username.ToLower() == "admin")
             {
-                LoggedUser = new Utilizator { Nume = "admin" };
+                if (password == Setare.GetSetare().AdminPassword)
+                {
+                    LoggedUser = new Utilizator { Nume = "admin" };
+                }
+                else
+                {
+                    MessageBox.Show("Parola incorecta!");
+                    return false;
+                }
             }
             else
             {

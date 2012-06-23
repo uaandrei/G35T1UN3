@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.addBtn = new System.Windows.Forms.Button();
             this.pozitieFacturaIntrareGrid = new System.Windows.Forms.DataGridView();
-            this.furnizorCmb = new System.Windows.Forms.ComboBox();
             this.serieTbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataDtp = new System.Windows.Forms.DateTimePicker();
@@ -39,7 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.produsCmb = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cantitateTbox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,10 +48,14 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.removeBtn = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.searchProdusBtn = new System.Windows.Forms.Button();
             this.cotaTvaTbox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.umTbox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.searchFirmaBtn = new System.Windows.Forms.Button();
+            this.firmaTbox = new System.Windows.Forms.TextBox();
+            this.produsTbox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pozitieFacturaIntrareGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,17 +85,6 @@
             this.pozitieFacturaIntrareGrid.ReadOnly = true;
             this.pozitieFacturaIntrareGrid.Size = new System.Drawing.Size(418, 202);
             this.pozitieFacturaIntrareGrid.TabIndex = 9;
-            // 
-            // furnizorCmb
-            // 
-            this.furnizorCmb.DisplayMember = "Nume";
-            this.furnizorCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.furnizorCmb.FormattingEnabled = true;
-            this.furnizorCmb.Location = new System.Drawing.Point(12, 64);
-            this.furnizorCmb.Name = "furnizorCmb";
-            this.furnizorCmb.Size = new System.Drawing.Size(206, 21);
-            this.furnizorCmb.TabIndex = 4;
-            this.furnizorCmb.ValueMember = "ID";
             // 
             // serieTbox
             // 
@@ -155,18 +146,6 @@
             this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "Furnizor";
-            // 
-            // produsCmb
-            // 
-            this.produsCmb.DisplayMember = "Nume";
-            this.produsCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.produsCmb.FormattingEnabled = true;
-            this.produsCmb.Location = new System.Drawing.Point(224, 64);
-            this.produsCmb.Name = "produsCmb";
-            this.produsCmb.Size = new System.Drawing.Size(206, 21);
-            this.produsCmb.TabIndex = 5;
-            this.produsCmb.ValueMember = "ID";
-            this.produsCmb.SelectedIndexChanged += new System.EventHandler(this.produsCmb_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -253,6 +232,19 @@
             this.removeBtn.UseVisualStyleBackColor = true;
             this.removeBtn.Click += new System.EventHandler(this.removeBtn_Click);
             // 
+            // searchProdusBtn
+            // 
+            this.searchProdusBtn.BackgroundImage = global::GestiuneApplication.Properties.Resources.Search_32;
+            this.searchProdusBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.searchProdusBtn.Location = new System.Drawing.Point(396, 50);
+            this.searchProdusBtn.Name = "searchProdusBtn";
+            this.searchProdusBtn.Size = new System.Drawing.Size(34, 34);
+            this.searchProdusBtn.TabIndex = 37;
+            this.searchProdusBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.searchProdusBtn, "Cauta firma");
+            this.searchProdusBtn.UseVisualStyleBackColor = true;
+            this.searchProdusBtn.Click += new System.EventHandler(this.searchProdusBtn_Click);
+            // 
             // cotaTvaTbox
             // 
             this.cotaTvaTbox.Location = new System.Drawing.Point(330, 25);
@@ -288,12 +280,49 @@
             this.label10.TabIndex = 4;
             this.label10.Text = "Unitate de masura";
             // 
+            // searchFirmaBtn
+            // 
+            this.searchFirmaBtn.BackgroundImage = global::GestiuneApplication.Properties.Resources.Search_32;
+            this.searchFirmaBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.searchFirmaBtn.Location = new System.Drawing.Point(184, 50);
+            this.searchFirmaBtn.Name = "searchFirmaBtn";
+            this.searchFirmaBtn.Size = new System.Drawing.Size(34, 34);
+            this.searchFirmaBtn.TabIndex = 38;
+            this.searchFirmaBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.searchFirmaBtn.UseVisualStyleBackColor = true;
+            this.searchFirmaBtn.Click += new System.EventHandler(this.searchFirmaBtn_Click);
+            // 
+            // firmaTbox
+            // 
+            this.firmaTbox.Location = new System.Drawing.Point(12, 64);
+            this.firmaTbox.MaxLength = 15;
+            this.firmaTbox.Name = "firmaTbox";
+            this.firmaTbox.ReadOnly = true;
+            this.firmaTbox.Size = new System.Drawing.Size(166, 20);
+            this.firmaTbox.TabIndex = 40;
+            this.firmaTbox.Text = "Alegeti o firma...";
+            // 
+            // produsTbox
+            // 
+            this.produsTbox.Location = new System.Drawing.Point(224, 64);
+            this.produsTbox.MaxLength = 15;
+            this.produsTbox.Name = "produsTbox";
+            this.produsTbox.ReadOnly = true;
+            this.produsTbox.Size = new System.Drawing.Size(166, 20);
+            this.produsTbox.TabIndex = 39;
+            this.produsTbox.Text = "Alegeti un produs...";
+            this.produsTbox.TextChanged += new System.EventHandler(this.produsTbox_TextChanged);
+            // 
             // AddEditFacturaIntrareForm
             // 
             this.AcceptButton = this.saveBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 386);
+            this.Controls.Add(this.searchFirmaBtn);
+            this.Controls.Add(this.firmaTbox);
+            this.Controls.Add(this.searchProdusBtn);
+            this.Controls.Add(this.produsTbox);
             this.Controls.Add(this.dataDtp);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label5);
@@ -310,9 +339,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numarTbox);
             this.Controls.Add(this.cotaTvaTbox);
-            this.Controls.Add(this.produsCmb);
             this.Controls.Add(this.serieTbox);
-            this.Controls.Add(this.furnizorCmb);
             this.Controls.Add(this.pozitieFacturaIntrareGrid);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.saveBtn);
@@ -336,7 +363,6 @@
 
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.DataGridView pozitieFacturaIntrareGrid;
-        private System.Windows.Forms.ComboBox furnizorCmb;
         private System.Windows.Forms.TextBox serieTbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dataDtp;
@@ -344,7 +370,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox produsCmb;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox cantitateTbox;
         private System.Windows.Forms.Label label6;
@@ -359,5 +384,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox umTbox;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button searchFirmaBtn;
+        private System.Windows.Forms.TextBox firmaTbox;
+        private System.Windows.Forms.Button searchProdusBtn;
+        private System.Windows.Forms.TextBox produsTbox;
     }
 }

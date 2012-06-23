@@ -12,6 +12,14 @@ namespace GestiuneBusiness.Poco
         public int IdPlata { get; set; }
         public int IdFactura { get; set; }
         public string TipFactura { get; set; }
+        public override string NumeCompact
+        {
+            get
+            {
+                return "PlataFactura";
+            }
+        }
+
         public Plata PlataObject
         {
             get

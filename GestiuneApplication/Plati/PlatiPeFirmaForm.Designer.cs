@@ -33,6 +33,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.facturiGrid = new System.Windows.Forms.DataGridView();
+            this.serieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumaPlatitaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumaRamasaDePlatitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.facturaIesireBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nrTbox = new System.Windows.Forms.TextBox();
             this.cecRbtn = new System.Windows.Forms.RadioButton();
@@ -40,7 +45,6 @@
             this.boRbtn = new System.Windows.Forms.RadioButton();
             this.chitantaRbtn = new System.Windows.Forms.RadioButton();
             this.opRbtn = new System.Windows.Forms.RadioButton();
-            this.firmeCmb = new System.Windows.Forms.ComboBox();
             this.endBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,11 +57,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.platesteFacturaBtn = new System.Windows.Forms.Button();
             this.platesteAutomatBtn = new System.Windows.Forms.Button();
-            this.serieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sumaPlatitaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sumaRamasaDePlatitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firmaTbox = new System.Windows.Forms.TextBox();
+            this.searchBtn = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.facturiGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaIesireBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -82,11 +84,54 @@
             this.sumaPlatitaDataGridViewTextBoxColumn,
             this.sumaRamasaDePlatitDataGridViewTextBoxColumn});
             this.facturiGrid.DataSource = this.facturaIesireBindingSource;
-            this.facturiGrid.Location = new System.Drawing.Point(12, 127);
+            this.facturiGrid.Location = new System.Drawing.Point(12, 140);
             this.facturiGrid.Name = "facturiGrid";
             this.facturiGrid.ReadOnly = true;
-            this.facturiGrid.Size = new System.Drawing.Size(551, 250);
+            this.facturiGrid.Size = new System.Drawing.Size(551, 237);
             this.facturiGrid.TabIndex = 27;
+            // 
+            // serieDataGridViewTextBoxColumn
+            // 
+            this.serieDataGridViewTextBoxColumn.DataPropertyName = "Serie";
+            this.serieDataGridViewTextBoxColumn.HeaderText = "Serie";
+            this.serieDataGridViewTextBoxColumn.Name = "serieDataGridViewTextBoxColumn";
+            this.serieDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // numarDataGridViewTextBoxColumn
+            // 
+            this.numarDataGridViewTextBoxColumn.DataPropertyName = "Numar";
+            this.numarDataGridViewTextBoxColumn.HeaderText = "Numar";
+            this.numarDataGridViewTextBoxColumn.Name = "numarDataGridViewTextBoxColumn";
+            this.numarDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataDataGridViewTextBoxColumn
+            // 
+            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
+            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
+            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sumaPlatitaDataGridViewTextBoxColumn
+            // 
+            this.sumaPlatitaDataGridViewTextBoxColumn.DataPropertyName = "SumaPlatita";
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.sumaPlatitaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.sumaPlatitaDataGridViewTextBoxColumn.HeaderText = "Suma platita";
+            this.sumaPlatitaDataGridViewTextBoxColumn.Name = "sumaPlatitaDataGridViewTextBoxColumn";
+            this.sumaPlatitaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sumaRamasaDePlatitDataGridViewTextBoxColumn
+            // 
+            this.sumaRamasaDePlatitDataGridViewTextBoxColumn.DataPropertyName = "SumaRamasaDePlatit";
+            dataGridViewCellStyle3.Format = "N2";
+            this.sumaRamasaDePlatitDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.sumaRamasaDePlatitDataGridViewTextBoxColumn.HeaderText = "Suma ramasa";
+            this.sumaRamasaDePlatitDataGridViewTextBoxColumn.Name = "sumaRamasaDePlatitDataGridViewTextBoxColumn";
+            this.sumaRamasaDePlatitDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // facturaIesireBindingSource
             // 
@@ -94,7 +139,7 @@
             // 
             // nrTbox
             // 
-            this.nrTbox.Location = new System.Drawing.Point(307, 25);
+            this.nrTbox.Location = new System.Drawing.Point(307, 26);
             this.nrTbox.MaxLength = 15;
             this.nrTbox.Name = "nrTbox";
             this.nrTbox.Size = new System.Drawing.Size(125, 20);
@@ -155,18 +200,6 @@
             this.opRbtn.Text = "Ordin de plata";
             this.opRbtn.UseVisualStyleBackColor = true;
             // 
-            // firmeCmb
-            // 
-            this.firmeCmb.DisplayMember = "Nume";
-            this.firmeCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.firmeCmb.FormattingEnabled = true;
-            this.firmeCmb.Location = new System.Drawing.Point(12, 25);
-            this.firmeCmb.Name = "firmeCmb";
-            this.firmeCmb.Size = new System.Drawing.Size(289, 21);
-            this.firmeCmb.TabIndex = 0;
-            this.firmeCmb.ValueMember = "ID";
-            this.firmeCmb.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
             // endBtn
             // 
             this.endBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -183,16 +216,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(307, 9);
+            this.label2.Location = new System.Drawing.Point(307, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 13);
+            this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 20;
-            this.label2.Text = "Numar chitanta";
+            this.label2.Text = "Numar plata";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 21;
@@ -259,7 +292,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 162);
+            this.label6.Location = new System.Drawing.Point(12, 124);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(39, 13);
             this.label6.TabIndex = 21;
@@ -288,48 +321,28 @@
             this.platesteAutomatBtn.UseVisualStyleBackColor = true;
             this.platesteAutomatBtn.Click += new System.EventHandler(this.platesteAutomatBtn_Click);
             // 
-            // serieDataGridViewTextBoxColumn
+            // firmaTbox
             // 
-            this.serieDataGridViewTextBoxColumn.DataPropertyName = "Serie";
-            this.serieDataGridViewTextBoxColumn.HeaderText = "Serie";
-            this.serieDataGridViewTextBoxColumn.Name = "serieDataGridViewTextBoxColumn";
-            this.serieDataGridViewTextBoxColumn.ReadOnly = true;
+            this.firmaTbox.Location = new System.Drawing.Point(12, 26);
+            this.firmaTbox.MaxLength = 15;
+            this.firmaTbox.Name = "firmaTbox";
+            this.firmaTbox.ReadOnly = true;
+            this.firmaTbox.Size = new System.Drawing.Size(249, 20);
+            this.firmaTbox.TabIndex = 1;
+            this.firmaTbox.Text = "Alegeti o firma...";
             // 
-            // numarDataGridViewTextBoxColumn
+            // searchBtn
             // 
-            this.numarDataGridViewTextBoxColumn.DataPropertyName = "Numar";
-            this.numarDataGridViewTextBoxColumn.HeaderText = "Numar";
-            this.numarDataGridViewTextBoxColumn.Name = "numarDataGridViewTextBoxColumn";
-            this.numarDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataDataGridViewTextBoxColumn
-            // 
-            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
-            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sumaPlatitaDataGridViewTextBoxColumn
-            // 
-            this.sumaPlatitaDataGridViewTextBoxColumn.DataPropertyName = "SumaPlatita";
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.sumaPlatitaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.sumaPlatitaDataGridViewTextBoxColumn.HeaderText = "Suma platita";
-            this.sumaPlatitaDataGridViewTextBoxColumn.Name = "sumaPlatitaDataGridViewTextBoxColumn";
-            this.sumaPlatitaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sumaRamasaDePlatitDataGridViewTextBoxColumn
-            // 
-            this.sumaRamasaDePlatitDataGridViewTextBoxColumn.DataPropertyName = "SumaRamasaDePlatit";
-            dataGridViewCellStyle3.Format = "N2";
-            this.sumaRamasaDePlatitDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.sumaRamasaDePlatitDataGridViewTextBoxColumn.HeaderText = "Suma ramasa";
-            this.sumaRamasaDePlatitDataGridViewTextBoxColumn.Name = "sumaRamasaDePlatitDataGridViewTextBoxColumn";
-            this.sumaRamasaDePlatitDataGridViewTextBoxColumn.ReadOnly = true;
+            this.searchBtn.BackgroundImage = global::GestiuneApplication.Properties.Resources.Search_32;
+            this.searchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.searchBtn.Location = new System.Drawing.Point(267, 12);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(34, 34);
+            this.searchBtn.TabIndex = 0;
+            this.searchBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.searchBtn, "Cauta firma");
+            this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // PlatiPeFirmaForm
             // 
@@ -337,13 +350,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(575, 418);
+            this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.dataDtp);
             this.Controls.Add(this.facturiGrid);
             this.Controls.Add(this.serieTbox);
             this.Controls.Add(this.sumaDisponibilaTbox);
+            this.Controls.Add(this.firmaTbox);
             this.Controls.Add(this.nrTbox);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.firmeCmb);
             this.Controls.Add(this.platesteAutomatBtn);
             this.Controls.Add(this.platesteFacturaBtn);
             this.Controls.Add(this.endBtn);
@@ -360,7 +374,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Achitare facturi pe firma";
-            this.Load += new System.EventHandler(this.PlatiPeFirmaForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.facturiGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaIesireBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -376,7 +389,6 @@
         private System.Windows.Forms.TextBox nrTbox;
         private System.Windows.Forms.RadioButton cecRbtn;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox firmeCmb;
         private System.Windows.Forms.Button endBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -398,5 +410,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sumaPlatitaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sumaRamasaDePlatitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox firmaTbox;
+        private System.Windows.Forms.Button searchBtn;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

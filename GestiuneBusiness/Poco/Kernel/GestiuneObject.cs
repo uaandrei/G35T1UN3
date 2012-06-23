@@ -10,6 +10,8 @@ namespace GestiuneBusiness.Poco.Kernel
     {
         public int ID { get; set; }
 
+        public abstract string NumeCompact { get; }
+
         public abstract PersistenceResult Save();
 
         public abstract PersistenceResult Delete();
@@ -20,16 +22,16 @@ namespace GestiuneBusiness.Poco.Kernel
             {
                 return true;
             }
-            string[] items = text.ToLower().Split(' ');
-            foreach (var item in items)
+            //string[] items = text.ToLower().Split(' ');
+            //foreach (var item in items)
+            //{
+            foreach (var prop in PropertiesNamesWithValues)
             {
-                foreach (var prop in PropertiesNamesWithValues)
-                {
-                    if (prop.Value == null) continue;
-                    if (prop.Value.GetType() == typeof(int)) continue;
-                    if (prop.Value.ToString().ToLower().Contains(item)) return true;
-                }
+                if (prop.Value == null) continue;
+                if (prop.Value.GetType() == typeof(int)) continue;
+                if (prop.Value.ToString().ToLower().Contains(text)) return true;
             }
+            //}
             return false;
         }
 

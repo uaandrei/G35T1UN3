@@ -38,7 +38,7 @@
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(137, 90);
+            this.saveBtn.Location = new System.Drawing.Point(165, 90);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(75, 23);
             this.saveBtn.TabIndex = 2;
@@ -60,7 +60,7 @@
             this.numeTbox.Location = new System.Drawing.Point(12, 25);
             this.numeTbox.MaxLength = 30;
             this.numeTbox.Name = "numeTbox";
-            this.numeTbox.Size = new System.Drawing.Size(200, 20);
+            this.numeTbox.Size = new System.Drawing.Size(228, 20);
             this.numeTbox.TabIndex = 0;
             // 
             // label2
@@ -75,14 +75,14 @@
             // descriereTbox
             // 
             this.descriereTbox.Location = new System.Drawing.Point(12, 64);
-            this.descriereTbox.MaxLength = 30;
+            this.descriereTbox.MaxLength = 40;
             this.descriereTbox.Name = "descriereTbox";
-            this.descriereTbox.Size = new System.Drawing.Size(200, 20);
+            this.descriereTbox.Size = new System.Drawing.Size(228, 20);
             this.descriereTbox.TabIndex = 1;
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(56, 90);
+            this.exitBtn.Location = new System.Drawing.Point(84, 90);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(75, 23);
             this.exitBtn.TabIndex = 3;
@@ -95,7 +95,7 @@
             this.AcceptButton = this.saveBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(224, 122);
+            this.ClientSize = new System.Drawing.Size(252, 122);
             this.Controls.Add(this.descriereTbox);
             this.Controls.Add(this.numeTbox);
             this.Controls.Add(this.label2);

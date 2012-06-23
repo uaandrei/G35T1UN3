@@ -15,6 +15,15 @@ namespace GestiuneBusiness.Poco.Administration
         #endregion
 
         private static List<Drept> dreptList = null;
+
+        public override string NumeCompact
+        {
+            get
+            {
+                return Nume;
+            }
+        }
+
         public static List<Drept> GetAll()
         {
             try

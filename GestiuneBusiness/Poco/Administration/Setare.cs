@@ -12,6 +12,14 @@ namespace GestiuneBusiness.Poco.Administration
         #region [MEMBERS]
         public string AdminPassword { get; set; }
         public int MyFirmaId { get; set; }
+        public override string NumeCompact
+        {
+            get
+            {
+                return "Setare";
+            }
+        }
+
         public Firma MyFirma
         {
             get

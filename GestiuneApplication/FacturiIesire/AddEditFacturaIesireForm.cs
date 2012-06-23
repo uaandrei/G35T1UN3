@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using GestiuneBusiness.Poco;
 using GestiuneBusiness.Enums;
+using GestiuneBusiness.Poco.Kernel;
 
 namespace GestiuneApplication.FacturiIesire
 {
@@ -22,8 +23,6 @@ namespace GestiuneApplication.FacturiIesire
             dataGrid.Columns.Add("c1", "Produs");
             dataGrid.Columns.Add("c2", "Cantitate");
             dataGrid.Columns.Add("c3", "Pret unitar");
-            produsCmb.DataSource = Produs.GetAll();
-            firmeCmb.DataSource = Firma.GetAll();
             pozitiiOut = new List<PozitieFacturaIesire>();
         }
 
@@ -36,25 +35,44 @@ namespace GestiuneApplication.FacturiIesire
             }
         }
 
-        private void produsCmb_SelectedIndexChanged(object sender, EventArgs e)
+        private Produs produs;
+
+        public Produs SelectedProdus
         {
-            RefreshCantitateDisponibila();
+            get { return produs; }
+            set
+            {
+                produsTbox.Text = value == null ? "Alegeti un produs..." : value.Nume;
+                produs = value;
+                RefreshCantitateDisponibila();
+            }
         }
+
+        private Firma firma;
+
+        public Firma SelectedFirma
+        {
+            get { return firma; }
+            set
+            {
+                firmaTbox.Text = value == null ? "Alegeti o firma..." : value.Nume;
+                firma = value;
+            }
+        }
+
 
         private void RefreshCantitateDisponibila()
         {
-            if (produsCmb.SelectedItem == null) return;
-            var produs = (Produs)produsCmb.SelectedItem;
-            cantitateDisponibilaTbox.Text = produs.CantitateDisponibila().ToString("0.00");
+            if (SelectedProdus == null) return;
+            cantitateDisponibilaTbox.Text = SelectedProdus.CantitateDisponibila().ToString("0.00");
             pretUnitarTbox.Text = produs.Pret.ToString("0.00");
         }
 
         private void addBtn_Click(object sender, EventArgs e)
         {
             // TODO: poate optimizez cu o proprietata Produs
-            if (produsCmb.SelectedItem == null) return;
-            var produs = (Produs)produsCmb.SelectedItem;
-            if (produs.CantitateDisponibila() == 0)
+            if (SelectedProdus == null) return;
+            if (SelectedProdus.CantitateDisponibila() == 0)
             {
                 MessageBox.Show("Produsul '" + produs.Nume + "' nu este disponibil!");
                 return;
@@ -140,7 +158,7 @@ namespace GestiuneApplication.FacturiIesire
             decimal.TryParse(cotaTvaTbox.Text, out value);
             FacturaIesireObject.CotaTva = value;
             FacturaIesireObject.Data = dataDtp.Value;
-            FacturaIesireObject.IdFirma = firmeCmb.SelectedValue == null ? 0 : (int)firmeCmb.SelectedValue;
+            FacturaIesireObject.IdFirma = SelectedFirma == null ? 0 : SelectedFirma.ID;
             FacturaIesireObject.Numar = numarTbox.Text;
             FacturaIesireObject.Serie = serieTbox.Text;
             var errors = FacturaIesireObject.GetErrorString();
@@ -157,6 +175,17 @@ namespace GestiuneApplication.FacturiIesire
             {
                 MessageBox.Show(errors);
             }
+        }
+
+        private void searchProdusBtn_Click(object sender, EventArgs e)
+        {
+            var form = new SelectItemForm
+            {
+                Datas = Produs.GetAll().Cast<GestiuneObject>().ToList(),
+                Text = "Alegeti o firma"
+            };
+            if (form.ShowDialog() == DialogResult.OK)
+                SelectedProdus = form.SelectedObject == null ? null : (Produs)form.SelectedObject;
         }
 
         //TODO: test de neuitat, goleste baza de date si testeaza aplicatia asa
