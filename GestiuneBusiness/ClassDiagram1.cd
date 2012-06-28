@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GestiuneBusiness.Poco.Kernel.GestiuneObject" Collapsed="true">
+    <Position X="30.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAIAAAAAAgAAAAAAAABAAAAEAAEAAIAACAAAQAAA=</HashCode>
+      <FileName>Poco\Kernel\GestiuneObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.498" />
+  </Class>
+  <Class Name="GestiuneBusiness.Poco.Banca" Collapsed="true">
+    <Position X="20.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQIAIAAAAAACAAAAAAAAAAAAAkAAAAABgACAAAAAAA=</HashCode>
+      <FileName>Poco\Banca.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.Poco.Stoc" Collapsed="true">
+    <Position X="27" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEIAIAAAAAQAAAAAAAAAAAAAQEABAAAQgACAAAAAAA=</HashCode>
+      <FileName>Poco\Stoc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.Poco.Delegat">
+    <Position X="33.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAIAIAAAAAAAAAAAAAAQAAAAAEAAAAABgACAAAAAAE=</HashCode>
+      <FileName>Poco\Delegat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.Poco.FacturaIesire" Collapsed="true">
+    <Position X="40.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAIAKACAAUAAAAQAAAAAAgAEAABCEAgACEAAQAAE=</HashCode>
+      <FileName>Poco\FacturaIesire.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.Poco.FacturaIntrare" Collapsed="true">
+    <Position X="22.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAIAKACAAUAAAAAAAACAAgAEAABCEAgACEAAQAAE=</HashCode>
+      <FileName>Poco\FacturaIntrare.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.Poco.Firma" Collapsed="true">
+    <Position X="29.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIAIAAgAAABAAgABACACAAAAkAAAAABgACAAAJgAA=</HashCode>
+      <FileName>Poco\Firma.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.Poco.Plata" Collapsed="true">
+    <Position X="36" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAoAAAAAAgAAAAAAAAAAAAAEAABAEAgACAAAQAAE=</HashCode>
+      <FileName>Poco\Plata.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.Poco.PlataFactura" Collapsed="true">
+    <Position X="42.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIgIAAAAAIAQAEAAAEAAAAAAEAAAAAAggCAAAAAAA=</HashCode>
+      <FileName>Poco\PlataFactura.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.Poco.PozitieFacturaIesire" Collapsed="true">
+    <Position X="24.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEIAIQAAAAAAAAAIAAAAAAAAQkAAAAAAkACAAQAAAA=</HashCode>
+      <FileName>Poco\PozitieFacturaIesire.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.Poco.PozitieFacturaIntrare" Collapsed="true">
+    <Position X="31.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEIgIAAAAAQAAAAAAAAAAAAgQUABAAAAgACAAAAAAA=</HashCode>
+      <FileName>Poco\PozitieFacturaIntrare.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestiuneBusiness.Poco.Produs" Collapsed="true">
+    <Position X="38.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAIABAAAAAAAQAQAAAAAAAAEAABAABgAGAAAAAAA=</HashCode>
+      <FileName>Poco\Produs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

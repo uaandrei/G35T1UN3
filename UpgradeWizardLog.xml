@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="_UpgradeWizard_Files\UpgradeWizardLog.xslt"?>
+<log>
+  <event action="Analyze" type="Success" name="Assembly References" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneBusiness\GestiuneBusiness.csproj" />
+  <event action="Analyze" type="Success" name="GestiuneBusiness" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneBusiness\GestiuneBusiness.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\GestiuneApplication.csproj" />
+  <event action="Analyze" type="Success" name="AddEditRolForm.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Administrare\AddEditRolForm.resx" />
+  <event action="Analyze" type="Success" name="AddEditUtilizatorForm.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Administrare\AddEditUtilizatorForm.resx" />
+  <event action="Analyze" type="Success" name="EditDrepturiPeRolForm.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Administrare\EditDrepturiPeRolForm.resx" />
+  <event action="Analyze" type="Success" name="RoleListControl.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Administrare\RoleListControl.resx" />
+  <event action="Analyze" type="Success" name="SchimbaParolaAdminForm.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Administrare\SchimbaParolaAdminForm.resx" />
+  <event action="Analyze" type="Success" name="SetariControl.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Administrare\SetariControl.resx" />
+  <event action="Analyze" type="Success" name="UserListControl.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Administrare\UserListControl.resx" />
+  <event action="Analyze" type="Success" name="Assembly References" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\app.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\app.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\app.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\app.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\app.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\app.config" />
+  <event action="Analyze" type="Success" name="app.config" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\app.config" />
+  <event action="Analyze" type="Success" name="AddEditBancaForm.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Banci\AddEditBancaForm.resx" />
+  <event action="Analyze" type="Success" name="BanciListControl.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Banci\BanciListControl.resx" />
+  <event action="Analyze" type="Success" name="AddEditDelegatForm.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Delegati\AddEditDelegatForm.resx" />
+  <event action="Analyze" type="Success" name="DelegatiListControl.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Delegati\DelegatiListControl.resx" />
+  <event action="Analyze" type="Success" name="AddEditFacturaIesireForm.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\FacturiIesire\AddEditFacturaIesireForm.resx" />
+  <event action="Analyze" type="Success" name="FacturiIesireListControl.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\FacturiIesire\FacturiIesireListControl.resx" />
+  <event action="Analyze" type="Success" name="AddEditFacturaIntrareForm.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\FacturiIntrare\AddEditFacturaIntrareForm.resx" />
+  <event action="Analyze" type="Success" name="FacturiIntrareListControl.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\FacturiIntrare\FacturiIntrareListControl.resx" />
+  <event action="Analyze" type="Success" name="AddEditFirmaForm.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Firme\AddEditFirmaForm.resx" />
+  <event action="Analyze" type="Success" name="FirmeListControl.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Firme\FirmeListControl.resx" />
+  <event action="Analyze" type="Success" name="LoadingForm.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\LoadingForm.resx" />
+  <event action="Analyze" type="Success" name="MainForm.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\MainForm.resx" />
+  <event action="Analyze" type="Success" name="EfectuarePlataControl.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Plati\EfectuarePlataControl.resx" />
+  <event action="Analyze" type="Success" name="PlatileMeleForm.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Plati\PlatileMeleForm.resx" />
+  <event action="Analyze" type="Success" name="PlatiPeFirmaForm.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Plati\PlatiPeFirmaForm.resx" />
+  <event action="Analyze" type="Success" name="AddEditProdusForm.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Produse\AddEditProdusForm.resx" />
+  <event action="Analyze" type="Success" name="ProduseListControl.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Produse\ProduseListControl.resx" />
+  <event action="Analyze" type="Success" name="Resources.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Properties\Resources.resx" />
+  <event action="Analyze" type="Success" name="RaportDatoriiControl.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Rapoarte\RaportDatoriiControl.resx" />
+  <event action="Analyze" type="Success" name="RaportDatoriiFirmeControl.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Rapoarte\RaportDatoriiFirmeControl.resx" />
+  <event action="Analyze" type="Success" name="RaportEvolutieVanzariControl.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Rapoarte\RaportEvolutieVanzariControl.resx" />
+  <event action="Analyze" type="Success" name="RaportFacturiNeachitateControl.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Rapoarte\RaportFacturiNeachitateControl.resx" />
+  <event action="Analyze" type="Success" name="RaportProduseSubStocMinimControl.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Rapoarte\RaportProduseSubStocMinimControl.resx" />
+  <event action="Analyze" type="Success" name="ReportViewerForm.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Rapoarte\ReportViewerForm.resx" />
+  <event action="Analyze" type="Success" name="DatoriiPeFirmeReport.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Rapoarte\TelerikReports\DatoriiPeFirmeReport.resx" />
+  <event action="Analyze" type="Success" name="DatoriiReport.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Rapoarte\TelerikReports\DatoriiReport.resx" />
+  <event action="Analyze" type="Success" name="FacturaIesireReport.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Rapoarte\TelerikReports\FacturaIesireReport.resx" />
+  <event action="Analyze" type="Success" name="FacturiNeachitateReport.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Rapoarte\TelerikReports\FacturiNeachitateReport.resx" />
+  <event action="Analyze" type="Success" name="StocReport.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Rapoarte\TelerikReports\StocReport.resx" />
+  <event action="Analyze" type="Success" name="SelectItemForm.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\SelectItemForm.resx" />
+  <event action="Analyze" type="Success" name="StocListControl.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\StocF\StocListControl.resx" />
+  <event action="Analyze" type="Success" name="GestiuneApplication" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\GestiuneApplication.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\WpfLibrary\WpfLibrary.csproj" />
+  <event action="Analyze" type="Success" name="Resources.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\WpfLibrary\Properties\Resources.resx" />
+  <event action="Analyze" type="Success" name="WpfLibrary" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\WpfLibrary\WpfLibrary.csproj" />
+  <event action="Analyze" type="Success" name="Gestiune" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\Gestiune.sln" />
+  <event action="Upgrade" type="Success" name="Assembly References" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\GestiuneApplication.csproj" />
+  <event action="Upgrade" type="Success" name="DatoriiPeFirmeReport.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Rapoarte\TelerikReports\DatoriiPeFirmeReport.resx" />
+  <event action="Upgrade" type="Success" name="DatoriiReport.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Rapoarte\TelerikReports\DatoriiReport.resx" />
+  <event action="Upgrade" type="Success" name="FacturaIesireReport.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Rapoarte\TelerikReports\FacturaIesireReport.resx" />
+  <event action="Upgrade" type="Success" name="FacturiNeachitateReport.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Rapoarte\TelerikReports\FacturiNeachitateReport.resx" />
+  <event action="Upgrade" type="Success" name="StocReport.resx" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\Rapoarte\TelerikReports\StocReport.resx" />
+  <event action="Upgrade" type="Success" name="GestiuneApplication" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\GestiuneApplication\GestiuneApplication.csproj" />
+  <event action="Upgrade" type="Success" name="Gestiune" path="D:\Faculta\LICENTA\Aplicatie\G35T1UN3\Gestiune.sln" />
+</log>
