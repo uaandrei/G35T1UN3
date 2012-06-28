@@ -43,9 +43,9 @@
             this.titleLbl.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.titleLbl.Location = new System.Drawing.Point(59, 11);
             this.titleLbl.Name = "titleLbl";
-            this.titleLbl.Size = new System.Drawing.Size(424, 42);
+            this.titleLbl.Size = new System.Drawing.Size(575, 42);
             this.titleLbl.TabIndex = 30;
-            this.titleLbl.Text = "Raport facturi neachitate";
+            this.titleLbl.Text = "Raport facturi de iesire neachitate";
             // 
             // reportViewer
             // 
@@ -117,6 +117,7 @@
             this.Controls.Add(this.refreshBtn);
             this.Name = "RaportFacturiNeachitateControl";
             this.Size = new System.Drawing.Size(900, 554);
+            this.Load += new System.EventHandler(this.RaportFacturiNeachitateControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

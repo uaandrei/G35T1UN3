@@ -52,7 +52,7 @@
             this.firmeCmb.FormattingEnabled = true;
             this.firmeCmb.Location = new System.Drawing.Point(3, 72);
             this.firmeCmb.Name = "firmeCmb";
-            this.firmeCmb.Size = new System.Drawing.Size(121, 21);
+            this.firmeCmb.Size = new System.Drawing.Size(154, 21);
             this.firmeCmb.TabIndex = 16;
             this.firmeCmb.ValueMember = "ID";
             this.firmeCmb.SelectedIndexChanged += new System.EventHandler(this.firmeCmb_SelectedIndexChanged);
@@ -70,7 +70,7 @@
             // 
             this.adminPwdBtn.Location = new System.Drawing.Point(3, 99);
             this.adminPwdBtn.Name = "adminPwdBtn";
-            this.adminPwdBtn.Size = new System.Drawing.Size(121, 23);
+            this.adminPwdBtn.Size = new System.Drawing.Size(154, 23);
             this.adminPwdBtn.TabIndex = 18;
             this.adminPwdBtn.Text = "Schimba parola admin";
             this.adminPwdBtn.UseVisualStyleBackColor = true;

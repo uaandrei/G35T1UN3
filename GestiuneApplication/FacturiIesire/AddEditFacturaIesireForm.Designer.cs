@@ -310,7 +310,7 @@
             this.searchFirmaBtn.TabIndex = 35;
             this.searchFirmaBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.searchFirmaBtn.UseVisualStyleBackColor = true;
-            this.searchFirmaBtn.Click += new System.EventHandler(this.searchProdusBtn_Click);
+            this.searchFirmaBtn.Click += new System.EventHandler(this.searchFirmaBtn_Click);
             // 
             // AddEditFacturaIesireForm
             // 

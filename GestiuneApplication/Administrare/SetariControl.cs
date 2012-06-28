@@ -34,6 +34,8 @@ namespace GestiuneApplication.Administrare
         {
             get
             {
+                if (MainForm.LoggedUser.Nume != "admin") firmeCmb.Enabled = false;
+                else firmeCmb.Enabled = true;
                 this.Dock = DockStyle.Fill;
                 return this;
             }

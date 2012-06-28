@@ -234,6 +234,17 @@ namespace GestiuneBusiness.Poco
             }
         }
 
+        public decimal SumaTotalaFaraTVA
+        {
+            get
+            {
+                var result = from p in PozitieFacturaIesire.GetAll()
+                             where p.IdFacturaIesire == this.ID
+                             select (p.PretUnitar * p.Cantitate);
+                return result.Sum(p => p);
+            }
+        }
+
         public decimal SumaRamasaDePlatit
         {
             get

@@ -50,7 +50,7 @@ namespace GestiuneApplication.Rapoarte
 
         public string Description
         {
-            get { return "Facturi neachitate"; }
+            get { return "Facturi de iesire neachitate pe firma"; }
         }
         #endregion
 
@@ -86,6 +86,11 @@ namespace GestiuneApplication.Rapoarte
             };
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 SelectedFirma = form.SelectedObject == null ? null : (Firma)form.SelectedObject;
+        }
+
+        private void RaportFacturiNeachitateControl_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

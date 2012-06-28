@@ -72,6 +72,7 @@ namespace GestiuneBusiness.Poco.Administration
             }
             catch (Exception ex)
             {
+                utilizatorList = null;
                 persistenceResult.Message = StringSaveFail;
                 persistenceResult.Status = StatusEnum.Errors;
                 persistenceResult.ExceptionOccurred = ex;

@@ -26,6 +26,21 @@ namespace GestiuneBusiness.Poco
             }
         }
 
+        public string InfoString
+        {
+            get
+            {
+                var result = "";
+                result += Nume + Environment.NewLine;
+                result += "C.U.I.: " + this.Cui + Environment.NewLine;
+                result += "Reg. com.: " + this.Rc + Environment.NewLine;
+                result += "Adresa: " + this.Adresa + Environment.NewLine;
+                result += "IBAN: " + this.Iban + Environment.NewLine;
+                result += "Banca: " + this.BancaObject.Nume;
+                return result;
+            }
+        }
+
         public Banca BancaObject
         {
             get { return Banca.GetAll().FirstOrDefault(p => p.ID == IdBanca); }

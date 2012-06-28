@@ -59,10 +59,8 @@ namespace GestiuneApplication.Administrare
             var utilizator = (Utilizator)utilizatoriGrid.Rows[utilizatoriGrid.SelectedCells[0].RowIndex].Tag;
             var form = new AddEditUtilizatorForm();
             form.UtilizatorObject = utilizator;
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                RefreshUtilizatorList();
-            }
+            form.ShowDialog();
+            RefreshUtilizatorList();
         }
 
         private void UserListControl_Load(object sender, EventArgs e)

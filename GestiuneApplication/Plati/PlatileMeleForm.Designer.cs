@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.boRbtn = new System.Windows.Forms.RadioButton();
             this.dataDtp = new System.Windows.Forms.DateTimePicker();
             this.facturiGrid = new System.Windows.Forms.DataGridView();
@@ -108,8 +108,8 @@
             // serieDataGridViewTextBoxColumn
             // 
             this.serieDataGridViewTextBoxColumn.DataPropertyName = "Serie";
-            dataGridViewCellStyle21.NullValue = null;
-            this.serieDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.NullValue = null;
+            this.serieDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.serieDataGridViewTextBoxColumn.HeaderText = "Serie";
             this.serieDataGridViewTextBoxColumn.Name = "serieDataGridViewTextBoxColumn";
             this.serieDataGridViewTextBoxColumn.ReadOnly = true;
@@ -124,8 +124,8 @@
             // dataDataGridViewTextBoxColumn
             // 
             this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            dataGridViewCellStyle22.Format = "dd/MM/yyyy";
-            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
+            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
             this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
             this.dataDataGridViewTextBoxColumn.ReadOnly = true;
@@ -133,8 +133,8 @@
             // sumaPlatitaDataGridViewTextBoxColumn
             // 
             this.sumaPlatitaDataGridViewTextBoxColumn.DataPropertyName = "SumaPlatita";
-            dataGridViewCellStyle23.Format = "N2";
-            this.sumaPlatitaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle3.Format = "N2";
+            this.sumaPlatitaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.sumaPlatitaDataGridViewTextBoxColumn.HeaderText = "Suma platita";
             this.sumaPlatitaDataGridViewTextBoxColumn.Name = "sumaPlatitaDataGridViewTextBoxColumn";
             this.sumaPlatitaDataGridViewTextBoxColumn.ReadOnly = true;
@@ -142,8 +142,8 @@
             // sumaRamasaDePlatitDataGridViewTextBoxColumn
             // 
             this.sumaRamasaDePlatitDataGridViewTextBoxColumn.DataPropertyName = "SumaRamasaDePlatit";
-            dataGridViewCellStyle24.Format = "N2";
-            this.sumaRamasaDePlatitDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle4.Format = "N2";
+            this.sumaRamasaDePlatitDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.sumaRamasaDePlatitDataGridViewTextBoxColumn.HeaderText = "Suma ramasa";
             this.sumaRamasaDePlatitDataGridViewTextBoxColumn.Name = "sumaRamasaDePlatitDataGridViewTextBoxColumn";
             this.sumaRamasaDePlatitDataGridViewTextBoxColumn.ReadOnly = true;
@@ -221,9 +221,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(282, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 13);
+            this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 38;
-            this.label4.Text = "Suma disponibila";
+            this.label4.Text = "Suma";
             // 
             // label2
             // 

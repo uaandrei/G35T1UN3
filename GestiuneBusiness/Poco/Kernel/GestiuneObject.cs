@@ -22,16 +22,12 @@ namespace GestiuneBusiness.Poco.Kernel
             {
                 return true;
             }
-            //string[] items = text.ToLower().Split(' ');
-            //foreach (var item in items)
-            //{
             foreach (var prop in PropertiesNamesWithValues)
             {
                 if (prop.Value == null) continue;
                 if (prop.Value.GetType() == typeof(int)) continue;
                 if (prop.Value.ToString().ToLower().Contains(text)) return true;
             }
-            //}
             return false;
         }
 

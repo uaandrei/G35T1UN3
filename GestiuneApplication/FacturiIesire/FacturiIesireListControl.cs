@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using GestiuneApplication.Interfaces;
+using GestiuneApplication.Rapoarte;
 using GestiuneBusiness.Poco;
 
 namespace GestiuneApplication.FacturiIesire
@@ -74,7 +75,11 @@ namespace GestiuneApplication.FacturiIesire
             if (e.ColumnIndex == facturiGrid.Columns["btnColumn"].Index)
             {
                 var factura = (FacturaIesire)facturiGrid.Rows[e.RowIndex].Tag;
-                MessageBox.Show(factura.Serie);
+                new ReportViewerForm
+                {
+                    FacturaIesire = factura,
+                    PozitiiFacturaIesire = PozitieFacturaIesire.GetAll().Where(p=>p.IdFacturaIesire==factura.ID).ToList()
+                }.Show();
             }
         }
 

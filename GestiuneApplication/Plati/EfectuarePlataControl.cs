@@ -22,7 +22,7 @@ namespace GestiuneApplication.Plati
         {
             get
             {
-                return string.Empty;
+                return ConstantsAndEnums.Constants.PlatiNode;
             }
         }
 
@@ -30,7 +30,7 @@ namespace GestiuneApplication.Plati
         {
             get
             {
-                return ConstantsAndEnums.Constants.PlatiNode;
+                return string.Empty;
             }
         }
 

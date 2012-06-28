@@ -51,8 +51,10 @@
     <Reference Include="System.Xml" />
     <Reference Include="Telerik.Reporting, Version=6.0.12.215, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
     <Reference Include="Telerik.Reporting.Design, Version=6.0.12.215, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
-    <Reference Include="Telerik.ReportViewer.WinForms, Version=6.0.12.215, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
     <Reference Include="WindowsBase" />
+    <Reference Include="Telerik.ReportViewer.WinForms, Version=6.0.12.215, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administrare\AddEditRolForm.cs">
@@ -203,6 +205,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rapoarte\RaportDatoriiControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rapoarte\RaportDatoriiControl.Designer.cs">
+      <DependentUpon>RaportDatoriiControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rapoarte\RaportDatoriiFirmeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rapoarte\RaportDatoriiFirmeControl.Designer.cs">
+      <DependentUpon>RaportDatoriiFirmeControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rapoarte\RaportEvolutieVanzariControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -220,6 +234,36 @@
     </Compile>
     <Compile Include="Rapoarte\RaportProduseSubStocMinimControl.Designer.cs">
       <DependentUpon>RaportProduseSubStocMinimControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rapoarte\ReportViewerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rapoarte\ReportViewerForm.Designer.cs">
+      <DependentUpon>ReportViewerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rapoarte\TelerikReports\DatoriiPeFirmeReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rapoarte\TelerikReports\DatoriiPeFirmeReport.Designer.cs">
+      <DependentUpon>DatoriiPeFirmeReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rapoarte\TelerikReports\DatoriiReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rapoarte\TelerikReports\DatoriiReport.Designer.cs">
+      <DependentUpon>DatoriiReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rapoarte\TelerikReports\FacturaIesireReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rapoarte\TelerikReports\FacturaIesireReport.Designer.cs">
+      <DependentUpon>FacturaIesireReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rapoarte\TelerikReports\FacturaInReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rapoarte\TelerikReports\FacturaInReport.Designer.cs">
+      <DependentUpon>FacturaInReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Rapoarte\TelerikReports\FacturiNeachitateReport.cs">
       <SubType>Component</SubType>
@@ -327,6 +371,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Rapoarte\RaportDatoriiControl.resx">
+      <DependentUpon>RaportDatoriiControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapoarte\RaportDatoriiFirmeControl.resx">
+      <DependentUpon>RaportDatoriiFirmeControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rapoarte\RaportEvolutieVanzariControl.resx">
       <DependentUpon>RaportEvolutieVanzariControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -335,6 +385,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rapoarte\RaportProduseSubStocMinimControl.resx">
       <DependentUpon>RaportProduseSubStocMinimControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapoarte\ReportViewerForm.resx">
+      <DependentUpon>ReportViewerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapoarte\TelerikReports\DatoriiPeFirmeReport.resx">
+      <DependentUpon>DatoriiPeFirmeReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapoarte\TelerikReports\DatoriiReport.resx">
+      <DependentUpon>DatoriiReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapoarte\TelerikReports\FacturaIesireReport.resx">
+      <DependentUpon>FacturaIesireReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapoarte\TelerikReports\FacturaInReport.resx">
+      <DependentUpon>FacturaInReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rapoarte\TelerikReports\FacturiNeachitateReport.resx">
       <DependentUpon>FacturiNeachitateReport.cs</DependentUpon>
@@ -425,6 +490,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Search-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

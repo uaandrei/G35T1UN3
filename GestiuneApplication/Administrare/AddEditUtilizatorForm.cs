@@ -27,9 +27,11 @@ namespace GestiuneApplication.Administrare
             {
                 UtilizatorObject = new Utilizator();
                 this.Text = "Adauga utilizator";
+                curentPwdTbox.Enabled = false;
             }
             else
             {
+                curentPwdTbox.Enabled = true;
                 this.Text = "Modifica utilizator";
                 numeTbox.Text = UtilizatorObject.Nume;
                 parolaTbox.Text = UtilizatorObject.Parola;
@@ -49,6 +51,14 @@ namespace GestiuneApplication.Administrare
             {
                 MessageBox.Show("Nu puteti adauga un utilizator cu acest nume!");
                 return;
+            }
+            if (curentPwdTbox.Enabled == true)
+            {
+                if (curentPwdTbox.Text != UtilizatorObject.Parola)
+                {
+                    MessageBox.Show("Parola curenta nu este corecta!");
+                    return;
+                }
             }
             UtilizatorObject.Activ = activeCkbox.Checked;
             UtilizatorObject.IdRol = rolCmb.SelectedValue == null ? 0 : (int)rolCmb.SelectedValue;

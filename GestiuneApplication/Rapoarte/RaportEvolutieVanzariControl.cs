@@ -70,6 +70,7 @@ namespace GestiuneApplication.Rapoarte
             }
             var interval = (IntervalType)intervalCmb.SelectedItem;
             MakeChartWithProdus(SelectedProdus, startDtp.Value.Date, endDtp.Value.Date, interval);
+            chartVanzari.Titles[0].Text = "Evolutie vanzare pe produsul '" + SelectedProdus.Nume + "'";
         }
         #endregion [EVENTS]
 
@@ -151,6 +152,13 @@ namespace GestiuneApplication.Rapoarte
             };
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 SelectedProdus = form.SelectedObject == null ? null : (Produs)form.SelectedObject;
+        }
+
+        private void printBtn_Click(object sender, EventArgs e)
+        {
+            //chartVanzari.Titles.Add(chartNameTbox.Text);
+            chartVanzari.Printing.Print(true);
+            //chartVanzari.Titles.Remove(chartNameTbox.Text);
         }
     }
 }

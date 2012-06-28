@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using GestiuneBusiness.Poco;
 using GestiuneBusiness.Enums;
 using GestiuneBusiness.Poco.Kernel;
+using GestiuneApplication.Rapoarte;
 
 namespace GestiuneApplication.FacturiIesire
 {
@@ -168,6 +169,11 @@ namespace GestiuneApplication.FacturiIesire
                 MessageBox.Show(result.Message);
                 if (result.Status == StatusEnum.Saved)
                 {
+                    new ReportViewerForm
+                    {
+                        FacturaIesire = FacturaIesireObject,
+                        PozitiiFacturaIesire = pozitiiOut,
+                    }.Show();
                     this.DialogResult = DialogResult.OK;
                 }
             }
@@ -182,10 +188,21 @@ namespace GestiuneApplication.FacturiIesire
             var form = new SelectItemForm
             {
                 Datas = Produs.GetAll().Cast<GestiuneObject>().ToList(),
-                Text = "Alegeti o firma"
+                Text = "Alegeti un produs"
             };
             if (form.ShowDialog() == DialogResult.OK)
                 SelectedProdus = form.SelectedObject == null ? null : (Produs)form.SelectedObject;
+        }
+
+        private void searchFirmaBtn_Click(object sender, EventArgs e)
+        {
+            var form = new SelectItemForm
+            {
+                Datas = Firma.GetAll().Cast<GestiuneObject>().ToList(),
+                Text = "Alegeti o firma"
+            };
+            if (form.ShowDialog() == DialogResult.OK)
+                SelectedFirma = form.SelectedObject == null ? null : (Firma)form.SelectedObject;
         }
 
         //TODO: test de neuitat, goleste baza de date si testeaza aplicatia asa

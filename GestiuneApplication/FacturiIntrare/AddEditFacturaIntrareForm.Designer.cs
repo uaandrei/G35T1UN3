@@ -289,6 +289,7 @@
             this.searchFirmaBtn.Size = new System.Drawing.Size(34, 34);
             this.searchFirmaBtn.TabIndex = 38;
             this.searchFirmaBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.searchFirmaBtn, "Cauta produs");
             this.searchFirmaBtn.UseVisualStyleBackColor = true;
             this.searchFirmaBtn.Click += new System.EventHandler(this.searchFirmaBtn_Click);
             // 

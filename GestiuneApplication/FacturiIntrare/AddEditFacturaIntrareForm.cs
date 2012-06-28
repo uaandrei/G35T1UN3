@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using GestiuneBusiness.Enums;
 using GestiuneBusiness.Poco;
 using GestiuneBusiness.Poco.Kernel;
+using GestiuneApplication.Rapoarte;
 
 namespace GestiuneApplication.FacturiIntrare
 {
@@ -132,6 +133,11 @@ namespace GestiuneApplication.FacturiIntrare
                 MessageBox.Show(result.Message);
                 if (result.Status == StatusEnum.Saved)
                 {
+                    new ReportViewerForm
+                    {
+                        FacturaIntrare = FacturaIntrareObject,
+                        PozitiiFacturaIntrare = pozitieFacturaIntrareList
+                    }.Show();
                     this.DialogResult = DialogResult.OK;
                 }
             }

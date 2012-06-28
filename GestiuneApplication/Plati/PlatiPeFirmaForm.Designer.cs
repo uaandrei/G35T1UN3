@@ -268,9 +268,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(307, 48);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 13);
+            this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Suma disponibila";
+            this.label4.Text = "Suma";
             // 
             // sumaDisponibilaTbox
             // 
