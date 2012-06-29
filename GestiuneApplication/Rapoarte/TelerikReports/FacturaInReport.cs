@@ -19,7 +19,14 @@ namespace GestiuneApplication.Rapoarte.TelerikReports
             // Required for telerik Reporting designer support
             //
             InitializeComponent();
-            CumparatorTbox.Value = Setare.GetSetare().MyFirma.InfoString;
+            if (Setare.GetSetare().MyFirmaId == 0)
+            {
+                CumparatorTbox.Value = "Firma nu este slectata";
+            }
+            else
+            {
+                CumparatorTbox.Value = Setare.GetSetare().MyFirma.InfoString;
+            }
             //
             // TODO: Add any constructor code after InitializeComponent call
             //

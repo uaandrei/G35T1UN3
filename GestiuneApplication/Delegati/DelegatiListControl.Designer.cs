@@ -98,6 +98,7 @@
             this.serieDataGridViewTextBoxColumn});
             this.delegatiGrid.DataSource = this.delegatBindingSource;
             this.delegatiGrid.Location = new System.Drawing.Point(0, 85);
+            this.delegatiGrid.MultiSelect = false;
             this.delegatiGrid.Name = "delegatiGrid";
             this.delegatiGrid.ReadOnly = true;
             this.delegatiGrid.Size = new System.Drawing.Size(580, 275);

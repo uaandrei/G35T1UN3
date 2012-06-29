@@ -63,6 +63,7 @@
             this.firmeGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.firmeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.firmeGrid.Location = new System.Drawing.Point(0, 85);
+            this.firmeGrid.MultiSelect = false;
             this.firmeGrid.Name = "firmeGrid";
             this.firmeGrid.ReadOnly = true;
             this.firmeGrid.Size = new System.Drawing.Size(510, 331);

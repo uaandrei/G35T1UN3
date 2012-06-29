@@ -102,6 +102,7 @@
             this.capitalSocialDataGridViewTextBoxColumn});
             this.banciGrid.DataSource = this.bancaBindingSource;
             this.banciGrid.Location = new System.Drawing.Point(0, 85);
+            this.banciGrid.MultiSelect = false;
             this.banciGrid.Name = "banciGrid";
             this.banciGrid.ReadOnly = true;
             this.banciGrid.Size = new System.Drawing.Size(506, 293);

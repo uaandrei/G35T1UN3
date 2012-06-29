@@ -19,7 +19,14 @@ namespace GestiuneApplication.Rapoarte.TelerikReports
             // Required for telerik Reporting designer support
             //
             InitializeComponent();
-            FurnizorTbox.Value = Setare.GetSetare().MyFirma.InfoString;
+            if (Setare.GetSetare().MyFirmaId == 0)
+            {
+                FurnizorTbox.Value = "Firma nu este slectata";
+            }
+            else
+            {
+                FurnizorTbox.Value = Setare.GetSetare().MyFirma.InfoString;
+            }
             //
             // TODO: Add any constructor code after InitializeComponent call
             //

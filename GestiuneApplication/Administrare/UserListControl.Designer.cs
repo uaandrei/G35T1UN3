@@ -60,6 +60,7 @@
             this.utilizatoriGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.utilizatoriGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.utilizatoriGrid.Location = new System.Drawing.Point(0, 59);
+            this.utilizatoriGrid.MultiSelect = false;
             this.utilizatoriGrid.Name = "utilizatoriGrid";
             this.utilizatoriGrid.ReadOnly = true;
             this.utilizatoriGrid.Size = new System.Drawing.Size(608, 327);

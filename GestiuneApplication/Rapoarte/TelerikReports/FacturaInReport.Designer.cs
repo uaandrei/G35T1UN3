@@ -33,6 +33,10 @@ namespace GestiuneApplication.Rapoarte.TelerikReports
             this.CumparatorTbox = new Telerik.Reporting.TextBox();
             this.FurnizorTbox = new Telerik.Reporting.TextBox();
             this.textBox17 = new Telerik.Reporting.TextBox();
+            this.textBox13 = new Telerik.Reporting.TextBox();
+            this.textBox16 = new Telerik.Reporting.TextBox();
+            this.textBox15 = new Telerik.Reporting.TextBox();
+            this.textBox14 = new Telerik.Reporting.TextBox();
             this.detail = new Telerik.Reporting.DetailSection();
             this.table1 = new Telerik.Reporting.Table();
             this.textBox6 = new Telerik.Reporting.TextBox();
@@ -53,10 +57,7 @@ namespace GestiuneApplication.Rapoarte.TelerikReports
             this.textBox26 = new Telerik.Reporting.TextBox();
             this.pageFooterSection1 = new Telerik.Reporting.PageFooterSection();
             this.FacturaIntrareSource = new Telerik.Reporting.ObjectDataSource();
-            this.textBox13 = new Telerik.Reporting.TextBox();
-            this.textBox16 = new Telerik.Reporting.TextBox();
-            this.textBox15 = new Telerik.Reporting.TextBox();
-            this.textBox14 = new Telerik.Reporting.TextBox();
+            this.textBox29 = new Telerik.Reporting.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // textBox11
@@ -165,6 +166,37 @@ namespace GestiuneApplication.Rapoarte.TelerikReports
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(2.0998814105987549D), Telerik.Reporting.Drawing.Unit.Inch(0.19999997317790985D));
             this.textBox17.Value = "= \"Cota TVA: \"+Fields.CotaTva+\" %\"";
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(2D), Telerik.Reporting.Drawing.Unit.Inch(1.8000397682189941D));
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(2.5D), Telerik.Reporting.Drawing.Unit.Inch(0.29968437552452087D));
+            this.textBox13.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(16D);
+            this.textBox13.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
+            this.textBox13.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
+            this.textBox13.Value = "FACTURA FISCALA";
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(2.3000001907348633D), Telerik.Reporting.Drawing.Unit.Inch(2.7000000476837158D));
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(3.8999996185302734D), Telerik.Reporting.Drawing.Unit.Inch(0.19999997317790985D));
+            this.textBox16.Value = "= \"DATA      :    \"+Fields.Data.Date.ToString(\"dd/MM/yyyy\")";
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(2.3000001907348633D), Telerik.Reporting.Drawing.Unit.Inch(2.4938290119171143D));
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(3.699960470199585D), Telerik.Reporting.Drawing.Unit.Inch(0.20609225332736969D));
+            this.textBox15.Value = "=\"NUMAR   :    \"+ Fields.Numar";
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(2.3000001907348633D), Telerik.Reporting.Drawing.Unit.Inch(2.2937500476837158D));
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(3.6999607086181641D), Telerik.Reporting.Drawing.Unit.Inch(0.20000012218952179D));
+            this.textBox14.Value = "=\"SERIE     :    \"+ Fields.Serie";
             // 
             // detail
             // 
@@ -387,6 +419,8 @@ namespace GestiuneApplication.Rapoarte.TelerikReports
             // pageFooterSection1
             // 
             this.pageFooterSection1.Height = Telerik.Reporting.Drawing.Unit.Inch(0.20000003278255463D);
+            this.pageFooterSection1.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
+            this.textBox29});
             this.pageFooterSection1.Name = "pageFooterSection1";
             // 
             // FacturaIntrareSource
@@ -394,36 +428,13 @@ namespace GestiuneApplication.Rapoarte.TelerikReports
             this.FacturaIntrareSource.DataSource = typeof(GestiuneBusiness.Poco.FacturaIntrare);
             this.FacturaIntrareSource.Name = "FacturaIntrareSource";
             // 
-            // textBox13
+            // textBox29
             // 
-            this.textBox13.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(2D), Telerik.Reporting.Drawing.Unit.Inch(1.8000397682189941D));
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(2.5D), Telerik.Reporting.Drawing.Unit.Inch(0.29968437552452087D));
-            this.textBox13.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(16D);
-            this.textBox13.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
-            this.textBox13.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
-            this.textBox13.Value = "FACTURA FISCALA";
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(2.3000001907348633D), Telerik.Reporting.Drawing.Unit.Inch(2.7000000476837158D));
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(3.8999996185302734D), Telerik.Reporting.Drawing.Unit.Inch(0.19999997317790985D));
-            this.textBox16.Value = "= \"DATA      :    \"+Fields.Data.Date.ToString(\"dd/MM/yyyy\")";
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(2.3000001907348633D), Telerik.Reporting.Drawing.Unit.Inch(2.4938290119171143D));
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(3.699960470199585D), Telerik.Reporting.Drawing.Unit.Inch(0.20609225332736969D));
-            this.textBox15.Value = "=\"NUMAR   :    \"+ Fields.Numar";
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(2.3000001907348633D), Telerik.Reporting.Drawing.Unit.Inch(2.2937500476837158D));
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(3.6999607086181641D), Telerik.Reporting.Drawing.Unit.Inch(0.20000012218952179D));
-            this.textBox14.Value = "=\"SERIE     :    \"+ Fields.Serie";
+            this.textBox29.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(4.4000792503356934D), Telerik.Reporting.Drawing.Unit.Inch(0D));
+            this.textBox29.Name = "textBox29";
+            this.textBox29.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(2.0998814105987549D), Telerik.Reporting.Drawing.Unit.Inch(0.19999997317790985D));
+            this.textBox29.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Right;
+            this.textBox29.Value = "= PageNumber+\" / \" + PageCount";
             // 
             // FacturaInReport
             // 
@@ -469,7 +480,7 @@ namespace GestiuneApplication.Rapoarte.TelerikReports
             styleRule1,
             styleRule2,
             styleRule3});
-            this.Width = Telerik.Reporting.Drawing.Unit.Inch(6.4996809959411621D);
+            this.Width = Telerik.Reporting.Drawing.Unit.Inch(6.5D);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -511,5 +522,6 @@ namespace GestiuneApplication.Rapoarte.TelerikReports
         private Telerik.Reporting.TextBox textBox16;
         private Telerik.Reporting.TextBox textBox15;
         private Telerik.Reporting.TextBox textBox14;
+        private Telerik.Reporting.TextBox textBox29;
     }
 }

@@ -25,8 +25,7 @@ namespace GestiuneApplication.FacturiIntrare
             set
             {
                 pretUnitarTbox.Text = value == null ? "" : value.Pret.ToString("0.00");
-                umTbox.Text = value == null ? "" : value.Um;
-                produsTbox.Text = value == null ? "Alegeti un produs..." : value.Nume;
+                produsTbox.Text = value == null ? "Alegeti un produs..." : value.NumeCompact;
                 produs = value;
             }
         }

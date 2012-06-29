@@ -100,8 +100,8 @@
             // 
             // numeCompactDataGridViewTextBoxColumn
             // 
-            this.numeCompactDataGridViewTextBoxColumn.DataPropertyName = "Nume";
-            this.numeCompactDataGridViewTextBoxColumn.HeaderText = "NumeCompact";
+            this.numeCompactDataGridViewTextBoxColumn.DataPropertyName = "NumeCompact";
+            this.numeCompactDataGridViewTextBoxColumn.HeaderText = "Nume";
             this.numeCompactDataGridViewTextBoxColumn.Name = "numeCompactDataGridViewTextBoxColumn";
             this.numeCompactDataGridViewTextBoxColumn.ReadOnly = true;
             // 

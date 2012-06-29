@@ -124,6 +124,22 @@ namespace GestiuneBusiness.DataHelper.Kernel
             }
         }
 
+        public static bool TestConnection()
+        {
+            try
+            {
+                using (SqlConnection con = ConnectionHelper.Connection)
+                {
+                    con.Open();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         protected abstract GestiuneObject ToPocoObject(SqlDataReader reader);
     }
 }

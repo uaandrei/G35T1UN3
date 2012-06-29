@@ -70,6 +70,7 @@
             this.descriereDataGridViewTextBoxColumn});
             this.roluriGrid.DataSource = this.rolBindingSource;
             this.roluriGrid.Location = new System.Drawing.Point(0, 59);
+            this.roluriGrid.MultiSelect = false;
             this.roluriGrid.Name = "roluriGrid";
             this.roluriGrid.ReadOnly = true;
             this.roluriGrid.Size = new System.Drawing.Size(616, 363);

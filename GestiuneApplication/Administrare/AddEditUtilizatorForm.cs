@@ -34,7 +34,6 @@ namespace GestiuneApplication.Administrare
                 curentPwdTbox.Enabled = true;
                 this.Text = "Modifica utilizator";
                 numeTbox.Text = UtilizatorObject.Nume;
-                parolaTbox.Text = UtilizatorObject.Parola;
                 rolCmb.SelectedValue = UtilizatorObject.IdRol;
                 activeCkbox.Checked = UtilizatorObject.Activ;
             }
@@ -54,7 +53,7 @@ namespace GestiuneApplication.Administrare
             }
             if (curentPwdTbox.Enabled == true)
             {
-                if (curentPwdTbox.Text != UtilizatorObject.Parola)
+                if (MainForm.Md5Hash(curentPwdTbox.Text) != UtilizatorObject.Parola)
                 {
                     MessageBox.Show("Parola curenta nu este corecta!");
                     return;
@@ -63,7 +62,7 @@ namespace GestiuneApplication.Administrare
             UtilizatorObject.Activ = activeCkbox.Checked;
             UtilizatorObject.IdRol = rolCmb.SelectedValue == null ? 0 : (int)rolCmb.SelectedValue;
             UtilizatorObject.Nume = numeTbox.Text;
-            UtilizatorObject.Parola = parolaTbox.Text;
+            UtilizatorObject.Parola = MainForm.Md5Hash(parolaTbox.Text);
             var errors = UtilizatorObject.GetErrorString();
             if (errors.Trim() == string.Empty)
             {

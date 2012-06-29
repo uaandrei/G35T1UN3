@@ -86,6 +86,7 @@
             this.chartVanzari.Size = new System.Drawing.Size(934, 491);
             this.chartVanzari.TabIndex = 29;
             this.chartVanzari.Text = "chart1";
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             title1.Name = "Title";
             this.chartVanzari.Titles.Add(title1);
             // 

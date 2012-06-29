@@ -70,7 +70,7 @@ namespace GestiuneApplication.Rapoarte
             }
             var interval = (IntervalType)intervalCmb.SelectedItem;
             MakeChartWithProdus(SelectedProdus, startDtp.Value.Date, endDtp.Value.Date, interval);
-            chartVanzari.Titles[0].Text = "Evolutie vanzare pe produsul '" + SelectedProdus.Nume + "'";
+            chartVanzari.Titles[0].Text = "Evolutie vanzari pe produsul '" + SelectedProdus.Nume + "'";
         }
         #endregion [EVENTS]
 
@@ -138,7 +138,7 @@ namespace GestiuneApplication.Rapoarte
             get { return produs; }
             set
             {
-                produsTbox.Text = value == null ? "Alegeti un produs..." : value.Nume;
+                produsTbox.Text = value == null ? "Alegeti un produs..." : value.NumeCompact;
                 produs = value;
             }
         }
@@ -156,9 +156,17 @@ namespace GestiuneApplication.Rapoarte
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-            //chartVanzari.Titles.Add(chartNameTbox.Text);
+            if (chartNameTbox.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Introduceti un nume pentru graficul de printat!");
+                return;
+            }
+            var currentName = chartVanzari.Titles[0].Text;
+            chartVanzari.Titles[0].Text = chartNameTbox.Text;
+            chartVanzari.Printing.PrintDocument.DefaultPageSettings.Landscape = true;
             chartVanzari.Printing.Print(true);
-            //chartVanzari.Titles.Remove(chartNameTbox.Text);
+            chartVanzari.Titles[0].Text = currentName;
+            chartNameTbox.Text = string.Empty;
         }
     }
 }

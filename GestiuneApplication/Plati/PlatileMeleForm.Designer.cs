@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.boRbtn = new System.Windows.Forms.RadioButton();
             this.dataDtp = new System.Windows.Forms.DateTimePicker();
             this.facturiGrid = new System.Windows.Forms.DataGridView();
@@ -57,6 +57,8 @@
             this.cecRbtn = new System.Windows.Forms.RadioButton();
             this.nrTbox = new System.Windows.Forms.TextBox();
             this.platesteAutomatBtn = new System.Windows.Forms.Button();
+            this.sumaPartialaTbox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.facturiGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaIntrareBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -108,8 +110,8 @@
             // serieDataGridViewTextBoxColumn
             // 
             this.serieDataGridViewTextBoxColumn.DataPropertyName = "Serie";
-            dataGridViewCellStyle1.NullValue = null;
-            this.serieDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.NullValue = null;
+            this.serieDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.serieDataGridViewTextBoxColumn.HeaderText = "Serie";
             this.serieDataGridViewTextBoxColumn.Name = "serieDataGridViewTextBoxColumn";
             this.serieDataGridViewTextBoxColumn.ReadOnly = true;
@@ -124,8 +126,8 @@
             // dataDataGridViewTextBoxColumn
             // 
             this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
-            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Format = "dd/MM/yyyy";
+            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
             this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
             this.dataDataGridViewTextBoxColumn.ReadOnly = true;
@@ -133,8 +135,8 @@
             // sumaPlatitaDataGridViewTextBoxColumn
             // 
             this.sumaPlatitaDataGridViewTextBoxColumn.DataPropertyName = "SumaPlatita";
-            dataGridViewCellStyle3.Format = "N2";
-            this.sumaPlatitaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Format = "N2";
+            this.sumaPlatitaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.sumaPlatitaDataGridViewTextBoxColumn.HeaderText = "Suma platita";
             this.sumaPlatitaDataGridViewTextBoxColumn.Name = "sumaPlatitaDataGridViewTextBoxColumn";
             this.sumaPlatitaDataGridViewTextBoxColumn.ReadOnly = true;
@@ -142,8 +144,8 @@
             // sumaRamasaDePlatitDataGridViewTextBoxColumn
             // 
             this.sumaRamasaDePlatitDataGridViewTextBoxColumn.DataPropertyName = "SumaRamasaDePlatit";
-            dataGridViewCellStyle4.Format = "N2";
-            this.sumaRamasaDePlatitDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Format = "N2";
+            this.sumaRamasaDePlatitDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.sumaRamasaDePlatitDataGridViewTextBoxColumn.HeaderText = "Suma ramasa";
             this.sumaRamasaDePlatitDataGridViewTextBoxColumn.Name = "sumaRamasaDePlatitDataGridViewTextBoxColumn";
             this.sumaRamasaDePlatitDataGridViewTextBoxColumn.ReadOnly = true;
@@ -180,9 +182,9 @@
             // 
             // platesteFacturaBtn
             // 
-            this.platesteFacturaBtn.Location = new System.Drawing.Point(282, 98);
+            this.platesteFacturaBtn.Location = new System.Drawing.Point(417, 68);
             this.platesteFacturaBtn.Name = "platesteFacturaBtn";
-            this.platesteFacturaBtn.Size = new System.Drawing.Size(129, 23);
+            this.platesteFacturaBtn.Size = new System.Drawing.Size(126, 20);
             this.platesteFacturaBtn.TabIndex = 5;
             this.platesteFacturaBtn.Text = "Plateste factura";
             this.platesteFacturaBtn.UseVisualStyleBackColor = true;
@@ -288,13 +290,30 @@
             // 
             // platesteAutomatBtn
             // 
-            this.platesteAutomatBtn.Location = new System.Drawing.Point(417, 98);
+            this.platesteAutomatBtn.Location = new System.Drawing.Point(285, 98);
             this.platesteAutomatBtn.Name = "platesteAutomatBtn";
-            this.platesteAutomatBtn.Size = new System.Drawing.Size(126, 23);
+            this.platesteAutomatBtn.Size = new System.Drawing.Size(258, 23);
             this.platesteAutomatBtn.TabIndex = 6;
             this.platesteAutomatBtn.Text = "Plateste automat";
             this.platesteAutomatBtn.UseVisualStyleBackColor = true;
             this.platesteAutomatBtn.Click += new System.EventHandler(this.platesteAutomatBtn_Click);
+            // 
+            // sumaPartialaTbox
+            // 
+            this.sumaPartialaTbox.Location = new System.Drawing.Point(282, 69);
+            this.sumaPartialaTbox.MaxLength = 15;
+            this.sumaPartialaTbox.Name = "sumaPartialaTbox";
+            this.sumaPartialaTbox.Size = new System.Drawing.Size(129, 20);
+            this.sumaPartialaTbox.TabIndex = 44;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(282, 53);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 13);
+            this.label7.TabIndex = 45;
+            this.label7.Text = "Plata partiala";
             // 
             // PlatileMeleForm
             // 
@@ -302,6 +321,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(555, 421);
+            this.Controls.Add(this.sumaPartialaTbox);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.dataDtp);
             this.Controls.Add(this.facturiGrid);
             this.Controls.Add(this.serieTbox);
@@ -359,5 +380,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sumaPlatitaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sumaRamasaDePlatitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox sumaPartialaTbox;
+        private System.Windows.Forms.Label label7;
     }
 }

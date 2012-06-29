@@ -15,7 +15,17 @@ namespace GestiuneApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            try
+            {
+                Application.Run(new MainForm());
+            }
+            catch (Exception ex)
+            { 
+                var form = new AppCrashForm();
+                form.SetDetails(ex, "Aplicatia s-a inchis din cauza unor erori, doriti sa o reporniti?");
+                if (form.ShowDialog() == DialogResult.Yes)
+                    Application.Run(new MainForm());
+            }
         }
     }
 }

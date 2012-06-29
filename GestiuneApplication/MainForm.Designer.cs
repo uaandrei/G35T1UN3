@@ -53,6 +53,7 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.iesireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerDbCon = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
@@ -256,6 +257,11 @@
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
+            // timerDbCon
+            // 
+            this.timerDbCon.Interval = 1000;
+            this.timerDbCon.Tick += new System.EventHandler(this.timerDbCon_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,6 +308,7 @@
         private System.Windows.Forms.ToolStripStatusLabel usernameTssl;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel roleTssl;
+        private System.Windows.Forms.Timer timerDbCon;
     }
 }
 

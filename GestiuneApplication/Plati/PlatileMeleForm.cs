@@ -15,7 +15,10 @@ namespace GestiuneApplication.Plati
         private void platesteFacturaBtn_Click(object sender, EventArgs e)
         {
             if (facturaIntrareBound == null) return;
-            PlatesteFactura(facturaIntrareBound);
+            if (PlatesteFactura(facturaIntrareBound, sumaPartiala, false))
+            {
+                sumaPartialaTbox.Text = string.Empty;
+            }
         }
 
         private void endBtn_Click(object sender, EventArgs e)
@@ -25,6 +28,7 @@ namespace GestiuneApplication.Plati
 
         private void platesteAutomatBtn_Click(object sender, EventArgs e)
         {
+            sumaPartialaTbox.Text = string.Empty;
             if (facturaIntrareBound == null) return;
             while (sumaDisponibila > 0) // ies daca nu mai am cu ce plati
             {
@@ -46,9 +50,20 @@ namespace GestiuneApplication.Plati
             facturaIntrareBindingSource.DataSource = facturi;
         }
 
-        private bool PlatesteFactura(FacturaIntrare factura)
+        private bool PlatesteFactura(FacturaIntrare factura, decimal plataPartiala = 0m, bool plataAutomata = true)
         {
             var sumaDePlatit = sumaDisponibila > factura.SumaRamasaDePlatit ? factura.SumaRamasaDePlatit : sumaDisponibila;
+            if (plataPartiala != 0)
+            {
+                sumaDePlatit = plataPartiala;
+            }
+            else
+            {
+                if (!plataAutomata)
+                {
+                    if (MessageBox.Show("Doriti sa achitati aceasta factua integral?", "Plata factura", MessageBoxButtons.YesNo) != DialogResult.Yes) return false;
+                }
+            }
             var plata = new Plata
             {
                 Data = dataDtp.Value,
@@ -79,8 +94,22 @@ namespace GestiuneApplication.Plati
             }
             else
             {
+                MessageBox.Show(String.Format("Plata pentru factura cu seria '{0}' si numarul '{1}' nu a fost efectuata cu succes, suma nu a fost retrasa", factura.Serie, factura.Numar));
             }
+            sumaDisponibilaTbox.Enabled = sumaDisponibila == 0m;
+            nrTbox.Enabled = sumaDisponibilaTbox.Enabled;
+            serieTbox.Enabled = sumaDisponibilaTbox.Enabled;
             return true;
+        }
+
+        private decimal sumaPartiala
+        {
+            get
+            {
+                decimal value = 0m;
+                decimal.TryParse(sumaPartialaTbox.Text, out value);
+                return value;
+            }
         }
 
         private decimal sumaDisponibila

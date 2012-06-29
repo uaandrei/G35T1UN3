@@ -8,7 +8,7 @@ namespace GestiuneBusiness.DataHelper.Kernel
         {
             get
             {
-                return new SqlConnection(@"Data Source=ADI-PC\SQLEXPRESS;Initial Catalog=GestiuneFirma;Persist Security Info=True;User ID=sa;Password=1q2w3e4r;");
+                return new SqlConnection(@"Data Source=ADI-PC\SQLEXPRESS;Initial Catalog=GestiuneFirma;Persist Security Info=True;User ID=sa;Password=1q2w3e4r;Connection Timeout=3");
             }
         }
     }

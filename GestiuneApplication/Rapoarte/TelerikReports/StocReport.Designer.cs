@@ -116,11 +116,11 @@ namespace GestiuneApplication.Rapoarte.TelerikReports
             // 
             // tableSoc
             // 
-            this.tableSoc.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Inch(0.68112266063690186D)));
+            this.tableSoc.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Inch(0.68112260103225708D)));
             this.tableSoc.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Inch(2.1092686653137207D)));
-            this.tableSoc.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Inch(1.282279372215271D)));
+            this.tableSoc.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Inch(1.2822792530059815D)));
             this.tableSoc.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Inch(1.6039212942123413D)));
-            this.tableSoc.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Inch(0.82332909107208252D)));
+            this.tableSoc.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Inch(0.82332915067672729D)));
             this.tableSoc.Body.Rows.Add(new Telerik.Reporting.TableBodyRow(Telerik.Reporting.Drawing.Unit.Inch(0.34999999403953552D)));
             this.tableSoc.Body.SetCellContent(0, 1, this.textBox4);
             this.tableSoc.Body.SetCellContent(0, 2, this.textBox5);
@@ -226,6 +226,8 @@ namespace GestiuneApplication.Rapoarte.TelerikReports
             this.textBox12});
             this.pageFooterSection1.Name = "pageFooterSection1";
             this.pageFooterSection1.PrintOnFirstPage = true;
+            this.pageFooterSection1.Style.BorderColor.Default = System.Drawing.Color.LightGray;
+            this.pageFooterSection1.Style.BorderStyle.Top = Telerik.Reporting.Drawing.BorderType.Solid;
             // 
             // infoTbox
             // 

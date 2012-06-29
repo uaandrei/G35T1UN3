@@ -19,7 +19,7 @@ namespace GestiuneApplication.Administrare
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            var parolaCurenta = currentTbox.Text;
+            var parolaCurenta = MainForm.Md5Hash(currentTbox.Text);
             if (Setare.GetSetare().AdminPassword != parolaCurenta)
             {
                 MessageBox.Show("Parola curenta nu este corecta!");
@@ -31,7 +31,7 @@ namespace GestiuneApplication.Administrare
                 return;
             }
             var parolaNoua = newTbox.Text;
-            Setare.GetSetare().AdminPassword = parolaNoua;
+            Setare.GetSetare().AdminPassword = MainForm.Md5Hash(parolaNoua);
             var pr = Setare.GetSetare().Save();
             MessageBox.Show(pr.Message);
             if (pr.Status == GestiuneBusiness.Enums.StatusEnum.Saved)

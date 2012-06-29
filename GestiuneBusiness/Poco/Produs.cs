@@ -20,7 +20,7 @@ namespace GestiuneBusiness.Poco
         {
             get
             {
-                return Nume + " " + Um;
+                return string.Format("{0} ({1})", Nume, Um);
             }
         }
 

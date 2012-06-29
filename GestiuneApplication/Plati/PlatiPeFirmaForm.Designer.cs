@@ -60,6 +60,8 @@
             this.firmaTbox = new System.Windows.Forms.TextBox();
             this.searchBtn = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.sumaPartialaTbox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.facturiGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaIesireBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -84,10 +86,10 @@
             this.sumaPlatitaDataGridViewTextBoxColumn,
             this.sumaRamasaDePlatitDataGridViewTextBoxColumn});
             this.facturiGrid.DataSource = this.facturaIesireBindingSource;
-            this.facturiGrid.Location = new System.Drawing.Point(12, 140);
+            this.facturiGrid.Location = new System.Drawing.Point(12, 161);
             this.facturiGrid.Name = "facturiGrid";
             this.facturiGrid.ReadOnly = true;
-            this.facturiGrid.Size = new System.Drawing.Size(551, 237);
+            this.facturiGrid.Size = new System.Drawing.Size(551, 216);
             this.facturiGrid.TabIndex = 27;
             // 
             // serieDataGridViewTextBoxColumn
@@ -139,6 +141,7 @@
             // 
             // nrTbox
             // 
+            this.nrTbox.Enabled = false;
             this.nrTbox.Location = new System.Drawing.Point(307, 26);
             this.nrTbox.MaxLength = 15;
             this.nrTbox.Name = "nrTbox";
@@ -165,7 +168,7 @@
             this.groupBox1.Controls.Add(this.cecRbtn);
             this.groupBox1.Location = new System.Drawing.Point(12, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(289, 68);
+            this.groupBox1.Size = new System.Drawing.Size(289, 89);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipul de plata";
@@ -183,7 +186,7 @@
             // chitantaRbtn
             // 
             this.chitantaRbtn.AutoSize = true;
-            this.chitantaRbtn.Location = new System.Drawing.Point(148, 42);
+            this.chitantaRbtn.Location = new System.Drawing.Point(148, 55);
             this.chitantaRbtn.Name = "chitantaRbtn";
             this.chitantaRbtn.Size = new System.Drawing.Size(64, 17);
             this.chitantaRbtn.TabIndex = 25;
@@ -193,7 +196,7 @@
             // opRbtn
             // 
             this.opRbtn.AutoSize = true;
-            this.opRbtn.Location = new System.Drawing.Point(9, 42);
+            this.opRbtn.Location = new System.Drawing.Point(9, 54);
             this.opRbtn.Name = "opRbtn";
             this.opRbtn.Size = new System.Drawing.Size(91, 17);
             this.opRbtn.TabIndex = 25;
@@ -236,6 +239,7 @@
             this.serieTbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.serieTbox.Enabled = false;
             this.serieTbox.Location = new System.Drawing.Point(438, 26);
             this.serieTbox.MaxLength = 15;
             this.serieTbox.Name = "serieTbox";
@@ -274,6 +278,7 @@
             // 
             // sumaDisponibilaTbox
             // 
+            this.sumaDisponibilaTbox.Enabled = false;
             this.sumaDisponibilaTbox.Location = new System.Drawing.Point(307, 64);
             this.sumaDisponibilaTbox.MaxLength = 15;
             this.sumaDisponibilaTbox.Name = "sumaDisponibilaTbox";
@@ -292,7 +297,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 124);
+            this.label6.Location = new System.Drawing.Point(12, 145);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(39, 13);
             this.label6.TabIndex = 21;
@@ -300,9 +305,9 @@
             // 
             // platesteFacturaBtn
             // 
-            this.platesteFacturaBtn.Location = new System.Drawing.Point(307, 98);
+            this.platesteFacturaBtn.Location = new System.Drawing.Point(438, 106);
             this.platesteFacturaBtn.Name = "platesteFacturaBtn";
-            this.platesteFacturaBtn.Size = new System.Drawing.Size(125, 23);
+            this.platesteFacturaBtn.Size = new System.Drawing.Size(125, 19);
             this.platesteFacturaBtn.TabIndex = 6;
             this.platesteFacturaBtn.Text = "Plateste factura";
             this.platesteFacturaBtn.UseVisualStyleBackColor = true;
@@ -313,9 +318,9 @@
             this.platesteAutomatBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.platesteAutomatBtn.Location = new System.Drawing.Point(438, 98);
+            this.platesteAutomatBtn.Location = new System.Drawing.Point(310, 132);
             this.platesteAutomatBtn.Name = "platesteAutomatBtn";
-            this.platesteAutomatBtn.Size = new System.Drawing.Size(125, 23);
+            this.platesteAutomatBtn.Size = new System.Drawing.Size(253, 23);
             this.platesteAutomatBtn.TabIndex = 7;
             this.platesteAutomatBtn.Text = "Plateste automat";
             this.platesteAutomatBtn.UseVisualStyleBackColor = true;
@@ -344,6 +349,24 @@
             this.searchBtn.UseVisualStyleBackColor = true;
             this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(307, 90);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Plata partiala";
+            // 
+            // sumaPartialaTbox
+            // 
+            this.sumaPartialaTbox.Enabled = false;
+            this.sumaPartialaTbox.Location = new System.Drawing.Point(307, 106);
+            this.sumaPartialaTbox.MaxLength = 15;
+            this.sumaPartialaTbox.Name = "sumaPartialaTbox";
+            this.sumaPartialaTbox.Size = new System.Drawing.Size(125, 20);
+            this.sumaPartialaTbox.TabIndex = 4;
+            // 
             // PlatiPeFirmaForm
             // 
             this.AcceptButton = this.endBtn;
@@ -354,6 +377,7 @@
             this.Controls.Add(this.dataDtp);
             this.Controls.Add(this.facturiGrid);
             this.Controls.Add(this.serieTbox);
+            this.Controls.Add(this.sumaPartialaTbox);
             this.Controls.Add(this.sumaDisponibilaTbox);
             this.Controls.Add(this.firmaTbox);
             this.Controls.Add(this.nrTbox);
@@ -362,6 +386,7 @@
             this.Controls.Add(this.platesteFacturaBtn);
             this.Controls.Add(this.endBtn);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -374,6 +399,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Achitare facturi pe firma";
+            this.Load += new System.EventHandler(this.PlatiPeFirmaForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.facturiGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaIesireBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -413,5 +439,7 @@
         private System.Windows.Forms.TextBox firmaTbox;
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox sumaPartialaTbox;
     }
 }

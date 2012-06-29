@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 using System.Reflection;
@@ -45,7 +47,7 @@ namespace GestiuneApplication
             var dialogResult = loginWindow.ShowDialog();
             if (dialogResult.Value == false)
             {
-                loginWindowFlag = true;
+                closeWithoutAskingFlag = true;
                 Application.Exit();
                 return;
             }
@@ -60,7 +62,7 @@ namespace GestiuneApplication
 
         #region [MEMBERS]
         public static Utilizator LoggedUser { get; set; }
-        private bool loginWindowFlag = false;
+        private bool closeWithoutAskingFlag = false;
         private bool dataLoadedFlag = false;
         #endregion [MEMBERS]
 
@@ -82,7 +84,7 @@ namespace GestiuneApplication
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!loginWindowFlag)
+            if (!closeWithoutAskingFlag)
             {
                 if (MessageBox.Show("Doriti sa inchideti aplicatia?", "Inchidere aplicatie", MessageBoxButtons.YesNo) == DialogResult.No)
                 {
@@ -145,6 +147,18 @@ namespace GestiuneApplication
         #endregion [EVENTS]
 
         #region [METHODS]
+        public static string Md5Hash(string input)
+        {
+            MD5 md5 = MD5.Create();
+            byte[] data = md5.ComputeHash(Encoding.Default.GetBytes(input));
+            StringBuilder s_builder = new StringBuilder();
+            foreach (byte b in data)
+            {
+                s_builder.Append(b.ToString("x2"));
+            }// Return the hexadecimal string.      
+            return s_builder.ToString();
+        }
+
         private bool HasRight(TreeNode node)
         {
             var rightName = node.Text;
@@ -169,6 +183,7 @@ namespace GestiuneApplication
 
         private bool VerifyLogin(string username, string password)
         {
+            password = Md5Hash(password);
             if (username.ToLower() == "admin")
             {
                 if (password == Setare.GetSetare().AdminPassword)
@@ -248,8 +263,33 @@ namespace GestiuneApplication
         public MainForm()
         {
             InitializeComponent();
+            timerDbCon.Start();
             this.InitializeTreeView();
         }
         #endregion [CTOR]
+
+        private void timerDbCon_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                new Utilizator().IsConnectionAvailable();
+            }
+            catch (Exception ex)
+            {
+                timerDbCon.Stop();
+                loginWindow.Close();
+                closeWithoutAskingFlag = true;
+                var form = new AppCrashForm();
+                form.SetDetails(ex, "Aplicatia s-a inchis din cauza lipsei de conexiune cu baza de date, doriti sa o reporniti?");
+                if (form.ShowDialog() == DialogResult.Yes)
+                {
+                    Application.Restart();
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
+        }
     }
 }

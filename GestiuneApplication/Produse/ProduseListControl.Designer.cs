@@ -65,6 +65,7 @@
             this.umDataGridViewTextBoxColumn});
             this.produseGrid.DataSource = this.produsBindingSource;
             this.produseGrid.Location = new System.Drawing.Point(0, 85);
+            this.produseGrid.MultiSelect = false;
             this.produseGrid.Name = "produseGrid";
             this.produseGrid.ReadOnly = true;
             this.produseGrid.Size = new System.Drawing.Size(544, 255);

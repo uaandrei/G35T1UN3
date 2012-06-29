@@ -49,11 +49,9 @@
             this.removeBtn = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.searchProdusBtn = new System.Windows.Forms.Button();
+            this.searchFirmaBtn = new System.Windows.Forms.Button();
             this.cotaTvaTbox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.umTbox = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.searchFirmaBtn = new System.Windows.Forms.Button();
             this.firmaTbox = new System.Windows.Forms.TextBox();
             this.produsTbox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pozitieFacturaIntrareGrid)).BeginInit();
@@ -161,7 +159,7 @@
             this.cantitateTbox.Location = new System.Drawing.Point(12, 104);
             this.cantitateTbox.MaxLength = 10;
             this.cantitateTbox.Name = "cantitateTbox";
-            this.cantitateTbox.Size = new System.Drawing.Size(100, 20);
+            this.cantitateTbox.Size = new System.Drawing.Size(206, 20);
             this.cantitateTbox.TabIndex = 6;
             // 
             // label6
@@ -245,6 +243,19 @@
             this.searchProdusBtn.UseVisualStyleBackColor = true;
             this.searchProdusBtn.Click += new System.EventHandler(this.searchProdusBtn_Click);
             // 
+            // searchFirmaBtn
+            // 
+            this.searchFirmaBtn.BackgroundImage = global::GestiuneApplication.Properties.Resources.Search_32;
+            this.searchFirmaBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.searchFirmaBtn.Location = new System.Drawing.Point(184, 50);
+            this.searchFirmaBtn.Name = "searchFirmaBtn";
+            this.searchFirmaBtn.Size = new System.Drawing.Size(34, 34);
+            this.searchFirmaBtn.TabIndex = 38;
+            this.searchFirmaBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.searchFirmaBtn, "Cauta produs");
+            this.searchFirmaBtn.UseVisualStyleBackColor = true;
+            this.searchFirmaBtn.Click += new System.EventHandler(this.searchFirmaBtn_Click);
+            // 
             // cotaTvaTbox
             // 
             this.cotaTvaTbox.Location = new System.Drawing.Point(330, 25);
@@ -261,37 +272,6 @@
             this.label9.Size = new System.Drawing.Size(53, 13);
             this.label9.TabIndex = 4;
             this.label9.Text = "Cota TVA";
-            // 
-            // umTbox
-            // 
-            this.umTbox.Location = new System.Drawing.Point(118, 104);
-            this.umTbox.MaxLength = 10;
-            this.umTbox.Name = "umTbox";
-            this.umTbox.ReadOnly = true;
-            this.umTbox.Size = new System.Drawing.Size(100, 20);
-            this.umTbox.TabIndex = 6;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(118, 88);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(93, 13);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Unitate de masura";
-            // 
-            // searchFirmaBtn
-            // 
-            this.searchFirmaBtn.BackgroundImage = global::GestiuneApplication.Properties.Resources.Search_32;
-            this.searchFirmaBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.searchFirmaBtn.Location = new System.Drawing.Point(184, 50);
-            this.searchFirmaBtn.Name = "searchFirmaBtn";
-            this.searchFirmaBtn.Size = new System.Drawing.Size(34, 34);
-            this.searchFirmaBtn.TabIndex = 38;
-            this.searchFirmaBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.searchFirmaBtn, "Cauta produs");
-            this.searchFirmaBtn.UseVisualStyleBackColor = true;
-            this.searchFirmaBtn.Click += new System.EventHandler(this.searchFirmaBtn_Click);
             // 
             // firmaTbox
             // 
@@ -330,11 +310,9 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pretUnitarTbox);
-            this.Controls.Add(this.umTbox);
             this.Controls.Add(this.cantitateTbox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label1);
@@ -383,8 +361,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TextBox cotaTvaTbox;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox umTbox;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button searchFirmaBtn;
         private System.Windows.Forms.TextBox firmaTbox;
         private System.Windows.Forms.Button searchProdusBtn;

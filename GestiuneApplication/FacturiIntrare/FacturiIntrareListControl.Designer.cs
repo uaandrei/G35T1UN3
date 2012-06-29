@@ -85,6 +85,7 @@
             this.furnizorColumn,
             this.btnColumn});
             this.facturiGrid.Location = new System.Drawing.Point(0, 85);
+            this.facturiGrid.MultiSelect = false;
             this.facturiGrid.Name = "facturiGrid";
             this.facturiGrid.ReadOnly = true;
             this.facturiGrid.Size = new System.Drawing.Size(534, 235);

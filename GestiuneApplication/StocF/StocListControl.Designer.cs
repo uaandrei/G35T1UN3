@@ -65,6 +65,7 @@
             this.stocGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.stocGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.stocGrid.Location = new System.Drawing.Point(0, 85);
+            this.stocGrid.MultiSelect = false;
             this.stocGrid.Name = "stocGrid";
             this.stocGrid.ReadOnly = true;
             this.stocGrid.Size = new System.Drawing.Size(594, 361);

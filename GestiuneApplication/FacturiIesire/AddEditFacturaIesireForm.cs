@@ -43,7 +43,7 @@ namespace GestiuneApplication.FacturiIesire
             get { return produs; }
             set
             {
-                produsTbox.Text = value == null ? "Alegeti un produs..." : value.Nume;
+                produsTbox.Text = value == null ? "Alegeti un produs..." : value.NumeCompact;
                 produs = value;
                 RefreshCantitateDisponibila();
             }
@@ -71,7 +71,6 @@ namespace GestiuneApplication.FacturiIesire
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            // TODO: poate optimizez cu o proprietata Produs
             if (SelectedProdus == null) return;
             if (SelectedProdus.CantitateDisponibila() == 0)
             {
@@ -205,6 +204,5 @@ namespace GestiuneApplication.FacturiIesire
                 SelectedFirma = form.SelectedObject == null ? null : (Firma)form.SelectedObject;
         }
 
-        //TODO: test de neuitat, goleste baza de date si testeaza aplicatia asa
     }
 }

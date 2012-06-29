@@ -99,6 +99,12 @@
     <Compile Include="Administrare\UserListControl.Designer.cs">
       <DependentUpon>UserListControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppCrashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppCrashForm.Designer.cs">
+      <DependentUpon>AppCrashForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Banci\AddEditBancaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrare\UserListControl.resx">
       <DependentUpon>UserListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppCrashForm.resx">
+      <DependentUpon>AppCrashForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Banci\AddEditBancaForm.resx">
       <DependentUpon>AddEditBancaForm.cs</DependentUpon>
